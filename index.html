@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destiny 2 Run Randomiser</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Destiny 2 Run Randomiser</h1>
+      <p>Start a basic run, then spin to unlock build elements as you progress.</p>
+    </header>
+
+    <div class="controls">
+      <button id="btn-new-run" class="btn primary">Start New Run</button>
+      <button id="btn-spin" class="btn secondary" disabled>Standard Spin</button>
+      <button id="btn-exotic" class="btn exotic" disabled>Exotic Spin</button>
+    </div>
+
+    <div id="spin-result" class="banner hidden"></div>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Starting State</h2>
+        <p><strong>Class:</strong> <span id="state-class">Not rolled</span></p>
+        <p><strong>Subclass:</strong> <span id="state-subclass">Not rolled</span></p>
+      </section>
+
+      <section class="card">
+        <h2>Exotics</h2>
+        <p><strong>Exotic Armour:</strong> <span id="state-exotic-armour">None</span></p>
+        <p><strong>Exotic Weapon:</strong> <span id="state-exotic-weapon">None</span></p>
+      </section>
+
+      <section class="card">
+        <h2>Aspects</h2>
+        <ul id="list-aspects"><li>None unlocked</li></ul>
+      </section>
+
+      <section class="card">
+        <h2>Fragments</h2>
+        <ul id="list-fragments"><li>Locked (Requires 1 Aspect)</li></ul>
+      </section>
+
+      <section class="card">
+        <h2>Artifact Perks</h2>
+        <ul id="list-artifact"><li>None unlocked</li></ul>
+      </section>
+
+      <section class="card">
+        <h2>Armour Mod Slots</h2>
+        <ul id="list-mods"><li>None unlocked</li></ul>
+      </section>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
