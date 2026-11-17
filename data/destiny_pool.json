@@ -1,71 +1,263 @@
 {
   "classes": {
     "Hunter": {
+      "prismaticClassItem": "Relativism",
       "exoticArmor": [
-        "Celestial Nighthawk",
-        "Gyrfalcon's Hauberk",
-        "Orpheus Rig",
-        "Liars Handshake",
-        "Star-Eater Scales"
+        "Knucklehead Radar", "Celestial Nighthawk", "FOETRACER", "Graviton Forfeit",
+        "Wormhusk Crown", "Assassin's Cowl", "Mask of Bakris", "Blight Ranger",
+        "Cyrtarachne's Facade", "Young Ahamkara's Spine", "Mechaneer's Tricksleeves",
+        "Aeon Swift", "Shinobu's Vow", "Sealed Ahamkara Grasps", "Oathkeeper",
+        "Shards of Galanor", "Liar's Handshake", "Khepri's Sting", "Athrys's Embrace",
+        "Caliban's Hand", "Renewal Grasps", "Triton Vice", "Mothkeeper's Wraps",
+        "Lucky Raspberry", "Raiden Flux", "The Dragon's Shadow", "Ophidia Spathe",
+        "The Sixth Coyote", "Gwisin Vest", "Raiju's Harness", "Omnioculus",
+        "Gyrfalcon's Hauberk", "Lucky Pants", "Orpheus Rig", "St0mp-EE5",
+        "Gemini Jester", "FR0ST-EE5", "The Bombardiers", "Star-Eater Scales",
+        "Radiant Dance Machines", "Speedloader Slacks", "Balance of Power",
+        "Gifted Conviction"
       ],
       "subclasses": {
+        "Prismatic": {
+          "aspects": [
+            "Stylish Executioner", "Gunpowder Gamble", "Winter's Shroud",
+            "Threaded Specter", "Ascension"
+          ],
+          "fragments": [
+            "Facet of Awakening", "Facet of Balance", "Facet of Blessing",
+            "Facet of Bravery", "Facet of Command", "Facet of Courage",
+            "Facet of Dawn", "Facet of Defiance", "Facet of Devotion",
+            "Facet of Dominance", "Facet of Generosity", "Facet of Grace",
+            "Facet of Honor", "Facet of Hope", "Facet of Justice",
+            "Facet of Mending", "Facet of Protection", "Facet of Purpose",
+            "Facet of Ruin", "Facet of Sacrifice", "Facet of Solitude"
+          ]
+        },
         "Gunslinger": {
           "aspects": ["Knock 'Em Down", "On Your Mark", "Gunpowder Gamble"],
-          "fragments": ["Ember of Torches", "Ember of Solace", "Ember of Empyrean", "Ember of Ashes", "Ember of Singeing"]
+          "fragments": [
+            "Ember of Ashes", "Ember of Beams", "Ember of Benevolence",
+            "Ember of Blistering", "Ember of Char", "Ember of Combustion",
+            "Ember of Empyrean", "Ember of Eruption", "Ember of Mercy",
+            "Ember of Resolve", "Ember of Searing", "Ember of Singeing",
+            "Ember of Solace", "Ember of Tempering", "Ember of Torches",
+            "Ember of Wonder"
+          ]
         },
         "Nightstalker": {
-          "aspects": ["Vanishing Step", "Stylish Executioner", "Trapper's Ambush"],
-          "fragments": ["Echo of Persistence", "Echo of Undermining", "Echo of Starvation", "Echo of Obscurity", "Echo of Leeching"]
+          "aspects": ["Vanishing Step", "Stylish Executioner", "Trapper's Ambush", "On the Prowl"],
+          "fragments": [
+            "Echo of Cessation", "Echo of Dilation", "Echo of Domineering",
+            "Echo of Exchange", "Echo of Expulsion", "Echo of Harvest",
+            "Echo of Instability", "Echo of Leeching", "Echo of Obscurity",
+            "Echo of Persistence", "Echo of Provision", "Echo of Remnants",
+            "Echo of Reprisal", "Echo of Starvation", "Echo of Undermining",
+            "Echo of Vigilance"
+          ]
         },
         "Arcstrider": {
-          "aspects": ["Combination Blow", "Flow State", "Tempest Strike"],
-          "fragments": ["Spark of Resistance", "Spark of Shock", "Spark of Feedback", "Spark of Ions", "Spark of Amplitude"]
+          "aspects": ["Flow State", "Tempest Strike", "Lethal Current", "Ascension"],
+          "fragments": [
+            "Spark of Amplitude", "Spark of Beacons", "Spark of Brilliance",
+            "Spark of Discharge", "Spark of Feedback", "Spark of Focus",
+            "Spark of Frequency", "Spark of Haste", "Spark of Instinct",
+            "Spark of Ions", "Spark of Magnitude", "Spark of Momentum",
+            "Spark of Recharge", "Spark of Resistance", "Spark of Shock",
+            "Spark of Volts"
+          ]
+        },
+        "Revenant": {
+          "aspects": ["Shatterdive", "Winter's Shroud", "Grim Harvest", "Touch of Winter"],
+          "fragments": [
+            "Whisper of Bonds", "Whisper of Chains", "Whisper of Chill",
+            "Whisper of Conduction", "Whisper of Durance", "Whisper of Fissures",
+            "Whisper of Fractures", "Whisper of Hedrons", "Whisper of Hunger",
+            "Whisper of Impetus", "Whisper of Refraction", "Whisper of Rending",
+            "Whisper of Rime", "Whisper of Shards", "Whisper of Torment"
+          ]
+        },
+        "Threadrunner": {
+          "aspects": ["Ensnaring Slam", "Widow's Silk", "Threaded Specter", "Whirling Maelstrom"],
+          "fragments": [
+            "Thread of Ascent", "Thread of Binding", "Thread of Continuity",
+            "Thread of Evolution", "Thread of Finality", "Thread of Fury",
+            "Thread of Generation", "Thread of Isolation", "Thread of Mind",
+            "Thread of Propagation", "Thread of Rebirth", "Thread of Transmutation",
+            "Thread of Warding", "Thread of Wisdom"
+          ]
         }
       }
     },
     "Titan": {
+      "prismaticClassItem": "Stoicism",
       "exoticArmor": [
-        "Synthoceps",
-        "Cuirass of the Falling Star",
-        "Heart of Inmost Light",
-        "Loreley Splendor Helm",
-        "Abeyant Leap"
+        "An Insurmountable Skullfort", "Mask of the Quiet One", "Khepri's Horn",
+        "Helm of Saint-14", "Eternal Warrior", "One-Eyed Mask", "Precious Scars",
+        "Loreley Splendor Helm", "Cadmus Ridge Lancecap", "ACD/0 Feedback Fence",
+        "Doom Fang Pauldron", "Synthoceps", "Aeon Safe", "Ashen Wake",
+        "Wormgod Caress", "Ursa Furiosa", "Stronghold", "Citan's Ramparts",
+        "Icefall Mantle", "No Backup Plans", "Second Chance", "Point-Contact Cannon Brace",
+        "Pyrogale Gauntlets", "Wishful Ignorance", "Crest of Alpha Lupi",
+        "Actium War Rig", "Hallowfire Heart", "Armamentarium", "Heart of Inmost Light",
+        "Severance Enclosure", "Cuirass of the Falling Star", "Hoarfrost-Z",
+        "Arbor Warden", "Hazardous Propulsion", "Lion Rampant", "Peacekeepers",
+        "Dunemarchers", "Mk. 44 Stand Asides", "Antaeus Wards", "Peregrine Greaves",
+        "Phoenix Cradle", "The Path of Burning Steps", "Abeyant Leap"
       ],
       "subclasses": {
+        "Prismatic": {
+          "aspects": [
+            "Knockout", "Diamond Lance", "Consecration",
+            "Unbreakable", "Drengr's Lash"
+          ],
+          "fragments": [
+            "Facet of Awakening", "Facet of Balance", "Facet of Blessing",
+            "Facet of Bravery", "Facet of Command", "Facet of Courage",
+            "Facet of Dawn", "Facet of Defiance", "Facet of Devotion",
+            "Facet of Dominance", "Facet of Generosity", "Facet of Grace",
+            "Facet of Honor", "Facet of Hope", "Facet of Justice",
+            "Facet of Mending", "Facet of Protection", "Facet of Purpose",
+            "Facet of Ruin", "Facet of Sacrifice", "Facet of Solitude"
+          ]
+        },
         "Sunbreaker": {
           "aspects": ["Sol Invictus", "Roaring Flames", "Consecration"],
-          "fragments": ["Ember of Torches", "Ember of Solace", "Ember of Empyrean", "Ember of Ashes", "Ember of Char"]
+          "fragments": [
+            "Ember of Ashes", "Ember of Beams", "Ember of Benevolence",
+            "Ember of Blistering", "Ember of Char", "Ember of Combustion",
+            "Ember of Empyrean", "Ember of Eruption", "Ember of Mercy",
+            "Ember of Resolve", "Ember of Searing", "Ember of Singeing",
+            "Ember of Solace", "Ember of Tempering", "Ember of Torches",
+            "Ember of Wonder"
+          ]
         },
         "Sentinel": {
-          "aspects": ["Bastion", "Controlled Demolition", "Offensive Bulwark"],
-          "fragments": ["Echo of Starvation", "Echo of Persistence", "Echo of Vigilance", "Echo of Undermining", "Echo of Expulsion"]
+          "aspects": ["Controlled Demolition", "Bastion", "Offensive Bulwark", "Unbreakable"],
+          "fragments": [
+            "Echo of Cessation", "Echo of Dilation", "Echo of Domineering",
+            "Echo of Exchange", "Echo of Expulsion", "Echo of Harvest",
+            "Echo of Instability", "Echo of Leeching", "Echo of Obscurity",
+            "Echo of Persistence", "Echo of Provision", "Echo of Remnants",
+            "Echo of Reprisal", "Echo of Starvation", "Echo of Undermining",
+            "Echo of Vigilance"
+          ]
         },
         "Striker": {
-          "aspects": ["Touch of Thunder", "Knockout", "Juggernaut"],
-          "fragments": ["Spark of Magnitude", "Spark of Shock", "Spark of Resistance", "Spark of Ions", "Spark of Recharge"]
+          "aspects": ["Touch of Thunder", "Juggernaut", "Knockout", "Storm's Keep"],
+          "fragments": [
+            "Spark of Amplitude", "Spark of Beacons", "Spark of Brilliance",
+            "Spark of Discharge", "Spark of Feedback", "Spark of Focus",
+            "Spark of Frequency", "Spark of Haste", "Spark of Instinct",
+            "Spark of Ions", "Spark of Magnitude", "Spark of Momentum",
+            "Spark of Recharge", "Spark of Resistance", "Spark of Shock",
+            "Spark of Volts"
+          ]
+        },
+        "Behemoth": {
+          "aspects": ["Cryoclasm", "Tectonic Harvest", "Howl of the Storm", "Diamond Lance"],
+          "fragments": [
+            "Whisper of Bonds", "Whisper of Chains", "Whisper of Chill",
+            "Whisper of Conduction", "Whisper of Durance", "Whisper of Fissures",
+            "Whisper of Fractures", "Whisper of Hedrons", "Whisper of Hunger",
+            "Whisper of Impetus", "Whisper of Refraction", "Whisper of Rending",
+            "Whisper of Rime", "Whisper of Shards", "Whisper of Torment"
+          ]
+        },
+        "Berserker": {
+          "aspects": ["Into the Fray", "Drengr's Lash", "Flechette Storm", "Banner of War"],
+          "fragments": [
+            "Thread of Ascent", "Thread of Binding", "Thread of Continuity",
+            "Thread of Evolution", "Thread of Finality", "Thread of Fury",
+            "Thread of Generation", "Thread of Isolation", "Thread of Mind",
+            "Thread of Propagation", "Thread of Rebirth", "Thread of Transmutation",
+            "Thread of Warding", "Thread of Wisdom"
+          ]
         }
       }
     },
     "Warlock": {
+      "prismaticClassItem": "Solipsism",
       "exoticArmor": [
-        "Sunbracers",
-        "Nezarec's Sin",
-        "Contraverse Hold",
-        "Phoenix Protocol",
-        "Getaway Artist"
+        "Skull of Dire Ahamkara", "Crown of Tempests", "Eye of Another World",
+        "Nezarec's Sin", "The Stag", "Verity's Brow", "Apotheosis Veil",
+        "Felwinter's Helm", "Dawn Chorus", "Fallen Sunstar", "Cenotaph Mask",
+        "Speaker's Sight", "Sunbracers", "Karnstein Armlets", "Winter's Guile",
+        "Aeon Soul", "Ophidian Aspect", "Claws of Ahamkara", "Contraverse Hold",
+        "Getaway Artist", "Necrotic Grip", "Nothing Manacles", "Osmiomancy Gloves",
+        "Ballidorse Wrathweavers", "Briarbinds", "Starfire Protocol",
+        "Wings of Sacred Dawn", "Vesper of Radius", "Sanguine Alchemy",
+        "Chromatic Fire", "Phoenix Protocol", "Stormdancer's Brace",
+        "Mantle of Battle Harmony", "Mataiodoxía", "Transversive Steps",
+        "Lunafaction Boots", "Geomag Stabilizers", "Promethium Spur",
+        "Boots of the Assembler", "Secant Filaments", "Rain of Fire", "Swarmers"
       ],
       "subclasses": {
+        "Prismatic": {
+          "aspects": [
+            "Feed the Void", "Bleak Watcher", "Hellion",
+            "Lightning Surge", "Weaver's Call"
+          ],
+          "fragments": [
+            "Facet of Awakening", "Facet of Balance", "Facet of Blessing",
+            "Facet of Bravery", "Facet of Command", "Facet of Courage",
+            "Facet of Dawn", "Facet of Defiance", "Facet of Devotion",
+            "Facet of Dominance", "Facet of Generosity", "Facet of Grace",
+            "Facet of Honor", "Facet of Hope", "Facet of Justice",
+            "Facet of Mending", "Facet of Protection", "Facet of Purpose",
+            "Facet of Ruin", "Facet of Sacrifice", "Facet of Solitude"
+          ]
+        },
         "Dawnblade": {
           "aspects": ["Touch of Flame", "Heat Rises", "Icarus Dash", "Hellion"],
-          "fragments": ["Ember of Ashes", "Ember of Empyrean", "Ember of Torches", "Ember of Solace", "Ember of Singeing"]
+          "fragments": [
+            "Ember of Ashes", "Ember of Beams", "Ember of Benevolence",
+            "Ember of Blistering", "Ember of Char", "Ember of Combustion",
+            "Ember of Empyrean", "Ember of Eruption", "Ember of Mercy",
+            "Ember of Resolve", "Ember of Searing", "Ember of Singeing",
+            "Ember of Solace", "Ember of Tempering", "Ember of Torches",
+            "Ember of Wonder"
+          ]
         },
         "Voidwalker": {
-          "aspects": ["Feed the Void", "Chaos Accelerant", "Child of the Old Gods"],
-          "fragments": ["Echo of Undermining", "Echo of Persistence", "Echo of Remnants", "Echo of Instability", "Echo of Expulsion"]
+          "aspects": ["Chaos Accelerant", "Feed the Void", "Child of the Old Gods"],
+          "fragments": [
+            "Echo of Cessation", "Echo of Dilation", "Echo of Domineering",
+            "Echo of Exchange", "Echo of Expulsion", "Echo of Harvest",
+            "Echo of Instability", "Echo of Leeching", "Echo of Obscurity",
+            "Echo of Persistence", "Echo of Provision", "Echo of Remnants",
+            "Echo of Reprisal", "Echo of Starvation", "Echo of Undermining",
+            "Echo of Vigilance"
+          ]
         },
         "Stormcaller": {
-          "aspects": ["Arc Soul", "Electrostatic Mind", "Lightning Surge"],
-          "fragments": ["Spark of Ions", "Spark of Shock", "Spark of Resistance", "Spark of Discharge", "Spark of Beacons"]
+          "aspects": ["Arc Soul", "Electrostatic Mind", "Lightning Surge", "Ionic Sentry"],
+          "fragments": [
+            "Spark of Amplitude", "Spark of Beacons", "Spark of Brilliance",
+            "Spark of Discharge", "Spark of Feedback", "Spark of Focus",
+            "Spark of Frequency", "Spark of Haste", "Spark of Instinct",
+            "Spark of Ions", "Spark of Magnitude", "Spark of Momentum",
+            "Spark of Recharge", "Spark of Resistance", "Spark of Shock",
+            "Spark of Volts"
+          ]
+        },
+        "Shadebinder": {
+          "aspects": ["Iceflare Bolts", "Frostpulse", "Bleak Watcher", "Glacial Harvest"],
+          "fragments": [
+            "Whisper of Bonds", "Whisper of Chains", "Whisper of Chill",
+            "Whisper of Conduction", "Whisper of Durance", "Whisper of Fissures",
+            "Whisper of Fractures", "Whisper of Hedrons", "Whisper of Hunger",
+            "Whisper of Impetus", "Whisper of Refraction", "Whisper of Rending",
+            "Whisper of Rime", "Whisper of Shards", "Whisper of Torment"
+          ]
+        },
+        "Broodweaver": {
+          "aspects": ["Weaver's Call", "Mindspun Invocation", "The Wanderer", "Weavewalk"],
+          "fragments": [
+            "Thread of Ascent", "Thread of Binding", "Thread of Continuity",
+            "Thread of Evolution", "Thread of Finality", "Thread of Fury",
+            "Thread of Generation", "Thread of Isolation", "Thread of Mind",
+            "Thread of Propagation", "Thread of Rebirth", "Thread of Transmutation",
+            "Thread of Warding", "Thread of Wisdom"
+          ]
         }
       }
     }
@@ -84,16 +276,38 @@
       "Class Item Mods"
     ],
     "exoticWeapons": [
-      "Sunshot",
-      "Outbreak Perfected",
-      "Witherhoard",
-      "Gjallarhorn",
-      "Graviton Lance",
-      "Thunderlord",
-      "Wish-Ender",
-      "Osteo Striga",
-      "Tractor Cannon",
-      "Izanagi's Burden"
+      "Sweet Business", "Sturm", "Vigilance Wing", "Rat King", "MIDA Multi-Tool",
+      "The Jade Rabbit", "Crimson", "The Huckleberry", "SUROS Regime",
+      "Wish-Ender", "Malfeasance", "Ace of Spades", "The Chaperone",
+      "Izanagi's Burden", "The Last Word", "Arbalest", "Outbreak Perfected",
+      "Bad Juju", "Lumina", "Monte Carlo", "Bastion", "Witherhoard",
+      "Traveler's Chosen", "No Time to Explain", "Hawkmoon", "Dead Man's Tale",
+      "Cryosthesia 77K", "Ager's Scepter", "Forerunner", "Osteo Striga",
+      "Touch of Malice", "Quicksilver Storm", "Revision Zero", "Verglas Curve",
+      "Conditional Finality", "Final Warning", "Wicked Implement",
+      "The Navigator", "Necrochasm", "Wish-Keeper", "Khvostov 7G-0X",
+      "Euphony", "Coldheart", "Fighting Lion", "Sunshot", "Graviton Lance",
+      "Skyburner's Oath", "Riskrunner", "Hard Light", "Merciless", "Borealis",
+      "Prometheus Lens", "Telesto", "Polaris Lance", "Trinity Ghoul",
+      "Wavesplitter", "Lord of Wolves", "Jötunn", "Le Monarque", "Tarrabah",
+      "Divinity", "Eriana's Vow", "Symmetry", "Devil's Ruin",
+      "Tommy's Matchbook", "The Fourth Horseman", "Ruinous Effigy",
+      "Duality", "Cloudstrike", "Ticuu's Divination", "Vex Mythoclast",
+      "Lorentz Driver", "Dead Messenger", "Collective Obligation",
+      "Edge of Action", "Edge of Concurrence", "Edge of Intent",
+      "Trespasser", "Heartshadow", "Delicate Tomb", "The Manticore",
+      "Hierarchy of Needs", "Vexcalibur", "Centrifuse", "Ex Diris",
+      "Tessellation", "Buried Bloodline", "Red Death Reformed", "Still Hunt",
+      "Choir of One", "Ice Breaker", "Alethonym", "Slayer's Fang",
+      "Lodestar", "Barrow-Dyad", "The Prospector", "Tractor Cannon",
+      "The Wardcliff Coil", "D.A.R.C.I.", "Legend of Acrius", "The Colony",
+      "Worldline Zero", "Sleeper Simulant", "Whisper of the Worm",
+      "One Thousand Voices", "Two-Tailed Fox", "Black Talon",
+      "The Queenbreaker", "Thunderlord", "Anarchy", "Truth",
+      "Deathbringer", "Xenophage", "Leviathan's Breath", "Heir Apparent",
+      "The Lament", "Eyes of Tomorrow", "Salvation's Grip", "Gjallarhorn",
+      "Parasite", "Grand Overture", "Heartshadow", "Winterbite",
+      "Deterministic Chaos", "Dragon's Breath", "Microcosm", "Ergo Sum"
     ]
   }
 }
