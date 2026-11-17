@@ -1,0 +1,99 @@
+{
+  "classes": {
+    "Hunter": {
+      "exoticArmor": [
+        "Celestial Nighthawk",
+        "Gyrfalcon's Hauberk",
+        "Orpheus Rig",
+        "Liars Handshake",
+        "Star-Eater Scales"
+      ],
+      "subclasses": {
+        "Gunslinger": {
+          "aspects": ["Knock 'Em Down", "On Your Mark", "Gunpowder Gamble"],
+          "fragments": ["Ember of Torches", "Ember of Solace", "Ember of Empyrean", "Ember of Ashes", "Ember of Singeing"]
+        },
+        "Nightstalker": {
+          "aspects": ["Vanishing Step", "Stylish Executioner", "Trapper's Ambush"],
+          "fragments": ["Echo of Persistence", "Echo of Undermining", "Echo of Starvation", "Echo of Obscurity", "Echo of Leeching"]
+        },
+        "Arcstrider": {
+          "aspects": ["Combination Blow", "Flow State", "Tempest Strike"],
+          "fragments": ["Spark of Resistance", "Spark of Shock", "Spark of Feedback", "Spark of Ions", "Spark of Amplitude"]
+        }
+      }
+    },
+    "Titan": {
+      "exoticArmor": [
+        "Synthoceps",
+        "Cuirass of the Falling Star",
+        "Heart of Inmost Light",
+        "Loreley Splendor Helm",
+        "Abeyant Leap"
+      ],
+      "subclasses": {
+        "Sunbreaker": {
+          "aspects": ["Sol Invictus", "Roaring Flames", "Consecration"],
+          "fragments": ["Ember of Torches", "Ember of Solace", "Ember of Empyrean", "Ember of Ashes", "Ember of Char"]
+        },
+        "Sentinel": {
+          "aspects": ["Bastion", "Controlled Demolition", "Offensive Bulwark"],
+          "fragments": ["Echo of Starvation", "Echo of Persistence", "Echo of Vigilance", "Echo of Undermining", "Echo of Expulsion"]
+        },
+        "Striker": {
+          "aspects": ["Touch of Thunder", "Knockout", "Juggernaut"],
+          "fragments": ["Spark of Magnitude", "Spark of Shock", "Spark of Resistance", "Spark of Ions", "Spark of Recharge"]
+        }
+      }
+    },
+    "Warlock": {
+      "exoticArmor": [
+        "Sunbracers",
+        "Nezarec's Sin",
+        "Contraverse Hold",
+        "Phoenix Protocol",
+        "Getaway Artist"
+      ],
+      "subclasses": {
+        "Dawnblade": {
+          "aspects": ["Touch of Flame", "Heat Rises", "Icarus Dash", "Hellion"],
+          "fragments": ["Ember of Ashes", "Ember of Empyrean", "Ember of Torches", "Ember of Solace", "Ember of Singeing"]
+        },
+        "Voidwalker": {
+          "aspects": ["Feed the Void", "Chaos Accelerant", "Child of the Old Gods"],
+          "fragments": ["Echo of Undermining", "Echo of Persistence", "Echo of Remnants", "Echo of Instability", "Echo of Expulsion"]
+        },
+        "Stormcaller": {
+          "aspects": ["Arc Soul", "Electrostatic Mind", "Lightning Surge"],
+          "fragments": ["Spark of Ions", "Spark of Shock", "Spark of Resistance", "Spark of Discharge", "Spark of Beacons"]
+        }
+      }
+    }
+  },
+  "shared": {
+    "artifactTiers": [
+      "Artifact Column 1 Perks",
+      "Artifact Column 2 Perks",
+      "Artifact Column 3 Perks"
+    ],
+    "armorModSlots": [
+      "Head Armour Mods",
+      "Arms Armour Mods",
+      "Chest Armour Mods",
+      "Legs Armour Mods",
+      "Class Item Mods"
+    ],
+    "exoticWeapons": [
+      "Sunshot",
+      "Outbreak Perfected",
+      "Witherhoard",
+      "Gjallarhorn",
+      "Graviton Lance",
+      "Thunderlord",
+      "Wish-Ender",
+      "Osteo Striga",
+      "Tractor Cannon",
+      "Izanagi's Burden"
+    ]
+  }
+}
