@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Destiny 2 Run Randomiser</title>
+  <link rel="icon" href="data:,">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container">
   <header>
     <h1>Destiny 2 Run Randomiser</h1>
-    <p>Start a basic run, then spin to unlock build elements as you progress.</p>
+    <p>Start with a basic kit, then spin to unlock abilities, aspects, fragments, mods, and exotics.</p>
   </header>
 
   <div class="controls-wrapper">
@@ -34,21 +35,27 @@
 
   <div class="grid">
     <section class="card">
-      <h2>Starting State</h2>
+      <h2>Starting Guardian</h2>
       <p><strong>Class:</strong> <span id="state-class">Not rolled</span></p>
       <p><strong>Subclass:</strong> <span id="state-subclass">Not rolled</span></p>
+      <p class="sub-label" style="margin-top: 0.75rem;">Supers:</p>
+      <ul id="list-supers"><li>Not rolled</li></ul>
     </section>
 
     <section class="card">
-      <h2>Exotics Available</h2>
-      <p class="exotic-subhead"><strong>Armour:</strong></p>
-      <ul id="list-exotic-armour" class="exotic-list">
-        <li class="muted">None unlocked</li>
-      </ul>
-      <p class="exotic-subhead" style="margin-top: 0.75rem;"><strong>Weapons:</strong></p>
-      <ul id="list-exotic-weapon" class="exotic-list">
-        <li class="muted">None unlocked</li>
-      </ul>
+      <h2>Core Abilities</h2>
+      <p class="sub-label">Class Abilities:</p>
+      <ul id="list-class-abilities"><li>None</li></ul>
+      <p class="sub-label">Jumps:</p>
+      <ul id="list-jumps"><li>None</li></ul>
+    </section>
+
+    <section class="card">
+      <h2>Combat Abilities</h2>
+      <p class="sub-label">Melees:</p>
+      <ul id="list-melees"><li>None</li></ul>
+      <p class="sub-label">Grenades:</p>
+      <ul id="list-grenades"><li>None</li></ul>
     </section>
 
     <section class="card">
@@ -62,13 +69,23 @@
     </section>
 
     <section class="card">
-      <h2>Artifact Perks</h2>
+      <h2>Artifact &amp; Armour Mods</h2>
+      <p class="sub-label">Artifact Perks:</p>
       <ul id="list-artifact"><li>None unlocked</li></ul>
+      <p class="sub-label">Armour Mod Slots:</p>
+      <ul id="list-mods"><li>None unlocked</li></ul>
     </section>
 
     <section class="card">
-      <h2>Armour Mod Slots</h2>
-      <ul id="list-mods"><li>None unlocked</li></ul>
+      <h2>Exotics Available</h2>
+      <p class="exotic-subhead"><strong>Armour:</strong></p>
+      <ul id="list-exotic-armour" class="exotic-list">
+        <li class="muted">None unlocked</li>
+      </ul>
+      <p class="exotic-subhead" style="margin-top: 0.75rem;"><strong>Weapons:</strong></p>
+      <ul id="list-exotic-weapon" class="exotic-list">
+        <li class="muted">None unlocked</li>
+      </ul>
     </section>
   </div>
 

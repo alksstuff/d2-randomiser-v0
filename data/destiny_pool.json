@@ -18,70 +18,89 @@
       ],
       "subclasses": {
         "Prismatic": {
-          "aspects": [
-            "Stylish Executioner", "Gunpowder Gamble", "Winter's Shroud",
-            "Threaded Specter", "Ascension"
-          ],
+          "supers": ["Golden Gun: Marksman", "Silence and Squall", "Silkstrike", "Shadowshot: Deadfall", "Storm's Edge"],
+          "classAbilities": ["Marksman's Dodge", "Gambler's Dodge", "Acrobat's Dodge"],
+          "jumps": ["High Jump", "Strafe Jump", "Triple Jump", "Blink"],
+          "melees": ["Knife Trick", "Combination Blow", "Withering Blade", "Snare Bomb", "Threaded Spike"],
+          "grenades": ["Swarm Grenade", "Arcbolt Grenade", "Magnetic Grenade", "Duskfield Grenade", "Grapple"]
+        ,
+          "aspects": ["Stylish Executioner", "Gunpowder Gamble", "Winter's Shroud", "Threaded Specter", "Ascension"],
           "fragments": [
-            "Facet of Awakening", "Facet of Balance", "Facet of Blessing",
-            "Facet of Bravery", "Facet of Command", "Facet of Courage",
-            "Facet of Dawn", "Facet of Defiance", "Facet of Devotion",
-            "Facet of Dominance", "Facet of Generosity", "Facet of Grace",
-            "Facet of Honor", "Facet of Hope", "Facet of Justice",
-            "Facet of Mending", "Facet of Protection", "Facet of Purpose",
-            "Facet of Ruin", "Facet of Sacrifice", "Facet of Solitude"
+            "Facet of Awakening", "Facet of Balance", "Facet of Blessing", "Facet of Bravery",
+            "Facet of Command", "Facet of Courage", "Facet of Dawn", "Facet of Defiance",
+            "Facet of Devotion", "Facet of Dominance", "Facet of Generosity", "Facet of Grace",
+            "Facet of Honor", "Facet of Hope", "Facet of Justice", "Facet of Mending",
+            "Facet of Protection", "Facet of Purpose", "Facet of Ruin", "Facet of Sacrifice",
+            "Facet of Solitude"
           ]
         },
         "Gunslinger": {
+          "supers": ["Golden Gun: Deadshot", "Golden Gun: Marksman", "Blade Barrage"],
+          "classAbilities": ["Marksman's Dodge", "Gambler's Dodge", "Acrobat's Dodge"],
+          "jumps": ["High Jump", "Strafe Jump", "Triple Jump"],
+          "melees": ["Knife Trick", "Proximity Explosive Knife", "Lightweight Knife", "Weighted Throwing Knife"],
+          "grenades": ["Incendiary Grenade", "Solar Grenade", "Tripmine Grenade", "Swarm Grenade", "Thermite Grenade", "Firebolt Grenade", "Fusion Grenade", "Healing Grenade"],
           "aspects": ["Knock 'Em Down", "On Your Mark", "Gunpowder Gamble"],
           "fragments": [
-            "Ember of Ashes", "Ember of Beams", "Ember of Benevolence",
-            "Ember of Blistering", "Ember of Char", "Ember of Combustion",
-            "Ember of Empyrean", "Ember of Eruption", "Ember of Mercy",
-            "Ember of Resolve", "Ember of Searing", "Ember of Singeing",
-            "Ember of Solace", "Ember of Tempering", "Ember of Torches",
-            "Ember of Wonder"
+            "Ember of Ashes", "Ember of Beams", "Ember of Benevolence", "Ember of Blistering",
+            "Ember of Char", "Ember of Combustion", "Ember of Empyrean", "Ember of Eruption",
+            "Ember of Mercy", "Ember of Resolve", "Ember of Searing", "Ember of Singeing",
+            "Ember of Solace", "Ember of Tempering", "Ember of Torches", "Ember of Wonder"
           ]
         },
         "Nightstalker": {
+          "supers": ["Shadowshot: Deadfall", "Shadowshot: Moebius Quiver", "Spectral Blades"],
+          "classAbilities": ["Marksman's Dodge", "Gambler's Dodge"],
+          "jumps": ["High Jump", "Strafe Jump", "Triple Jump"],
+          "melees": ["Snare Bomb"],
+          "grenades": ["Vortex Grenade", "Void Spike", "Void Wall", "Suppressor Grenade", "Scatter Grenade", "Axion Bolt", "Magnetic Grenade"],
           "aspects": ["Vanishing Step", "Stylish Executioner", "Trapper's Ambush", "On the Prowl"],
           "fragments": [
-            "Echo of Cessation", "Echo of Dilation", "Echo of Domineering",
-            "Echo of Exchange", "Echo of Expulsion", "Echo of Harvest",
-            "Echo of Instability", "Echo of Leeching", "Echo of Obscurity",
-            "Echo of Persistence", "Echo of Provision", "Echo of Remnants",
-            "Echo of Reprisal", "Echo of Starvation", "Echo of Undermining",
-            "Echo of Vigilance"
+            "Echo of Cessation", "Echo of Dilation", "Echo of Domineering", "Echo of Exchange",
+            "Echo of Expulsion", "Echo of Harvest", "Echo of Instability", "Echo of Leeching",
+            "Echo of Obscurity", "Echo of Persistence", "Echo of Provision", "Echo of Remnants",
+            "Echo of Reprisal", "Echo of Starvation", "Echo of Undermining", "Echo of Vigilance"
           ]
         },
         "Arcstrider": {
+          "supers": ["Arc Staff", "Gathering Storm", "Storm's Edge"],
+          "classAbilities": ["Marksman's Dodge", "Gambler's Dodge"],
+          "jumps": ["High Jump", "Strafe Jump", "Triple Jump", "Blink"],
+          "melees": ["Combination Blow", "Disorienting Blow"],
+          "grenades": ["Skip Grenade", "Flux Grenade", "Arcbolt Grenade", "Flashbang Grenade", "Pulse Grenade", "Storm Grenade", "Lightning Grenade"],
           "aspects": ["Flow State", "Tempest Strike", "Lethal Current", "Ascension"],
           "fragments": [
-            "Spark of Amplitude", "Spark of Beacons", "Spark of Brilliance",
-            "Spark of Discharge", "Spark of Feedback", "Spark of Focus",
-            "Spark of Frequency", "Spark of Haste", "Spark of Instinct",
-            "Spark of Ions", "Spark of Magnitude", "Spark of Momentum",
-            "Spark of Recharge", "Spark of Resistance", "Spark of Shock",
-            "Spark of Volts"
+            "Spark of Amplitude", "Spark of Beacons", "Spark of Brilliance", "Spark of Discharge",
+            "Spark of Feedback", "Spark of Focus", "Spark of Frequency", "Spark of Haste",
+            "Spark of Instinct", "Spark of Ions", "Spark of Magnitude", "Spark of Momentum",
+            "Spark of Recharge", "Spark of Resistance", "Spark of Shock", "Spark of Volts"
           ]
         },
         "Revenant": {
+          "supers": ["Silence and Squall"],
+          "classAbilities": ["Marksman's Dodge", "Gambler's Dodge"],
+          "jumps": ["High Jump", "Strafe Jump", "Triple Jump"],
+          "melees": ["Withering Blade"],
+          "grenades": ["Glacier Grenade", "Duskfield Grenade", "Coldsnap Grenade"],
           "aspects": ["Shatterdive", "Winter's Shroud", "Grim Harvest", "Touch of Winter"],
           "fragments": [
-            "Whisper of Bonds", "Whisper of Chains", "Whisper of Chill",
-            "Whisper of Conduction", "Whisper of Durance", "Whisper of Fissures",
-            "Whisper of Fractures", "Whisper of Hedrons", "Whisper of Hunger",
-            "Whisper of Impetus", "Whisper of Refraction", "Whisper of Rending",
+            "Whisper of Bonds", "Whisper of Chains", "Whisper of Chill", "Whisper of Conduction",
+            "Whisper of Durance", "Whisper of Fissures", "Whisper of Fractures", "Whisper of Hedrons",
+            "Whisper of Hunger", "Whisper of Impetus", "Whisper of Refraction", "Whisper of Rending",
             "Whisper of Rime", "Whisper of Shards", "Whisper of Torment"
           ]
         },
         "Threadrunner": {
+          "supers": ["Silkstrike"],
+          "classAbilities": ["Marksman's Dodge", "Gambler's Dodge"],
+          "jumps": ["High Jump", "Strafe Jump", "Triple Jump"],
+          "melees": ["Threaded Spike"],
+          "grenades": ["Grapple", "Shackle Grenade", "Threadling Grenade"],
           "aspects": ["Ensnaring Slam", "Widow's Silk", "Threaded Specter", "Whirling Maelstrom"],
           "fragments": [
-            "Thread of Ascent", "Thread of Binding", "Thread of Continuity",
-            "Thread of Evolution", "Thread of Finality", "Thread of Fury",
-            "Thread of Generation", "Thread of Isolation", "Thread of Mind",
-            "Thread of Propagation", "Thread of Rebirth", "Thread of Transmutation",
+            "Thread of Ascent", "Thread of Binding", "Thread of Continuity", "Thread of Evolution",
+            "Thread of Finality", "Thread of Fury", "Thread of Generation", "Thread of Isolation",
+            "Thread of Mind", "Thread of Propagation", "Thread of Rebirth", "Thread of Transmutation",
             "Thread of Warding", "Thread of Wisdom"
           ]
         }
@@ -106,70 +125,88 @@
       ],
       "subclasses": {
         "Prismatic": {
-          "aspects": [
-            "Knockout", "Diamond Lance", "Consecration",
-            "Unbreakable", "Drengr's Lash"
-          ],
+          "supers": ["Hammer of Sol", "Glacial Quake", "Bladefury", "Thundercrash", "Twilight Arsenal"],
+          "classAbilities": ["Towering Barricade", "Rally Barricade", "Thruster"],
+          "jumps": ["High Lift", "Strafe Lift", "Catapult Lift"],
+          "melees": ["Hammer Strike", "Thunderclap", "Shield Throw", "Shiver Strike", "Frenzied Blade"],
+          "grenades": ["Thermite Grenade", "Pulse Grenade", "Suppressor Grenade", "Glacier Grenade", "Shackle Grenade"],
+          "aspects": ["Knockout", "Diamond Lance", "Consecration", "Unbreakable", "Drengr's Lash"],
           "fragments": [
-            "Facet of Awakening", "Facet of Balance", "Facet of Blessing",
-            "Facet of Bravery", "Facet of Command", "Facet of Courage",
-            "Facet of Dawn", "Facet of Defiance", "Facet of Devotion",
-            "Facet of Dominance", "Facet of Generosity", "Facet of Grace",
-            "Facet of Honor", "Facet of Hope", "Facet of Justice",
-            "Facet of Mending", "Facet of Protection", "Facet of Purpose",
-            "Facet of Ruin", "Facet of Sacrifice", "Facet of Solitude"
+            "Facet of Awakening", "Facet of Balance", "Facet of Blessing", "Facet of Bravery",
+            "Facet of Command", "Facet of Courage", "Facet of Dawn", "Facet of Defiance",
+            "Facet of Devotion", "Facet of Dominance", "Facet of Generosity", "Facet of Grace",
+            "Facet of Honor", "Facet of Hope", "Facet of Justice", "Facet of Mending",
+            "Facet of Protection", "Facet of Purpose", "Facet of Ruin", "Facet of Sacrifice",
+            "Facet of Solitude"
           ]
         },
         "Sunbreaker": {
+          "supers": ["Hammer of Sol", "Burning Maul"],
+          "classAbilities": ["Towering Barricade", "Rally Barricade"],
+          "jumps": ["High Lift", "Strafe Lift", "Catapult Lift"],
+          "melees": ["Hammer Strike", "Throwing Hammer"],
+          "grenades": ["Incendiary Grenade", "Solar Grenade", "Tripmine Grenade", "Swarm Grenade", "Thermite Grenade", "Firebolt Grenade", "Fusion Grenade", "Healing Grenade"],
           "aspects": ["Sol Invictus", "Roaring Flames", "Consecration"],
           "fragments": [
-            "Ember of Ashes", "Ember of Beams", "Ember of Benevolence",
-            "Ember of Blistering", "Ember of Char", "Ember of Combustion",
-            "Ember of Empyrean", "Ember of Eruption", "Ember of Mercy",
-            "Ember of Resolve", "Ember of Searing", "Ember of Singeing",
-            "Ember of Solace", "Ember of Tempering", "Ember of Torches",
-            "Ember of Wonder"
+            "Ember of Ashes", "Ember of Beams", "Ember of Benevolence", "Ember of Blistering",
+            "Ember of Char", "Ember of Combustion", "Ember of Empyrean", "Ember of Eruption",
+            "Ember of Mercy", "Ember of Resolve", "Ember of Searing", "Ember of Singeing",
+            "Ember of Solace", "Ember of Tempering", "Ember of Torches", "Ember of Wonder"
           ]
         },
         "Sentinel": {
+          "supers": ["Ward of Dawn", "Sentinel Shield", "Twilight Arsenal"],
+          "classAbilities": ["Towering Barricade", "Rally Barricade"],
+          "jumps": ["High Lift", "Strafe Lift", "Catapult Lift"],
+          "melees": ["Shield Bash", "Shield Throw"],
+          "grenades": ["Vortex Grenade", "Void Spike", "Void Wall", "Suppressor Grenade", "Scatter Grenade", "Axion Bolt", "Magnetic Grenade"],
           "aspects": ["Controlled Demolition", "Bastion", "Offensive Bulwark", "Unbreakable"],
           "fragments": [
-            "Echo of Cessation", "Echo of Dilation", "Echo of Domineering",
-            "Echo of Exchange", "Echo of Expulsion", "Echo of Harvest",
-            "Echo of Instability", "Echo of Leeching", "Echo of Obscurity",
-            "Echo of Persistence", "Echo of Provision", "Echo of Remnants",
-            "Echo of Reprisal", "Echo of Starvation", "Echo of Undermining",
-            "Echo of Vigilance"
+            "Echo of Cessation", "Echo of Dilation", "Echo of Domineering", "Echo of Exchange",
+            "Echo of Expulsion", "Echo of Harvest", "Echo of Instability", "Echo of Leeching",
+            "Echo of Obscurity", "Echo of Persistence", "Echo of Provision", "Echo of Remnants",
+            "Echo of Reprisal", "Echo of Starvation", "Echo of Undermining", "Echo of Vigilance"
           ]
         },
         "Striker": {
+          "supers": ["Fists of Havoc", "Thundercrash"],
+          "classAbilities": ["Towering Barricade", "Rally Barricade", "Thruster"],
+          "jumps": ["High Lift", "Strafe Lift", "Catapult Lift"],
+          "melees": ["Seismic Strike", "Ballistic Slam", "Thunderclap"],
+          "grenades": ["Skip Grenade", "Flux Grenade", "Arcbolt Grenade", "Flashbang Grenade", "Pulse Grenade", "Storm Grenade", "Lightning Grenade"],
           "aspects": ["Touch of Thunder", "Juggernaut", "Knockout", "Storm's Keep"],
           "fragments": [
-            "Spark of Amplitude", "Spark of Beacons", "Spark of Brilliance",
-            "Spark of Discharge", "Spark of Feedback", "Spark of Focus",
-            "Spark of Frequency", "Spark of Haste", "Spark of Instinct",
-            "Spark of Ions", "Spark of Magnitude", "Spark of Momentum",
-            "Spark of Recharge", "Spark of Resistance", "Spark of Shock",
-            "Spark of Volts"
+            "Spark of Amplitude", "Spark of Beacons", "Spark of Brilliance", "Spark of Discharge",
+            "Spark of Feedback", "Spark of Focus", "Spark of Frequency", "Spark of Haste",
+            "Spark of Instinct", "Spark of Ions", "Spark of Magnitude", "Spark of Momentum",
+            "Spark of Recharge", "Spark of Resistance", "Spark of Shock", "Spark of Volts"
           ]
         },
         "Behemoth": {
+          "supers": ["Glacial Quake"],
+          "classAbilities": ["Towering Barricade", "Rally Barricade"],
+          "jumps": ["High Lift", "Strafe Lift", "Catapult Lift"],
+          "melees": ["Shiver Strike"],
+          "grenades": ["Glacier Grenade", "Duskfield Grenade", "Coldsnap Grenade"],
           "aspects": ["Cryoclasm", "Tectonic Harvest", "Howl of the Storm", "Diamond Lance"],
           "fragments": [
-            "Whisper of Bonds", "Whisper of Chains", "Whisper of Chill",
-            "Whisper of Conduction", "Whisper of Durance", "Whisper of Fissures",
-            "Whisper of Fractures", "Whisper of Hedrons", "Whisper of Hunger",
-            "Whisper of Impetus", "Whisper of Refraction", "Whisper of Rending",
+            "Whisper of Bonds", "Whisper of Chains", "Whisper of Chill", "Whisper of Conduction",
+            "Whisper of Durance", "Whisper of Fissures", "Whisper of Fractures", "Whisper of Hedrons",
+            "Whisper of Hunger", "Whisper of Impetus", "Whisper of Refraction", "Whisper of Rending",
             "Whisper of Rime", "Whisper of Shards", "Whisper of Torment"
           ]
         },
         "Berserker": {
+          "supers": ["Bladefury"],
+          "classAbilities": ["Towering Barricade", "Rally Barricade"],
+          "jumps": ["High Lift", "Strafe Lift", "Catapult Lift"],
+          "melees": ["Frenzied Blade"],
+          "grenades": ["Grapple", "Shackle Grenade", "Threadling Grenade"],
           "aspects": ["Into the Fray", "Drengr's Lash", "Flechette Storm", "Banner of War"],
           "fragments": [
-            "Thread of Ascent", "Thread of Binding", "Thread of Continuity",
-            "Thread of Evolution", "Thread of Finality", "Thread of Fury",
-            "Thread of Generation", "Thread of Isolation", "Thread of Mind",
-            "Thread of Propagation", "Thread of Rebirth", "Thread of Transmutation",
+            "Thread of Ascent", "Thread of Binding", "Thread of Continuity", "Thread of Evolution",
+            "Thread of Finality", "Thread of Fury", "Thread of Generation", "Thread of Isolation",
+            "Thread of Mind", "Thread of Propagation", "Thread of Rebirth", "Thread of Transmutation",
             "Thread of Warding", "Thread of Wisdom"
           ]
         }
@@ -194,70 +231,88 @@
       ],
       "subclasses": {
         "Prismatic": {
-          "aspects": [
-            "Feed the Void", "Bleak Watcher", "Hellion",
-            "Lightning Surge", "Weaver's Call"
-          ],
+          "supers": ["Nova Bomb: Cataclysm", "Winter's Wrath", "Needlestorm", "Song of Flame", "Stormtrance"],
+          "classAbilities": ["Healing Rift", "Empowering Rift", "Phoenix Dive"],
+          "jumps": ["Strafe Glide", "Burst Glide", "Balanced Glide", "Blink"],
+          "melees": ["Incinerator Snap", "Chain Lightning", "Pocket Singularity", "Penumbral Blast", "Arcane Needle"],
+          "grenades": ["Healing Grenade", "Storm Grenade", "Vortex Grenade", "Coldsnap Grenade", "Threadling Grenade"],
+          "aspects": ["Feed the Void", "Bleak Watcher", "Hellion", "Lightning Surge", "Weaver's Call"],
           "fragments": [
-            "Facet of Awakening", "Facet of Balance", "Facet of Blessing",
-            "Facet of Bravery", "Facet of Command", "Facet of Courage",
-            "Facet of Dawn", "Facet of Defiance", "Facet of Devotion",
-            "Facet of Dominance", "Facet of Generosity", "Facet of Grace",
-            "Facet of Honor", "Facet of Hope", "Facet of Justice",
-            "Facet of Mending", "Facet of Protection", "Facet of Purpose",
-            "Facet of Ruin", "Facet of Sacrifice", "Facet of Solitude"
+            "Facet of Awakening", "Facet of Balance", "Facet of Blessing", "Facet of Bravery",
+            "Facet of Command", "Facet of Courage", "Facet of Dawn", "Facet of Defiance",
+            "Facet of Devotion", "Facet of Dominance", "Facet of Generosity", "Facet of Grace",
+            "Facet of Honor", "Facet of Hope", "Facet of Justice", "Facet of Mending",
+            "Facet of Protection", "Facet of Purpose", "Facet of Ruin", "Facet of Sacrifice",
+            "Facet of Solitude"
           ]
         },
         "Dawnblade": {
+          "supers": ["Daybreak", "Well of Radiance", "Song of Flame"],
+          "classAbilities": ["Healing Rift", "Empowering Rift", "Phoenix Dive"],
+          "jumps": ["Strafe Glide", "Burst Glide", "Balanced Glide"],
+          "melees": ["Incinerator Snap", "Celestial Fire"],
+          "grenades": ["Incendiary Grenade", "Solar Grenade", "Tripmine Grenade", "Swarm Grenade", "Thermite Grenade", "Firebolt Grenade", "Fusion Grenade", "Healing Grenade"],
           "aspects": ["Touch of Flame", "Heat Rises", "Icarus Dash", "Hellion"],
           "fragments": [
-            "Ember of Ashes", "Ember of Beams", "Ember of Benevolence",
-            "Ember of Blistering", "Ember of Char", "Ember of Combustion",
-            "Ember of Empyrean", "Ember of Eruption", "Ember of Mercy",
-            "Ember of Resolve", "Ember of Searing", "Ember of Singeing",
-            "Ember of Solace", "Ember of Tempering", "Ember of Torches",
-            "Ember of Wonder"
+            "Ember of Ashes", "Ember of Beams", "Ember of Benevolence", "Ember of Blistering",
+            "Ember of Char", "Ember of Combustion", "Ember of Empyrean", "Ember of Eruption",
+            "Ember of Mercy", "Ember of Resolve", "Ember of Searing", "Ember of Singeing",
+            "Ember of Solace", "Ember of Tempering", "Ember of Torches", "Ember of Wonder"
           ]
         },
         "Voidwalker": {
+          "supers": ["Nova Bomb: Vortex", "Nova Bomb: Cataclysm", "Nova Warp"],
+          "classAbilities": ["Healing Rift", "Empowering Rift"],
+          "jumps": ["Strafe Glide", "Burst Glide", "Balanced Glide", "Blink"],
+          "melees": ["Pocket Singularity"],
+          "grenades": ["Vortex Grenade", "Void Spike", "Void Wall", "Suppressor Grenade", "Scatter Grenade", "Axion Bolt", "Magnetic Grenade"],
           "aspects": ["Chaos Accelerant", "Feed the Void", "Child of the Old Gods"],
           "fragments": [
-            "Echo of Cessation", "Echo of Dilation", "Echo of Domineering",
-            "Echo of Exchange", "Echo of Expulsion", "Echo of Harvest",
-            "Echo of Instability", "Echo of Leeching", "Echo of Obscurity",
-            "Echo of Persistence", "Echo of Provision", "Echo of Remnants",
-            "Echo of Reprisal", "Echo of Starvation", "Echo of Undermining",
-            "Echo of Vigilance"
+            "Echo of Cessation", "Echo of Dilation", "Echo of Domineering", "Echo of Exchange",
+            "Echo of Expulsion", "Echo of Harvest", "Echo of Instability", "Echo of Leeching",
+            "Echo of Obscurity", "Echo of Persistence", "Echo of Provision", "Echo of Remnants",
+            "Echo of Reprisal", "Echo of Starvation", "Echo of Undermining", "Echo of Vigilance"
           ]
         },
         "Stormcaller": {
+          "supers": ["Stormtrance", "Chaos Reach"],
+          "classAbilities": ["Healing Rift", "Empowering Rift"],
+          "jumps": ["Strafe Glide", "Burst Glide", "Balanced Glide"],
+          "melees": ["Chain Lightning", "Ball Lightning"],
+          "grenades": ["Skip Grenade", "Flux Grenade", "Arcbolt Grenade", "Flashbang Grenade", "Pulse Grenade", "Storm Grenade", "Lightning Grenade"],
           "aspects": ["Arc Soul", "Electrostatic Mind", "Lightning Surge", "Ionic Sentry"],
           "fragments": [
-            "Spark of Amplitude", "Spark of Beacons", "Spark of Brilliance",
-            "Spark of Discharge", "Spark of Feedback", "Spark of Focus",
-            "Spark of Frequency", "Spark of Haste", "Spark of Instinct",
-            "Spark of Ions", "Spark of Magnitude", "Spark of Momentum",
-            "Spark of Recharge", "Spark of Resistance", "Spark of Shock",
-            "Spark of Volts"
+            "Spark of Amplitude", "Spark of Beacons", "Spark of Brilliance", "Spark of Discharge",
+            "Spark of Feedback", "Spark of Focus", "Spark of Frequency", "Spark of Haste",
+            "Spark of Instinct", "Spark of Ions", "Spark of Magnitude", "Spark of Momentum",
+            "Spark of Recharge", "Spark of Resistance", "Spark of Shock", "Spark of Volts"
           ]
         },
         "Shadebinder": {
+          "supers": ["Winter's Wrath"],
+          "classAbilities": ["Healing Rift", "Empowering Rift"],
+          "jumps": ["Strafe Glide", "Burst Glide", "Balanced Glide"],
+          "melees": ["Penumbral Blast"],
+          "grenades": ["Glacier Grenade", "Duskfield Grenade", "Coldsnap Grenade"],
           "aspects": ["Iceflare Bolts", "Frostpulse", "Bleak Watcher", "Glacial Harvest"],
           "fragments": [
-            "Whisper of Bonds", "Whisper of Chains", "Whisper of Chill",
-            "Whisper of Conduction", "Whisper of Durance", "Whisper of Fissures",
-            "Whisper of Fractures", "Whisper of Hedrons", "Whisper of Hunger",
-            "Whisper of Impetus", "Whisper of Refraction", "Whisper of Rending",
+            "Whisper of Bonds", "Whisper of Chains", "Whisper of Chill", "Whisper of Conduction",
+            "Whisper of Durance", "Whisper of Fissures", "Whisper of Fractures", "Whisper of Hedrons",
+            "Whisper of Hunger", "Whisper of Impetus", "Whisper of Refraction", "Whisper of Rending",
             "Whisper of Rime", "Whisper of Shards", "Whisper of Torment"
           ]
         },
         "Broodweaver": {
+          "supers": ["Needlestorm"],
+          "classAbilities": ["Healing Rift", "Empowering Rift"],
+          "jumps": ["Strafe Glide", "Burst Glide", "Balanced Glide"],
+          "melees": ["Arcane Needle"],
+          "grenades": ["Grapple", "Shackle Grenade", "Threadling Grenade"],
           "aspects": ["Weaver's Call", "Mindspun Invocation", "The Wanderer", "Weavewalk"],
           "fragments": [
-            "Thread of Ascent", "Thread of Binding", "Thread of Continuity",
-            "Thread of Evolution", "Thread of Finality", "Thread of Fury",
-            "Thread of Generation", "Thread of Isolation", "Thread of Mind",
-            "Thread of Propagation", "Thread of Rebirth", "Thread of Transmutation",
+            "Thread of Ascent", "Thread of Binding", "Thread of Continuity", "Thread of Evolution",
+            "Thread of Finality", "Thread of Fury", "Thread of Generation", "Thread of Isolation",
+            "Thread of Mind", "Thread of Propagation", "Thread of Rebirth", "Thread of Transmutation",
             "Thread of Warding", "Thread of Wisdom"
           ]
         }
