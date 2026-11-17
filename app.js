@@ -2,15 +2,15 @@ let gameData = null;
 let isSpinning = false;
 
 let runState = {
-  className: null,
-  subclass: null,
-  aspects: [],
-  fragments: [],
-  artifact: [],
-  mods: [],
-  exoticArmour: null,
-  exoticWeapon: null,
-  history: []
+    className: null,
+    subclass: null,
+    aspects: [],
+    fragments: [],
+    artifact: [],
+    mods: [],
+    exoticArmour: [],
+    exoticWeapon: [],
+    history: []
 };
 
 // DOM Elements
@@ -24,259 +24,284 @@ const spinDisplay = document.getElementById('spin-display');
 const spinCategory = document.getElementById('spin-category');
 const spinResult = document.getElementById('spin-result');
 
-// Load JSON data on startup
-fetch('./data/destiny_pool.json')
-    .then(response => response.json())
+// Load JSON data with cache-busting timestamp
+fetch(`./data/destiny_pool.json?v=${Date.now()}`)
+    .then(response => {
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        return response.json();
+    })
     .then(data => {
-      gameData = data;
+        gameData = data;
+        console.log("Destiny pool loaded successfully.");
     })
     .catch(err => {
-      spinCategory.textContent = "ERROR";
-      spinResult.textContent = "Failed to load data/destiny_pool.json";
-      console.error(err);
+        if (spinCategory) spinCategory.textContent = "DATA LOAD ERROR";
+        if (spinResult) spinResult.textContent = "Could not load data/destiny_pool.json. Check F12 Console.";
+        console.error("JSON Load Error:", err);
     });
 
 function getRandomItem(array) {
-  return array[Math.floor(Math.random() * array.length)];
+    if (!array || array.length === 0) return "None available";
+    return array[Math.floor(Math.random() * array.length)];
+}
+
+function getAvailableExoticArmour() {
+    if (!gameData || !runState.className) return [];
+    let classExotics = [...gameData.classes[runState.className].exoticArmor];
+    if (runState.subclass === 'Prismatic' && gameData.classes[runState.className].prismaticClassItem) {
+        classExotics.push(gameData.classes[runState.className].prismaticClassItem);
+    }
+    return classExotics.filter(item => !runState.exoticArmour.includes(item));
+}
+
+function getAvailableExoticWeapons() {
+    if (!gameData) return [];
+    return gameData.shared.exoticWeapons.filter(item => !runState.exoticWeapon.includes(item));
 }
 
 function setButtonsDisabled(disabled) {
-  btnNewRun.disabled = disabled;
-  btnSpin.disabled = disabled || !runState.className;
-  btnExoticAny.disabled = disabled || !runState.className;
-  btnExoticArmour.disabled = disabled || !runState.className;
-  btnExoticWeapon.disabled = disabled || !runState.className;
+    const hasRun = Boolean(runState.className);
+    const availArmour = getAvailableExoticArmour().length > 0;
+    const availWeapons = getAvailableExoticWeapons().length > 0;
+
+    if (btnNewRun) btnNewRun.disabled = disabled;
+    if (btnSpin) btnSpin.disabled = disabled || !hasRun;
+    if (btnExoticAny) btnExoticAny.disabled = disabled || !hasRun || (!availArmour && !availWeapons);
+    if (btnExoticArmour) btnExoticArmour.disabled = disabled || !hasRun || !availArmour;
+    if (btnExoticWeapon) btnExoticWeapon.disabled = disabled || !hasRun || !availWeapons;
 }
 
 // Visual Spin Animation Helper
 function animateSpin(categoryLabel, poolArray, finalResult, styleClass, onComplete) {
-  isSpinning = true;
-  setButtonsDisabled(true);
+    isSpinning = true;
+    setButtonsDisabled(true);
 
-  spinDisplay.className = 'spinner-box spinning';
-  spinCategory.textContent = categoryLabel;
+    if (spinDisplay) spinDisplay.className = 'spinner-box spinning';
+    if (spinCategory) spinCategory.textContent = categoryLabel;
 
-  let ticks = 0;
-  const maxTicks = 18;
-  const interval = setInterval(() => {
-    spinResult.textContent = getRandomItem(poolArray);
-    ticks++;
+    let ticks = 0;
+    const maxTicks = 18;
+    const interval = setInterval(() => {
+        if (spinResult) spinResult.textContent = getRandomItem(poolArray);
+        ticks++;
 
-    if (ticks >= maxTicks) {
-      clearInterval(interval);
-      spinResult.textContent = finalResult;
-      spinDisplay.className = `spinner-box ${styleClass}`;
-      isSpinning = false;
-      setButtonsDisabled(false);
-      onComplete();
-    }
-  }, 55);
+        if (ticks >= maxTicks) {
+            clearInterval(interval);
+            if (spinResult) spinResult.textContent = finalResult;
+            if (spinDisplay) spinDisplay.className = `spinner-box ${styleClass}`;
+            isSpinning = false;
+            onComplete();
+            setButtonsDisabled(false);
+        }
+    }, 55);
 }
 
 function addHistory(badgeText, description, badgeType = '') {
-  const stepNumber = runState.history.length + 1;
-  runState.history.unshift({
-    step: stepNumber,
-    badge: badgeText,
-    text: description,
-    type: badgeType
-  });
-  renderHistory();
+    const stepNumber = runState.history.length + 1;
+    runState.history.unshift({
+        step: stepNumber,
+        badge: badgeText,
+        text: description,
+        type: badgeType
+    });
+    renderHistory();
 }
 
 // 1. Start New Run
-btnNewRun.addEventListener('click', () => {
-  if (!gameData || isSpinning) return;
+if (btnNewRun) {
+    btnNewRun.addEventListener('click', () => {
+        if (!gameData || isSpinning) return;
 
-  const classes = Object.keys(gameData.classes);
-  const chosenClass = getRandomItem(classes);
-  const subclasses = Object.keys(gameData.classes[chosenClass].subclasses);
-  const chosenSubclass = getRandomItem(subclasses);
+        const classes = Object.keys(gameData.classes);
+        const chosenClass = getRandomItem(classes);
+        const subclasses = Object.keys(gameData.classes[chosenClass].subclasses);
+        const chosenSubclass = getRandomItem(subclasses);
 
-  // Build preview pool for visual spin
-  const previewPool = [];
-  classes.forEach(c => {
-    Object.keys(gameData.classes[c].subclasses).forEach(sub => {
-      previewPool.push(`${c} — ${sub}`);
+        const previewPool = [];
+        classes.forEach(c => {
+            Object.keys(gameData.classes[c].subclasses).forEach(sub => {
+                previewPool.push(`${c} — ${sub}`);
+            });
+        });
+
+        const finalLabel = `${chosenClass} — ${chosenSubclass}`;
+        const winStyle = chosenSubclass === 'Prismatic' ? 'prismatic-win' : '';
+
+        animateSpin("ROLLING STARTING GUARDIAN...", previewPool, finalLabel, winStyle, () => {
+            runState = {
+                className: chosenClass,
+                subclass: chosenSubclass,
+                aspects: [],
+                fragments: [],
+                artifact: [],
+                mods: [],
+                exoticArmour: [],
+                exoticWeapon: [],
+                history: []
+            };
+
+            if (spinCategory) spinCategory.textContent = "STARTING RUN STATE";
+            addHistory("Start", `Rolled ${chosenClass} (${chosenSubclass}) — Basic gear only`, "start");
+            updateUI();
+        });
     });
-  });
-
-  const finalLabel = `${chosenClass} — ${chosenSubclass}`;
-  const winStyle = chosenSubclass === 'Prismatic' ? 'prismatic-win' : '';
-
-  animateSpin("ROLLING STARTING GUARDIAN...", previewPool, finalLabel, winStyle, () => {
-    runState = {
-      className: chosenClass,
-      subclass: chosenSubclass,
-      aspects: [],
-      fragments: [],
-      artifact: [],
-      mods: [],
-      exoticArmour: null,
-      exoticWeapon: null,
-      history: []
-    };
-
-    spinCategory.textContent = "STARTING RUN STATE";
-    addHistory("Start", `Rolled ${chosenClass} (${chosenSubclass}) — Basic gear only`, "start");
-    updateUI();
-  });
-});
+}
 
 // 2. Standard Two-Step Spin
-btnSpin.addEventListener('click', () => {
-  if (isSpinning) return;
+if (btnSpin) {
+    btnSpin.addEventListener('click', () => {
+        if (isSpinning || !runState.className) return;
 
-  const subclassData = gameData.classes[runState.className].subclasses[runState.subclass];
+        const subclassData = gameData.classes[runState.className].subclasses[runState.subclass];
 
-  const availableAspects = subclassData.aspects.filter(a => !runState.aspects.includes(a));
-  const availableFragments = subclassData.fragments.filter(f => !runState.fragments.includes(f));
-  const availableArtifact = gameData.shared.artifactTiers.filter(t => !runState.artifact.includes(t));
-  const availableMods = gameData.shared.armorModSlots.filter(m => !runState.mods.includes(m));
+        const availableAspects = subclassData.aspects.filter(a => !runState.aspects.includes(a));
+        const availableFragments = subclassData.fragments.filter(f => !runState.fragments.includes(f));
+        const availableArtifact = gameData.shared.artifactTiers.filter(t => !runState.artifact.includes(t));
+        const availableMods = gameData.shared.armorModSlots.filter(m => !runState.mods.includes(m));
 
-  const eligibleCategories = [];
-  if (availableAspects.length > 0) eligibleCategories.push('Aspect');
-  if (runState.aspects.length > 0 && availableFragments.length > 0) eligibleCategories.push('Fragment');
-  if (availableArtifact.length > 0) eligibleCategories.push('Artifact');
-  if (availableMods.length > 0) eligibleCategories.push('Armour Mod');
+        const eligibleCategories = [];
+        if (availableAspects.length > 0) eligibleCategories.push('Aspect');
+        if (runState.aspects.length > 0 && availableFragments.length > 0) eligibleCategories.push('Fragment');
+        if (availableArtifact.length > 0) eligibleCategories.push('Artifact');
+        if (availableMods.length > 0) eligibleCategories.push('Armour Mod');
 
-  if (eligibleCategories.length === 0) {
-    spinCategory.textContent = "MAXED OUT";
-    spinResult.textContent = "All standard build elements are already unlocked!";
-    btnSpin.disabled = true;
-    return;
-  }
+        if (eligibleCategories.length === 0) {
+            if (spinCategory) spinCategory.textContent = "MAXED OUT";
+            if (spinResult) spinResult.textContent = "All standard build elements are already unlocked!";
+            btnSpin.disabled = true;
+            return;
+        }
 
-  // Step 1: Pick Category
-  const chosenCategory = getRandomItem(eligibleCategories);
-  let targetPool = [];
-  let unlockedItem = "";
+        const chosenCategory = getRandomItem(eligibleCategories);
+        let targetPool = [];
 
-  // Step 2: Pick Item within Category
-  if (chosenCategory === 'Aspect') {
-    targetPool = availableAspects;
-    unlockedItem = getRandomItem(targetPool);
-  } else if (chosenCategory === 'Fragment') {
-    targetPool = availableFragments;
-    unlockedItem = getRandomItem(targetPool);
-  } else if (chosenCategory === 'Artifact') {
-    targetPool = availableArtifact;
-    unlockedItem = getRandomItem(targetPool);
-  } else if (chosenCategory === 'Armour Mod') {
-    targetPool = availableMods;
-    unlockedItem = getRandomItem(targetPool);
-  }
+        if (chosenCategory === 'Aspect') targetPool = availableAspects;
+        else if (chosenCategory === 'Fragment') targetPool = availableFragments;
+        else if (chosenCategory === 'Artifact') targetPool = availableArtifact;
+        else if (chosenCategory === 'Armour Mod') targetPool = availableMods;
 
-  // Ensure visual spinner has multiple items to cycle through even if only 1 remains
-  const visualPool = targetPool.length > 1 ? targetPool : [unlockedItem, "Decrypting Engram...", "Scanning Subclass..."];
+        const unlockedItem = getRandomItem(targetPool);
+        const visualPool = targetPool.length > 1 ? targetPool : [unlockedItem, "Decrypting Engram...", "Scanning Subclass..."];
 
-  animateSpin(`CATEGORY: ${chosenCategory.toUpperCase()}`, visualPool, unlockedItem, '', () => {
-    if (chosenCategory === 'Aspect') runState.aspects.push(unlockedItem);
-    if (chosenCategory === 'Fragment') runState.fragments.push(unlockedItem);
-    if (chosenCategory === 'Artifact') runState.artifact.push(unlockedItem);
-    if (chosenCategory === 'Armour Mod') runState.mods.push(unlockedItem);
+        animateSpin(`CATEGORY: ${chosenCategory.toUpperCase()}`, visualPool, unlockedItem, '', () => {
+            if (chosenCategory === 'Aspect') runState.aspects.push(unlockedItem);
+            if (chosenCategory === 'Fragment') runState.fragments.push(unlockedItem);
+            if (chosenCategory === 'Artifact') runState.artifact.push(unlockedItem);
+            if (chosenCategory === 'Armour Mod') runState.mods.push(unlockedItem);
 
-    addHistory(chosenCategory, `Unlocked ${unlockedItem}`);
-    updateUI();
-  });
-});
+            addHistory(chosenCategory, `Unlocked ${unlockedItem}`);
+            updateUI();
+        });
+    });
+}
 
 // 3. Exotic Spin Handlers
 function handleExoticSpin(mode) {
-  if (isSpinning) return;
+    if (isSpinning || !runState.className) return;
 
-  let rollType = mode;
-  if (mode === 'any') {
-    rollType = Math.random() < 0.5 ? 'armour' : 'weapon';
-  }
+    const availArmour = getAvailableExoticArmour();
+    const availWeapons = getAvailableExoticWeapons();
 
-  if (rollType === 'armour') {
-    let classExotics = [...gameData.classes[runState.className].exoticArmor];
-
-    // Only include Prismatic Exotic Class Item if playing Prismatic
-    if (runState.subclass === 'Prismatic') {
-      classExotics.push(gameData.classes[runState.className].prismaticClassItem);
+    let rollType = mode;
+    if (mode === 'any') {
+        if (availArmour.length > 0 && availWeapons.length > 0) {
+            rollType = Math.random() < 0.5 ? 'armour' : 'weapon';
+        } else if (availArmour.length > 0) {
+            rollType = 'armour';
+        } else if (availWeapons.length > 0) {
+            rollType = 'weapon';
+        } else {
+            return;
+        }
     }
 
-    const pool = classExotics.filter(item => item !== runState.exoticArmour);
-    const chosen = getRandomItem(pool);
+    if (rollType === 'armour' && availArmour.length > 0) {
+        const chosen = getRandomItem(availArmour);
+        const visualPool = availArmour.length > 1 ? availArmour : [chosen, "Decrypting Exotic Engram..."];
 
-    animateSpin(`EXOTIC ${runState.className.toUpperCase()} ARMOUR`, pool, chosen, 'exotic-win', () => {
-      runState.exoticArmour = chosen;
-      addHistory("Exotic Armour", `Equipped ${chosen}`, "exotic");
-      updateUI();
-    });
+        animateSpin(`EXOTIC ${runState.className.toUpperCase()} ARMOUR`, visualPool, chosen, 'exotic-win', () => {
+            runState.exoticArmour.push(chosen);
+            addHistory("Exotic Armour", `Unlocked ${chosen}`, "exotic");
+            updateUI();
+        });
 
-  } else {
-    const weaponExotics = gameData.shared.exoticWeapons;
-    const pool = weaponExotics.filter(item => item !== runState.exoticWeapon);
-    const chosen = getRandomItem(pool);
+    } else if (rollType === 'weapon' && availWeapons.length > 0) {
+        const chosen = getRandomItem(availWeapons);
+        const visualPool = availWeapons.length > 1 ? availWeapons : [chosen, "Decrypting Exotic Engram..."];
 
-    animateSpin("EXOTIC WEAPON", pool, chosen, 'exotic-win', () => {
-      runState.exoticWeapon = chosen;
-      addHistory("Exotic Weapon", `Equipped ${chosen}`, "exotic");
-      updateUI();
-    });
-  }
+        animateSpin("EXOTIC WEAPON", visualPool, chosen, 'exotic-win', () => {
+            runState.exoticWeapon.push(chosen);
+            addHistory("Exotic Weapon", `Unlocked ${chosen}`, "exotic");
+            updateUI();
+        });
+    }
 }
 
-btnExoticAny.addEventListener('click', () => handleExoticSpin('any'));
-btnExoticArmour.addEventListener('click', () => handleExoticSpin('armour'));
-btnExoticWeapon.addEventListener('click', () => handleExoticSpin('weapon'));
+if (btnExoticAny) btnExoticAny.addEventListener('click', () => handleExoticSpin('any'));
+if (btnExoticArmour) btnExoticArmour.addEventListener('click', () => handleExoticSpin('armour'));
+if (btnExoticWeapon) btnExoticWeapon.addEventListener('click', () => handleExoticSpin('weapon'));
 
 // Update the HTML display
 function updateUI() {
-  document.getElementById('state-class').textContent = runState.className;
+    const elClass = document.getElementById('state-class');
+    const elSub = document.getElementById('state-subclass');
 
-  const subEl = document.getElementById('state-subclass');
-  subEl.textContent = runState.subclass;
-  subEl.className = runState.subclass === 'Prismatic' ? 'prismatic-text' : '';
+    if (elClass) elClass.textContent = runState.className;
+    if (elSub) {
+        elSub.textContent = runState.subclass;
+        elSub.className = runState.subclass === 'Prismatic' ? 'prismatic-text' : '';
+    }
 
-  document.getElementById('state-exotic-armour').textContent = runState.exoticArmour || 'None';
-  document.getElementById('state-exotic-weapon').textContent = runState.exoticWeapon || 'None';
+    renderList('list-exotic-armour', runState.exoticArmour, 'None unlocked', true);
+    renderList('list-exotic-weapon', runState.exoticWeapon, 'None unlocked', true);
+    renderList('list-aspects', runState.aspects, 'None unlocked');
 
-  renderList('list-aspects', runState.aspects, 'None unlocked');
+    const fragEmptyText = runState.aspects.length === 0
+        ? 'Locked (Requires 1 Aspect)'
+        : 'None unlocked';
+    renderList('list-fragments', runState.fragments, fragEmptyText);
 
-  const fragEmptyText = runState.aspects.length === 0
-      ? 'Locked (Requires 1 Aspect)'
-      : 'None unlocked';
-  renderList('list-fragments', runState.fragments, fragEmptyText);
-
-  renderList('list-artifact', runState.artifact, 'None unlocked');
-  renderList('list-mods', runState.mods, 'None unlocked');
+    renderList('list-artifact', runState.artifact, 'None unlocked');
+    renderList('list-mods', runState.mods, 'None unlocked');
 }
 
-function renderList(elementId, items, emptyMessage) {
-  const ul = document.getElementById(elementId);
-  ul.innerHTML = '';
-  if (items.length === 0) {
-    const li = document.createElement('li');
-    li.textContent = emptyMessage;
-    li.style.color = '#8b949e';
-    ul.appendChild(li);
-    return;
-  }
-  items.forEach(item => {
-    const li = document.createElement('li');
-    li.textContent = item;
-    ul.appendChild(li);
-  });
+function renderList(elementId, items, emptyMessage, isExotic = false) {
+    const ul = document.getElementById(elementId);
+    if (!ul) return;
+    ul.innerHTML = '';
+    if (items.length === 0) {
+        const li = document.createElement('li');
+        li.textContent = emptyMessage;
+        if (isExotic) {
+            li.className = 'muted';
+        } else {
+            li.style.color = '#8b949e';
+        }
+        ul.appendChild(li);
+        return;
+    }
+    items.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        ul.appendChild(li);
+    });
 }
 
 function renderHistory() {
-  const ul = document.getElementById('history-list');
-  ul.innerHTML = '';
-  if (runState.history.length === 0) {
-    ul.innerHTML = '<li class="muted">No actions recorded yet.</li>';
-    return;
-  }
+    const ul = document.getElementById('history-list');
+    if (!ul) return;
+    ul.innerHTML = '';
+    if (runState.history.length === 0) {
+        ul.innerHTML = '<li class="muted">No actions recorded yet.</li>';
+        return;
+    }
 
-  runState.history.forEach(entry => {
-    const li = document.createElement('li');
-    li.innerHTML = `
-      <span><strong>#${entry.step}</strong> &nbsp;${entry.text}</span>
-      <span class="badge ${entry.type}">${entry.badge}</span>
-    `;
-    ul.appendChild(li);
-  });
+    runState.history.forEach(entry => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span><strong>#${entry.step}</strong> &nbsp;${entry.text}</span>
+          <span class="badge ${entry.type}">${entry.badge}</span>
+        `;
+        ul.appendChild(li);
+    });
 }

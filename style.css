@@ -254,3 +254,21 @@ li {
   background: rgba(59, 130, 246, 0.2);
   color: #93c5fd;
 }
+
+.exotic-subhead {
+  margin: 0 0 0.35rem 0;
+  font-size: 0.9rem;
+  color: #c9d1d9;
+}
+
+.exotic-list li {
+  color: #f5df76;
+  font-weight: 500;
+}
+
+.exotic-list li.muted {
+  color: var(--muted);
+  font-weight: normal;
+  list-style: none;
+  margin-left: -1.25rem;
+}
