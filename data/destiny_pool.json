@@ -14,7 +14,7 @@
         "Gyrfalcon's Hauberk", "Lucky Pants", "Orpheus Rig", "St0mp-EE5",
         "Gemini Jester", "FR0ST-EE5", "The Bombardiers", "Star-Eater Scales",
         "Radiant Dance Machines", "Speedloader Slacks", "Balance of Power",
-        "Gifted Conviction"
+        "Gifted Conviction", "Moirai", "Fortune's Favor"
       ],
       "subclasses": {
         "Prismatic": {
@@ -101,7 +101,8 @@
         "Severance Enclosure", "Cuirass of the Falling Star", "Hoarfrost-Z",
         "Arbor Warden", "Hazardous Propulsion", "Lion Rampant", "Peacekeepers",
         "Dunemarchers", "Mk. 44 Stand Asides", "Antaeus Wards", "Peregrine Greaves",
-        "Phoenix Cradle", "The Path of Burning Steps", "Abeyant Leap"
+        "Phoenix Cradle", "The Path of Burning Steps", "Abeyant Leap", "Melas Panoplia",
+        "Praxic Vestment"
       ],
       "subclasses": {
         "Prismatic": {
@@ -188,7 +189,8 @@
         "Chromatic Fire", "Phoenix Protocol", "Stormdancer's Brace",
         "Mantle of Battle Harmony", "Mataiodoxía", "Transversive Steps",
         "Lunafaction Boots", "Geomag Stabilizers", "Promethium Spur",
-        "Boots of the Assembler", "Secant Filaments", "Rain of Fire", "Swarmers"
+        "Boots of the Assembler", "Secant Filaments", "Rain of Fire", "Swarmers",
+        "Deimosuffusion", "Eunoia"
       ],
       "subclasses": {
         "Prismatic": {
@@ -307,7 +309,10 @@
       "Deathbringer", "Xenophage", "Leviathan's Breath", "Heir Apparent",
       "The Lament", "Eyes of Tomorrow", "Salvation's Grip", "Gjallarhorn",
       "Parasite", "Grand Overture", "Heartshadow", "Winterbite",
-      "Deterministic Chaos", "Dragon's Breath", "Microcosm", "Ergo Sum"
+      "Deterministic Chaos", "Dragon's Breath", "Microcosm", "Ergo Sum",
+      "Whirling Ovation", "Praxic Blade", "Service of Luzaku",
+      "Heirloom", "Third Iteration", "Graviton Spike", "New Land Beyond",
+      "Cull's Shadow", "New Malpais"
     ]
   }
 }
