@@ -40,7 +40,7 @@
           "jumps": ["High Jump", "Strafe Jump", "Triple Jump"],
           "melees": ["Knife Trick", "Proximity Explosive Knife", "Lightweight Knife", "Weighted Throwing Knife"],
           "grenades": ["Incendiary Grenade", "Solar Grenade", "Tripmine Grenade", "Swarm Grenade", "Thermite Grenade", "Firebolt Grenade", "Fusion Grenade", "Healing Grenade"],
-          "aspects": ["Knock 'Em Down", "On Your Mark", "Gunpowder Gamble"],
+          "aspects": ["Knock 'Em Down", "On Your Mark", "Gunpowder Gamble", "Crackshot"],
           "fragments": [
             "Ember of Ashes", "Ember of Beams", "Ember of Benevolence", "Ember of Blistering",
             "Ember of Char", "Ember of Combustion", "Ember of Empyrean", "Ember of Eruption",
@@ -52,7 +52,7 @@
           "supers": ["Shadowshot: Deadfall", "Shadowshot: Moebius Quiver", "Spectral Blades"],
           "classAbilities": ["Marksman's Dodge", "Gambler's Dodge"],
           "jumps": ["High Jump", "Strafe Jump", "Triple Jump"],
-          "melees": ["Snare Bomb"],
+          "melees": ["Snare Bomb", "Phantom Surge"],
           "grenades": ["Vortex Grenade", "Void Spike", "Void Wall", "Suppressor Grenade", "Scatter Grenade", "Axion Bolt", "Magnetic Grenade"],
           "aspects": ["Vanishing Step", "Stylish Executioner", "Trapper's Ambush", "On the Prowl"],
           "fragments": [
@@ -81,7 +81,7 @@
           "classAbilities": ["Marksman's Dodge", "Gambler's Dodge"],
           "jumps": ["High Jump", "Strafe Jump", "Triple Jump"],
           "melees": ["Withering Blade"],
-          "grenades": ["Glacier Grenade", "Duskfield Grenade", "Coldsnap Grenade"],
+          "grenades": ["Glacier Grenade", "Duskfield Grenade", "Coldsnap Grenade", "Shatter Grenade"],
           "aspects": ["Shatterdive", "Winter's Shroud", "Grim Harvest", "Touch of Winter"],
           "fragments": [
             "Whisper of Bonds", "Whisper of Chains", "Whisper of Chill", "Whisper of Conduction",
@@ -95,7 +95,7 @@
           "classAbilities": ["Marksman's Dodge", "Gambler's Dodge"],
           "jumps": ["High Jump", "Strafe Jump", "Triple Jump"],
           "melees": ["Threaded Spike"],
-          "grenades": ["Grapple", "Shackle Grenade", "Threadling Grenade"],
+          "grenades": ["Grapple", "Shackle Grenade", "Threadling Grenade", "Slicewire Grenade"],
           "aspects": ["Ensnaring Slam", "Widow's Silk", "Threaded Specter", "Whirling Maelstrom"],
           "fragments": [
             "Thread of Ascent", "Thread of Binding", "Thread of Continuity", "Thread of Evolution",
@@ -146,7 +146,7 @@
           "jumps": ["High Lift", "Strafe Lift", "Catapult Lift"],
           "melees": ["Hammer Strike", "Throwing Hammer"],
           "grenades": ["Incendiary Grenade", "Solar Grenade", "Tripmine Grenade", "Swarm Grenade", "Thermite Grenade", "Firebolt Grenade", "Fusion Grenade", "Healing Grenade"],
-          "aspects": ["Sol Invictus", "Roaring Flames", "Consecration"],
+          "aspects": ["Sol Invictus", "Roaring Flames", "Consecration", "Shieldbreaker"],
           "fragments": [
             "Ember of Ashes", "Ember of Beams", "Ember of Benevolence", "Ember of Blistering",
             "Ember of Char", "Ember of Combustion", "Ember of Empyrean", "Ember of Eruption",
@@ -187,7 +187,7 @@
           "classAbilities": ["Towering Barricade", "Rally Barricade"],
           "jumps": ["High Lift", "Strafe Lift", "Catapult Lift"],
           "melees": ["Shiver Strike"],
-          "grenades": ["Glacier Grenade", "Duskfield Grenade", "Coldsnap Grenade"],
+          "grenades": ["Glacier Grenade", "Duskfield Grenade", "Coldsnap Grenade", "Shatter Grenade"],
           "aspects": ["Cryoclasm", "Tectonic Harvest", "Howl of the Storm", "Diamond Lance"],
           "fragments": [
             "Whisper of Bonds", "Whisper of Chains", "Whisper of Chill", "Whisper of Conduction",
@@ -201,7 +201,7 @@
           "classAbilities": ["Towering Barricade", "Rally Barricade"],
           "jumps": ["High Lift", "Strafe Lift", "Catapult Lift"],
           "melees": ["Frenzied Blade"],
-          "grenades": ["Grapple", "Shackle Grenade", "Threadling Grenade"],
+          "grenades": ["Grapple", "Shackle Grenade", "Threadling Grenade", "Slicewire Grenade"],
           "aspects": ["Into the Fray", "Drengr's Lash", "Flechette Storm", "Banner of War"],
           "fragments": [
             "Thread of Ascent", "Thread of Binding", "Thread of Continuity", "Thread of Evolution",
@@ -266,7 +266,7 @@
           "jumps": ["Strafe Glide", "Burst Glide", "Balanced Glide", "Blink"],
           "melees": ["Pocket Singularity"],
           "grenades": ["Vortex Grenade", "Void Spike", "Void Wall", "Suppressor Grenade", "Scatter Grenade", "Axion Bolt", "Magnetic Grenade"],
-          "aspects": ["Chaos Accelerant", "Feed the Void", "Child of the Old Gods"],
+          "aspects": ["Chaos Accelerant", "Feed the Void", "Child of the Old Gods", "Soul Siphon"],
           "fragments": [
             "Echo of Cessation", "Echo of Dilation", "Echo of Domineering", "Echo of Exchange",
             "Echo of Expulsion", "Echo of Harvest", "Echo of Instability", "Echo of Leeching",
@@ -293,7 +293,7 @@
           "classAbilities": ["Healing Rift", "Empowering Rift"],
           "jumps": ["Strafe Glide", "Burst Glide", "Balanced Glide"],
           "melees": ["Penumbral Blast"],
-          "grenades": ["Glacier Grenade", "Duskfield Grenade", "Coldsnap Grenade"],
+          "grenades": ["Glacier Grenade", "Duskfield Grenade", "Coldsnap Grenade", "Shatter Grenade"],
           "aspects": ["Iceflare Bolts", "Frostpulse", "Bleak Watcher", "Glacial Harvest"],
           "fragments": [
             "Whisper of Bonds", "Whisper of Chains", "Whisper of Chill", "Whisper of Conduction",
@@ -307,7 +307,7 @@
           "classAbilities": ["Healing Rift", "Empowering Rift"],
           "jumps": ["Strafe Glide", "Burst Glide", "Balanced Glide"],
           "melees": ["Arcane Needle"],
-          "grenades": ["Grapple", "Shackle Grenade", "Threadling Grenade"],
+          "grenades": ["Grapple", "Shackle Grenade", "Threadling Grenade", "Slicewire Grenade"],
           "aspects": ["Weaver's Call", "Mindspun Invocation", "The Wanderer", "Weavewalk"],
           "fragments": [
             "Thread of Ascent", "Thread of Binding", "Thread of Continuity", "Thread of Evolution",
