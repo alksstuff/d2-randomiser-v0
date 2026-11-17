@@ -18,6 +18,7 @@
     <div class="controls-group">
       <button id="btn-new-run" class="btn primary">Start New Run</button>
       <button id="btn-spin" class="btn secondary" disabled>Standard Spin</button>
+      <button id="btn-toggle-config" class="btn outline">⚙️ Config &amp; Resume Run</button>
     </div>
 
     <div class="controls-group exotic-group">
@@ -28,9 +29,53 @@
     </div>
   </div>
 
+  <!-- Collapsible Config & Resume Panel -->
+  <div id="config-panel" class="config-panel hidden">
+    <div class="config-section">
+      <h3>Standard Spin Categories</h3>
+      <p class="config-hint">Uncheck categories to exclude them from Standard Spins.</p>
+      <div class="checkbox-grid" id="category-toggles">
+        <label><input type="checkbox" data-cat="Super" checked> Supers</label>
+        <label><input type="checkbox" data-cat="Class Ability" checked> Class Abilities</label>
+        <label><input type="checkbox" data-cat="Jump" checked> Jumps</label>
+        <label><input type="checkbox" data-cat="Melee" checked> Melees</label>
+        <label><input type="checkbox" data-cat="Grenade" checked> Grenades</label>
+        <label><input type="checkbox" data-cat="Aspect" checked> Aspects</label>
+        <label><input type="checkbox" data-cat="Fragment" checked> Fragments</label>
+        <label><input type="checkbox" data-cat="Artifact" checked> Artifact Perks</label>
+        <label><input type="checkbox" data-cat="Armour Mod" checked> Armour Mods</label>
+        <label class="exotic-toggle"><input type="checkbox" id="toggle-exotics-in-standard"> Include Exotics in Standard Spins</label>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="config-section">
+      <h3>Manual Setup / Resume Previous Run</h3>
+      <p class="config-hint">Select your Class, Subclass, and any already-unlocked items to resume a run.</p>
+
+      <div class="manual-selectors">
+        <div class="select-group">
+          <label for="manual-class">Class:</label>
+          <select id="manual-class"></select>
+        </div>
+        <div class="select-group">
+          <label for="manual-subclass">Subclass:</label>
+          <select id="manual-subclass"></select>
+        </div>
+      </div>
+
+      <div id="manual-unlocks-container" class="manual-unlocks-grid"></div>
+
+      <div class="manual-actions">
+        <button id="btn-apply-manual" class="btn secondary">Apply / Resume Build</button>
+      </div>
+    </div>
+  </div>
+
   <div id="spin-display" class="spinner-box">
     <div id="spin-category" class="spin-subtext">READY TO START</div>
-    <div id="spin-result" class="spin-maintext">Click "Start New Run" to roll your Guardian</div>
+    <div id="spin-result" class="spin-maintext">Click "Start New Run" or configure a build to begin</div>
   </div>
 
   <div class="grid">
