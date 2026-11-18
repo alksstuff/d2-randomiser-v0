@@ -68,18 +68,48 @@ function saveToStorage() {
     }
 }
 
+function getDefaultRunState() {
+    return {
+        className: null,
+        subclass: null,
+        supers: [],
+        classAbilities: [],
+        jumps: [],
+        melees: [],
+        grenades: [],
+        aspects: [],
+        fragments: [],
+        artifact: [],
+        mods: [],
+        exoticArmour: [],
+        exoticWeapon: [],
+        synergies: [],
+        history: []
+    };
+}
+
 function loadFromStorage() {
     try {
         const savedConfig = localStorage.getItem('d2_randomiser_config');
         if (savedConfig) {
-            config = {...config, ...JSON.parse(savedConfig)};
+            const parsedConfig = JSON.parse(savedConfig);
+            config = {
+                ...config,
+                ...parsedConfig,
+                enabledCategories: {
+                    ...config.enabledCategories,
+                    ...(parsedConfig.enabledCategories || {})
+                }
+            };
             syncConfigUI();
         }
+
         const savedState = localStorage.getItem('d2_randomiser_state');
         if (savedState) {
             const parsed = JSON.parse(savedState);
-            if (parsed && parsed.className) {
-                runState = parsed;
+            if (parsed && parsed.className && gameData.classes[parsed.className]) {
+                // Merge with default template so missing arrays from older versions never crash
+                runState = { ...getDefaultRunState(), ...parsed };
                 updateUI();
                 renderHistory();
                 setButtonsDisabled(false);
@@ -88,7 +118,8 @@ function loadFromStorage() {
             }
         }
     } catch (e) {
-        console.warn('Could not load from localStorage:', e);
+        console.warn('Clearing incompatible saved data from localStorage:', e);
+        localStorage.removeItem('d2_randomiser_state');
     }
 }
 
