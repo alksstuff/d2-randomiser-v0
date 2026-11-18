@@ -474,3 +474,133 @@ details[open] .synergy-summary::after {
   color: #f0abfc;
   border: 1px solid rgba(232, 121, 249, 0.4);
 }
+
+/* Unlocked Subclass Switcher Tabs */
+.subclass-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.35rem;
+}
+
+.sub-tab {
+  background-color: var(--bg);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sub-tab:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.sub-tab.active {
+  background-color: rgba(59, 130, 246, 0.2);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.sub-tab.prismatic.active {
+  background-color: rgba(232, 121, 249, 0.2);
+  border-color: var(--prismatic);
+  color: #f5d0fe;
+}
+
+/* Roguelite Draft Tray */
+.draft-container {
+  background-color: var(--card-bg);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.draft-header {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #93c5fd;
+  margin-bottom: 1rem;
+}
+
+.draft-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+}
+
+.draft-card {
+  background: linear-gradient(145deg, #1f2835, #151b23);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  color: var(--text);
+}
+
+.draft-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.25);
+}
+
+.draft-card.exotic {
+  border-color: rgba(206, 174, 51, 0.45);
+}
+
+.draft-card.exotic:hover {
+  border-color: var(--exotic);
+  box-shadow: 0 6px 16px rgba(206, 174, 51, 0.25);
+}
+
+.draft-card.prismatic {
+  border-color: rgba(232, 121, 249, 0.45);
+}
+
+.draft-card-cat {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  color: var(--muted);
+}
+
+.draft-card.exotic .draft-card-cat {
+  color: var(--exotic);
+}
+
+.draft-card-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--text);
+}
+
+.draft-card.exotic .draft-card-name {
+  color: #f5df76;
+}
+
+.draft-card-cta {
+  font-size: 0.8rem;
+  color: #60a5fa;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.draft-card.exotic .draft-card-cta {
+  color: var(--exotic);
+}

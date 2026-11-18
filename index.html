@@ -11,7 +11,7 @@
 <div class="container">
   <header>
     <h1>Destiny 2 Run Randomiser</h1>
-    <p>Start with a basic kit, then spin to unlock abilities, aspects, fragments, mods, and exotics.</p>
+    <p>Start with a basic kit, then spin to unlock subclasses, abilities, aspects, fragments, mods, and exotics.</p>
   </header>
 
   <div class="controls-wrapper">
@@ -35,6 +35,7 @@
       <h3>Standard Spin Categories</h3>
       <p class="config-hint">Uncheck categories to exclude them from Standard Spins.</p>
       <div class="checkbox-grid" id="category-toggles">
+        <label><input type="checkbox" data-cat="Subclass"> Subclasses</label>
         <label><input type="checkbox" data-cat="Super" checked> Supers</label>
         <label><input type="checkbox" data-cat="Class Ability" checked> Class Abilities</label>
         <label><input type="checkbox" data-cat="Jump" checked> Jumps</label>
@@ -44,27 +45,31 @@
         <label><input type="checkbox" data-cat="Fragment" checked> Fragments</label>
         <label><input type="checkbox" data-cat="Artifact" checked> Artifact Perks</label>
         <label><input type="checkbox" data-cat="Armour Mod" checked> Armour Mods</label>
-        <label class="exotic-toggle">
-          <input type="checkbox" id="toggle-enforce-synergy"> Enforce Build Synergies (Only roll matching Exotics)
-        </label>
         <label class="exotic-toggle"><input type="checkbox" id="toggle-exotics-in-standard"> Include Exotics in Standard Spins</label>
+        <label class="exotic-toggle"><input type="checkbox" id="toggle-enforce-synergy"> Enforce Build Synergies (Only roll matching Exotics)</label>
       </div>
     </div>
+
     <hr class="divider">
+
     <div class="config-section">
       <h3>Starting Run Mode</h3>
-      <p class="config-hint">Choose whether new runs start with a basic kit or a full random subclass loadout.</p>
+      <p class="config-hint">Choose whether new runs (and newly unlocked subclasses) start with a basic kit or a full random loadout.</p>
       <div class="checkbox-grid">
         <label class="exotic-toggle">
           <input type="checkbox" id="toggle-full-start"> Start with Full Random Subclass (2 Aspects + Exact Fragment Slots)
         </label>
+        <label class="exotic-toggle">
+          <input type="checkbox" id="toggle-roguelite"> Roguelite Mode (Choose 1 from 3 rolled unlocks)
+        </label>
       </div>
     </div>
+
     <hr class="divider">
 
     <div class="config-section">
       <h3>Manual Setup / Resume Previous Run</h3>
-      <p class="config-hint">Select your Class, Subclass, and any already-unlocked items to resume a run.</p>
+      <p class="config-hint">Select your Class, Subclass, and any already-unlocked items to add or resume a build.</p>
 
       <div class="manual-selectors">
         <div class="select-group">
@@ -90,12 +95,20 @@
     <div id="spin-result" class="spin-maintext">Click "Start New Run" or configure a build to begin</div>
   </div>
 
+  <div id="draft-container" class="draft-container hidden">
+    <div class="draft-header">Choose One Unlock to Add to Your Build:</div>
+    <div id="draft-cards" class="draft-cards"></div>
+  </div>
+
   <div class="grid">
     <section class="card">
       <h2>Starting Guardian</h2>
       <p><strong>Class:</strong> <span id="state-class">Not rolled</span></p>
-      <p><strong>Subclass:</strong> <span id="state-subclass">Not rolled</span></p>
-      <p class="sub-label" style="margin-top: 0.75rem;">Supers:</p>
+      <p class="sub-label" style="margin-top: 0.75rem;">Unlocked Subclasses (Click to switch):</p>
+      <div id="subclass-tabs" class="subclass-tabs">
+        <span class="muted">Not rolled</span>
+      </div>
+      <p class="sub-label" style="margin-top: 0.75rem;">Supers (<span id="active-sub-label">—</span>):</p>
       <ul id="list-supers"><li>Not rolled</li></ul>
     </section>
 

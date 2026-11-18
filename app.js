@@ -1,5 +1,6 @@
 let gameData = null;
 let isSpinning = false;
+let pendingDraftChoices = [];
 
 const SUBCLASS_ELEMENTS = {
     Gunslinger: ["Solar"], Sunbreaker: ["Solar"], Dawnblade: ["Solar"],
@@ -12,6 +13,7 @@ const SUBCLASS_ELEMENTS = {
 
 let config = {
     enabledCategories: {
+        'Subclass': false,
         'Super': true,
         'Class Ability': true,
         'Jump': true,
@@ -24,20 +26,28 @@ let config = {
     },
     includeExoticsInStandard: false,
     enforceSynergy: false,
-    startFullSubclass: false
+    startFullSubclass: false,
+    rogueliteMode: false
 };
 
-function getDefaultRunState() {
+function getEmptySubclassKit() {
     return {
-        className: null,
-        subclass: null,
         supers: [],
         classAbilities: [],
         jumps: [],
         melees: [],
         grenades: [],
         aspects: [],
-        fragments: [],
+        fragments: []
+    };
+}
+
+function getDefaultRunState() {
+    return {
+        className: null,
+        activeSubclass: null,
+        unlockedSubclasses: [],
+        subclassData: {},
         artifact: [],
         mods: [],
         exoticArmour: [],
@@ -66,6 +76,43 @@ const btnApplyManual = document.getElementById('btn-apply-manual');
 const spinDisplay = document.getElementById('spin-display');
 const spinCategory = document.getElementById('spin-category');
 const spinResult = document.getElementById('spin-result');
+const draftContainer = document.getElementById('draft-container');
+const draftCards = document.getElementById('draft-cards');
+
+function getActiveKit() {
+    if (!runState.activeSubclass) return getEmptySubclassKit();
+    if (!runState.subclassData[runState.activeSubclass]) {
+        runState.subclassData[runState.activeSubclass] = getEmptySubclassKit();
+    }
+    return runState.subclassData[runState.activeSubclass];
+}
+
+function generateSubclassKit(className, subclassName, isFull) {
+    const subPool = gameData.classes[className].subclasses[subclassName];
+    const kit = getEmptySubclassKit();
+
+    kit.supers = [getRandomItem(subPool.supers)];
+    kit.classAbilities = [getRandomItem(subPool.classAbilities)];
+    kit.jumps = [getRandomItem(subPool.jumps)];
+    kit.melees = [getRandomItem(subPool.melees)];
+    kit.grenades = [getRandomItem(subPool.grenades)];
+
+    if (isFull) {
+        const pickedAspectObjs = getRandomItems(subPool.aspects, 2);
+        kit.aspects = pickedAspectObjs.map(a => typeof a === 'string' ? a : a.name);
+        const totalSlots = pickedAspectObjs.reduce((sum, a) => sum + (typeof a === 'object' && a.slots ? a.slots : 2), 0);
+        kit.fragments = getRandomItems(subPool.fragments, totalSlots);
+    }
+
+    return kit;
+}
+
+// Draft Helpers
+function clearDraft() {
+    pendingDraftChoices = [];
+    if (draftContainer) draftContainer.classList.add('hidden');
+    if (draftCards) draftCards.innerHTML = '';
+}
 
 // Storage Helpers
 function saveToStorage() {
@@ -96,13 +143,15 @@ function loadFromStorage() {
         const savedState = localStorage.getItem('d2_randomiser_state');
         if (savedState) {
             const parsed = JSON.parse(savedState);
-            if (parsed && parsed.className && gameData && gameData.classes[parsed.className]) {
+            if (parsed && parsed.className && parsed.activeSubclass && parsed.subclassData && gameData.classes[parsed.className]) {
                 runState = {...getDefaultRunState(), ...parsed};
                 updateUI();
                 renderHistory();
                 setButtonsDisabled(false);
                 if (spinCategory) spinCategory.textContent = "RESUMED SAVED RUN";
-                if (spinResult) spinResult.textContent = `${runState.className} — ${runState.subclass}`;
+                if (spinResult) spinResult.textContent = `${runState.className} — ${runState.activeSubclass}`;
+            } else if (parsed) {
+                localStorage.removeItem('d2_randomiser_state');
             }
         }
     } catch (e) {
@@ -125,6 +174,9 @@ function syncConfigUI() {
 
     const fullStartToggle = document.getElementById('toggle-full-start');
     if (fullStartToggle) fullStartToggle.checked = Boolean(config.startFullSubclass);
+
+    const rogueliteToggle = document.getElementById('toggle-roguelite');
+    if (rogueliteToggle) rogueliteToggle.checked = Boolean(config.rogueliteMode);
 }
 
 // Load JSON Data
@@ -153,7 +205,7 @@ if (btnToggleConfig) {
         if (!configPanel.classList.contains('hidden') && runState.className) {
             manualClassSelect.value = runState.className;
             populateManualSubclasses();
-            manualSubclassSelect.value = runState.subclass;
+            manualSubclassSelect.value = runState.activeSubclass;
             renderManualCheckboxes(true);
         }
     });
@@ -194,6 +246,14 @@ if (toggleFullStart) {
     });
 }
 
+const toggleRoguelite = document.getElementById('toggle-roguelite');
+if (toggleRoguelite) {
+    toggleRoguelite.addEventListener('change', () => {
+        config.rogueliteMode = toggleRoguelite.checked;
+        saveToStorage();
+    });
+}
+
 // Manual Setup / Resume Functions
 function initManualSelectors() {
     if (!gameData || !manualClassSelect) return;
@@ -229,39 +289,47 @@ if (manualClassSelect) {
 
 if (manualSubclassSelect) {
     manualSubclassSelect.addEventListener('change', () => {
-        const isCurrentBuild = manualClassSelect.value === runState.className && manualSubclassSelect.value === runState.subclass;
-        renderManualCheckboxes(isCurrentBuild);
+        const isUnlockedSub = manualClassSelect.value === runState.className &&
+            runState.unlockedSubclasses.includes(manualSubclassSelect.value);
+        renderManualCheckboxes(isUnlockedSub);
     });
 }
 
-function renderManualCheckboxes(preselectCurrent) {
+function renderManualCheckboxes(preselectSaved) {
     if (!gameData || !manualUnlocksContainer) return;
     const cls = manualClassSelect.value;
     const sub = manualSubclassSelect.value;
-    const subData = gameData.classes[cls].subclasses[sub];
+    const subPool = gameData.classes[cls].subclasses[sub];
+    const savedKit = (preselectSaved && runState.subclassData[sub]) ? runState.subclassData[sub] : getEmptySubclassKit();
 
     const sections = [
-        {key: 'supers', title: 'Supers', items: subData.supers},
-        {key: 'classAbilities', title: 'Class Abilities', items: subData.classAbilities},
-        {key: 'jumps', title: 'Jumps', items: subData.jumps},
-        {key: 'melees', title: 'Melees', items: subData.melees},
-        {key: 'grenades', title: 'Grenades', items: subData.grenades},
-        {key: 'aspects', title: 'Aspects', items: subData.aspects.map(a => typeof a === 'string' ? a : a.name)},
-        {key: 'fragments', title: 'Fragments', items: subData.fragments},
-        {key: 'artifact', title: 'Artifact Tiers', items: gameData.shared.artifactTiers},
-        {key: 'mods', title: 'Armour Mod Slots', items: gameData.shared.armorModSlots},
+        {key: 'supers', scope: 'sub', title: 'Supers', items: subPool.supers},
+        {key: 'classAbilities', scope: 'sub', title: 'Class Abilities', items: subPool.classAbilities},
+        {key: 'jumps', scope: 'sub', title: 'Jumps', items: subPool.jumps},
+        {key: 'melees', scope: 'sub', title: 'Melees', items: subPool.melees},
+        {key: 'grenades', scope: 'sub', title: 'Grenades', items: subPool.grenades},
+        {
+            key: 'aspects',
+            scope: 'sub',
+            title: 'Aspects',
+            items: subPool.aspects.map(a => typeof a === 'string' ? a : a.name)
+        },
+        {key: 'fragments', scope: 'sub', title: 'Fragments', items: subPool.fragments},
+        {key: 'artifact', scope: 'shared', title: 'Artifact Tiers', items: gameData.shared.artifactTiers},
+        {key: 'mods', scope: 'shared', title: 'Armour Mod Slots', items: gameData.shared.armorModSlots},
         {
             key: 'exoticArmour',
+            scope: 'shared',
             title: 'Exotic Armour',
             items: gameData.classes[cls].exoticArmor.map(a => typeof a === 'string' ? a : a.name)
         },
         {
             key: 'exoticWeapon',
+            scope: 'shared',
             title: 'Exotic Weapons',
             items: gameData.shared.exoticWeapons.map(w => typeof w === 'string' ? w : w.name)
         }
     ];
-
     manualUnlocksContainer.innerHTML = '';
     sections.forEach(sec => {
         const box = document.createElement('div');
@@ -269,44 +337,53 @@ function renderManualCheckboxes(preselectCurrent) {
         const h4 = document.createElement('h4');
         h4.textContent = sec.title;
         box.appendChild(h4);
-
+        const sourceList = sec.scope === 'sub' ? savedKit[sec.key] : (preselectSaved ? runState[sec.key] : []);
         sec.items.forEach(item => {
             const label = document.createElement('label');
             const cb = document.createElement('input');
             cb.type = 'checkbox';
             cb.value = item;
             cb.setAttribute('data-manual-key', sec.key);
-            if (preselectCurrent && Array.isArray(runState[sec.key]) && runState[sec.key].includes(item)) {
+            cb.setAttribute('data-manual-scope', sec.scope);
+            if (Array.isArray(sourceList) && sourceList.includes(item)) {
                 cb.checked = true;
             }
             label.appendChild(cb);
             label.appendChild(document.createTextNode(' ' + item));
             box.appendChild(label);
         });
-
         manualUnlocksContainer.appendChild(box);
     });
 }
 
 if (btnApplyManual) {
     btnApplyManual.addEventListener('click', () => {
+        clearDraft();
         const cls = manualClassSelect.value;
         const sub = manualSubclassSelect.value;
-
-        const newState = getDefaultRunState();
+        const newState = runState.className === cls ? {...runState} : getDefaultRunState();
         newState.className = cls;
-        newState.subclass = sub;
-        if (runState.className === cls && runState.subclass === sub) {
-            newState.history = [...runState.history];
+        newState.activeSubclass = sub;
+        if (!newState.unlockedSubclasses.includes(sub)) {
+            newState.unlockedSubclasses.push(sub);
         }
+        const updatedSubKit = getEmptySubclassKit();
+        newState.artifact = [];
+        newState.mods = [];
+        newState.exoticArmour = [];
+        newState.exoticWeapon = [];
         manualUnlocksContainer.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
             const key = cb.getAttribute('data-manual-key');
-            if (newState[key]) {
+            const scope = cb.getAttribute('data-manual-scope');
+            if (scope === 'sub' && updatedSubKit[key]) {
+                updatedSubKit[key].push(cb.value);
+            } else if (scope === 'shared' && newState[key]) {
                 newState[key].push(cb.value);
             }
         });
+        newState.subclassData[sub] = updatedSubKit;
         runState = newState;
-        addHistory("Resume", `Loaded manual state for ${cls} (${sub})`, "start");
+        addHistory("Resume", `Updated / loaded ${cls} (${sub}), "start"`);
         updateUI();
         saveToStorage();
         setButtonsDisabled(false);
@@ -330,21 +407,22 @@ function getRandomItems(array, count) {
 
 // Synergy Calculation & Filtering
 function recalculateSynergies() {
-    if (!gameData || !runState.className) {
+    if (!gameData || !runState.className || !runState.activeSubclass) {
         runState.synergies = [];
         return;
     }
+    const kit = getActiveKit();
     const tagSet = new Set();
-    tagSet.add(runState.subclass);
-    (SUBCLASS_ELEMENTS[runState.subclass] || []).forEach(el => tagSet.add(el));
+    tagSet.add(runState.activeSubclass);
+    (SUBCLASS_ELEMENTS[runState.activeSubclass] || []).forEach(el => tagSet.add(el));
     [
-        ...runState.supers,
-        ...runState.classAbilities,
-        ...runState.jumps,
-        ...runState.melees,
-        ...runState.grenades,
-        ...runState.aspects,
-        ...runState.fragments
+        ...kit.supers,
+        ...kit.classAbilities,
+        ...kit.jumps,
+        ...kit.melees,
+        ...kit.grenades,
+        ...kit.aspects,
+        ...kit.fragments
     ].forEach(ability => tagSet.add(ability));
     const allArmour = gameData.classes[runState.className].exoticArmor;
     runState.exoticArmour.forEach(name => {
@@ -371,7 +449,7 @@ function getAvailableExoticArmour() {
     if (config.enforceSynergy) {
         const synergistic = allUnowned.filter(armour => {
             const isNeutral = armour.subclasses.includes("Any");
-            const matchesSub = armour.subclasses.includes(runState.subclass);
+            const matchesSub = armour.subclasses.some(s => runState.unlockedSubclasses.includes(s));
             if (!isNeutral && !matchesSub) return false;
             const requirements = (armour.tags || []).filter(t => t.startsWith("Requires:"));
             if (requirements.length > 0) {
@@ -412,13 +490,14 @@ function getAvailableExoticWeapons() {
 
 function setButtonsDisabled(disabled) {
     const hasRun = Boolean(runState.className);
+    const draftLocked = pendingDraftChoices.length > 0;
     const availArmour = getAvailableExoticArmour().items.length > 0;
     const availWeapons = getAvailableExoticWeapons().items.length > 0;
     if (btnNewRun) btnNewRun.disabled = disabled;
-    if (btnSpin) btnSpin.disabled = disabled || !hasRun;
-    if (btnExoticAny) btnExoticAny.disabled = disabled || !hasRun || (!availArmour && !availWeapons);
-    if (btnExoticArmour) btnExoticArmour.disabled = disabled || !hasRun || !availArmour;
-    if (btnExoticWeapon) btnExoticWeapon.disabled = disabled || !hasRun || !availWeapons;
+    if (btnSpin) btnSpin.disabled = disabled || !hasRun || draftLocked;
+    if (btnExoticAny) btnExoticAny.disabled = disabled || !hasRun || draftLocked || (!availArmour && !availWeapons);
+    if (btnExoticArmour) btnExoticArmour.disabled = disabled || !hasRun || draftLocked || !availArmour;
+    if (btnExoticWeapon) btnExoticWeapon.disabled = disabled || !hasRun || draftLocked || !availWeapons;
 }
 
 // Visual Spin Animation Helper
@@ -455,28 +534,223 @@ function addHistory(badgeText, description, badgeType = '') {
     renderHistory();
 }
 
+// Shared Unlock Applicator (Used by both instant spins and Roguelite draft picks)
+function applyUnlockChoice(choice, wasDrafted = false) {
+    const {category, subclass, item, isWildcard} = choice;
+    const isExotic = category === 'Exotic Armour' || category === 'Exotic Weapon';
+
+    if (category === 'Subclass') {
+        runState.unlockedSubclasses.push(item);
+        runState.activeSubclass = item;
+        runState.subclassData[item] = generateSubclassKit(runState.className, item, config.startFullSubclass);
+        const suffix = wasDrafted ? ' (Drafted)' : '';
+        addHistory("Subclass", `Unlocked ${item}${suffix}`, "start");
+    } else {
+        const targetSub = subclass || runState.activeSubclass;
+        if (!runState.subclassData[targetSub]) {
+            runState.subclassData[targetSub] = getEmptySubclassKit();
+        }
+        const kit = runState.subclassData[targetSub];
+
+        if (category === 'Super') kit.supers.push(item);
+        else if (category === 'Class Ability') kit.classAbilities.push(item);
+        else if (category === 'Jump') kit.jumps.push(item);
+        else if (category === 'Melee') kit.melees.push(item);
+        else if (category === 'Grenade') kit.grenades.push(item);
+        else if (category === 'Aspect') kit.aspects.push(item);
+        else if (category === 'Fragment') kit.fragments.push(item);
+        else if (category === 'Artifact') runState.artifact.push(item);
+        else if (category === 'Armour Mod') runState.mods.push(item);
+        else if (category === 'Exotic Armour') runState.exoticArmour.push(item);
+        else if (category === 'Exotic Weapon') runState.exoticWeapon.push(item);
+
+        const isSubScoped = ['Super', 'Class Ability', 'Jump', 'Melee', 'Grenade', 'Aspect', 'Fragment'].includes(category);
+        if (isSubScoped && targetSub) {
+            runState.activeSubclass = targetSub;
+        }
+
+        const scopePrefix = isSubScoped && targetSub ? `[${targetSub}] ` : '';
+        const suffix = wasDrafted ? ' (Drafted)' : '';
+        const badgeLabel = isWildcard ? `${category} • Wildcard` : category;
+        const badgeStyle = isWildcard ? 'wildcard' : (isExotic ? 'exotic' : '');
+
+        addHistory(badgeLabel, `${scopePrefix}Unlocked ${item}${suffix}`, badgeStyle);
+    }
+
+    updateUI();
+}
+
+function showDraftChoices(choices) {
+    pendingDraftChoices = choices;
+    if (!draftContainer || !draftCards) return;
+
+    draftCards.innerHTML = '';
+    choices.forEach(choice => {
+        const isExotic = choice.category === 'Exotic Armour' || choice.category === 'Exotic Weapon';
+        const isPrismatic = (choice.category === 'Subclass' && choice.item === 'Prismatic') || choice.subclass === 'Prismatic';
+        const isSubScoped = ['Super', 'Class Ability', 'Jump', 'Melee', 'Grenade', 'Aspect', 'Fragment'].includes(choice.category);
+
+        const card = document.createElement('button');
+        card.type = 'button';
+        card.className = 'draft-card';
+        if (isExotic) card.classList.add('exotic');
+        if (isPrismatic) card.classList.add('prismatic');
+
+        const subTag = isSubScoped && choice.subclass ? ` • ${choice.subclass}` : '';
+        const catText = choice.isWildcard ? `${choice.category}${subTag} • Wildcard` : `${choice.category}${subTag}`;
+
+        card.innerHTML = `
+      <span class="draft-card-cat">${catText}</span>
+      <span class="draft-card-name">${choice.item}</span>
+      <span class="draft-card-cta">Click to Select ➔</span>
+    `;
+
+        card.addEventListener('click', () => {
+            if (isSpinning) return;
+            clearDraft();
+            const displayLabel = isSubScoped && choice.subclass ? `[${choice.subclass}] ${choice.item}` : choice.item;
+            if (spinCategory) spinCategory.textContent = `DRAFTED: ${choice.category.toUpperCase()}`;
+            if (spinResult) spinResult.textContent = displayLabel;
+            if (spinDisplay) spinDisplay.className = `spinner-box ${isExotic ? 'exotic-win' : (isPrismatic ? 'prismatic-win' : '')}`;
+
+            applyUnlockChoice(choice, true);
+            saveToStorage();
+            setButtonsDisabled(false);
+        });
+
+        draftCards.appendChild(card);
+    });
+
+    draftContainer.classList.remove('hidden');
+    setButtonsDisabled(false);
+}
+
+// Build Candidate Pools for Standard Spin
+function getStandardSpinPools() {
+    const allClassSubclasses = Object.keys(gameData.classes[runState.className].subclasses);
+
+    const pools = {
+        'Subclass': allClassSubclasses
+            .filter(s => !runState.unlockedSubclasses.includes(s))
+            .map(s => ({subclass: s, item: s})),
+        'Super': [],
+        'Class Ability': [],
+        'Jump': [],
+        'Melee': [],
+        'Grenade': [],
+        'Aspect': [],
+        'Fragment': [],
+        'Artifact': gameData.shared.artifactTiers
+            .filter(t => !runState.artifact.includes(t))
+            .map(t => ({subclass: null, item: t})),
+        'Armour Mod': gameData.shared.armorModSlots
+            .filter(m => !runState.mods.includes(m))
+            .map(m => ({subclass: null, item: m}))
+    };
+
+    // Gather unowned items across EVERY unlocked subclass
+    runState.unlockedSubclasses.forEach(sub => {
+        const kit = runState.subclassData[sub] || getEmptySubclassKit();
+        const subPool = gameData.classes[runState.className].subclasses[sub];
+        const aspectNames = subPool.aspects.map(a => typeof a === 'string' ? a : a.name);
+
+        subPool.supers.filter(s => !kit.supers.includes(s))
+            .forEach(s => pools['Super'].push({subclass: sub, item: s}));
+
+        subPool.classAbilities.filter(c => !kit.classAbilities.includes(c))
+            .forEach(c => pools['Class Ability'].push({subclass: sub, item: c}));
+
+        subPool.jumps.filter(j => !kit.jumps.includes(j))
+            .forEach(j => pools['Jump'].push({subclass: sub, item: j}));
+
+        subPool.melees.filter(m => !kit.melees.includes(m))
+            .forEach(m => pools['Melee'].push({subclass: sub, item: m}));
+
+        subPool.grenades.filter(g => !kit.grenades.includes(g))
+            .forEach(g => pools['Grenade'].push({subclass: sub, item: g}));
+
+        aspectNames.filter(a => !kit.aspects.includes(a))
+            .forEach(a => pools['Aspect'].push({subclass: sub, item: a}));
+
+        // Fragments unlock per-subclass once that specific subclass has at least 1 Aspect
+        if (kit.aspects.length > 0) {
+            subPool.fragments.filter(f => !kit.fragments.includes(f))
+                .forEach(f => pools['Fragment'].push({subclass: sub, item: f}));
+        }
+    });
+
+    const eligibleCategories = [];
+    Object.keys(pools).forEach(cat => {
+        if (config.enabledCategories[cat] && pools[cat].length > 0) {
+            eligibleCategories.push(cat);
+        }
+    });
+
+    const fallbackFlags = {'Exotic Armour': false, 'Exotic Weapon': false};
+
+    if (config.includeExoticsInStandard) {
+        const armourData = getAvailableExoticArmour();
+        const weaponData = getAvailableExoticWeapons();
+        if (armourData.items.length > 0) {
+            pools['Exotic Armour'] = armourData.items.map(item => ({subclass: null, item}));
+            fallbackFlags['Exotic Armour'] = armourData.isFallback;
+            eligibleCategories.push('Exotic Armour');
+        }
+        if (weaponData.items.length > 0) {
+            pools['Exotic Weapon'] = weaponData.items.map(item => ({subclass: null, item}));
+            fallbackFlags['Exotic Weapon'] = weaponData.isFallback;
+            eligibleCategories.push('Exotic Weapon');
+        }
+    }
+
+    return {pools, eligibleCategories, fallbackFlags};
+}
+
+function rollStandardDraft(count = 3) {
+    const {pools, eligibleCategories, fallbackFlags} = getStandardSpinPools();
+    if (eligibleCategories.length === 0) return [];
+
+    const workingPools = {};
+    eligibleCategories.forEach(cat => {
+        workingPools[cat] = [...pools[cat]];
+    });
+
+    const choices = [];
+    const usedCategories = new Set();
+
+    for (let i = 0; i < count; i++) {
+        const nonEmptyCats = eligibleCategories.filter(cat => workingPools[cat].length > 0);
+        if (nonEmptyCats.length === 0) break;
+
+        const distinctCats = nonEmptyCats.filter(cat => !usedCategories.has(cat));
+        const catPool = distinctCats.length > 0 ? distinctCats : nonEmptyCats;
+
+        const chosenCat = getRandomItem(catPool);
+        usedCategories.add(chosenCat);
+
+        const itemIndex = Math.floor(Math.random() * workingPools[chosenCat].length);
+        const chosenEntry = workingPools[chosenCat].splice(itemIndex, 1)[0];
+
+        choices.push({
+            category: chosenCat,
+            subclass: chosenEntry.subclass,
+            item: chosenEntry.item,
+            isWildcard: Boolean(fallbackFlags[chosenCat])
+        });
+    }
+
+    return choices;
+}
+
 // 1. Start New Run
 if (btnNewRun) {
     btnNewRun.addEventListener('click', () => {
         if (!gameData || isSpinning) return;
+        clearDraft();
         const classes = Object.keys(gameData.classes);
         const chosenClass = getRandomItem(classes);
         const subclasses = Object.keys(gameData.classes[chosenClass].subclasses);
         const chosenSubclass = getRandomItem(subclasses);
-        const subData = gameData.classes[chosenClass].subclasses[chosenSubclass];
-        const startSuper = getRandomItem(subData.supers);
-        const startClassAbility = getRandomItem(subData.classAbilities);
-        const startJump = getRandomItem(subData.jumps);
-        const startMelee = getRandomItem(subData.melees);
-        const startGrenade = getRandomItem(subData.grenades);
-        let startAspects = [];
-        let startFragments = [];
-        if (config.startFullSubclass) {
-            const pickedAspectObjs = getRandomItems(subData.aspects, 2);
-            startAspects = pickedAspectObjs.map(a => typeof a === 'string' ? a : a.name);
-            const totalSlots = pickedAspectObjs.reduce((sum, a) => sum + (typeof a === 'object' && a.slots ? a.slots : 2), 0);
-            startFragments = getRandomItems(subData.fragments, totalSlots);
-        }
         const previewPool = [];
         classes.forEach(c => {
             Object.keys(gameData.classes[c].subclasses).forEach(sub => {
@@ -488,101 +762,98 @@ if (btnNewRun) {
         animateSpin("ROLLING STARTING GUARDIAN...", previewPool, finalLabel, winStyle, () => {
             const freshState = getDefaultRunState();
             freshState.className = chosenClass;
-            freshState.subclass = chosenSubclass;
-            freshState.supers = [startSuper];
-            freshState.classAbilities = [startClassAbility];
-            freshState.jumps = [startJump];
-            freshState.melees = [startMelee];
-            freshState.grenades = [startGrenade];
-            freshState.aspects = startAspects;
-            freshState.fragments = startFragments;
+            freshState.activeSubclass = chosenSubclass;
+            freshState.unlockedSubclasses = [chosenSubclass];
+            freshState.subclassData[chosenSubclass] = generateSubclassKit(chosenClass, chosenSubclass, config.startFullSubclass);
             runState = freshState;
+            const kit = getActiveKit();
             if (spinCategory) spinCategory.textContent = "STARTING RUN STATE";
             const startSummary = config.startFullSubclass
-                ? `${chosenClass} (${chosenSubclass}) — Full Subclass (${startAspects.length} Aspects, ${startFragments.length} Fragments)`
+                ? `${chosenClass} (${chosenSubclass}) — Full Subclass (${kit.aspects.length} Aspects, ${kit.fragments.length} Fragments)`
                 : `${chosenClass} (${chosenSubclass}) — Basic kit rolled`;
             addHistory("Start", startSummary, "start");
             updateUI();
         });
     });
 }
-// 2. Standard Two-Step Spin
+// 2. Standard Spin (Instant or Roguelite 3-Card Draft)
 if (btnSpin) {
     btnSpin.addEventListener('click', () => {
-        if (isSpinning || !runState.className) return;
-        const subclassData = gameData.classes[runState.className].subclasses[runState.subclass];
-        const aspectNames = subclassData.aspects.map(a => typeof a === 'string' ? a : a.name);
-        const pools = {
-            'Super': subclassData.supers.filter(s => !runState.supers.includes(s)),
-            'Class Ability': subclassData.classAbilities.filter(c => !runState.classAbilities.includes(c)),
-            'Jump': subclassData.jumps.filter(j => !runState.jumps.includes(j)),
-            'Melee': subclassData.melees.filter(m => !runState.melees.includes(m)),
-            'Grenade': subclassData.grenades.filter(g => !runState.grenades.includes(g)),
-            'Aspect': aspectNames.filter(a => !runState.aspects.includes(a)),
-            'Fragment': runState.aspects.length > 0 ? subclassData.fragments.filter(f => !runState.fragments.includes(f)) : [],
-            'Artifact': gameData.shared.artifactTiers.filter(t => !runState.artifact.includes(t)),
-            'Armour Mod': gameData.shared.armorModSlots.filter(m => !runState.mods.includes(m))
-        };
-        const eligibleCategories = [];
-        Object.keys(pools).forEach(cat => {
-            if (config.enabledCategories[cat] && pools[cat].length > 0) {
-                eligibleCategories.push(cat);
-            }
-        });
-        let fallbackFlags = {'Exotic Armour': false, 'Exotic Weapon': false};
-        if (config.includeExoticsInStandard) {
-            const armourData = getAvailableExoticArmour();
-            const weaponData = getAvailableExoticWeapons();
-            if (armourData.items.length > 0) {
-                pools['Exotic Armour'] = armourData.items;
-                fallbackFlags['Exotic Armour'] = armourData.isFallback;
-                eligibleCategories.push('Exotic Armour');
-            }
-            if (weaponData.items.length > 0) {
-                pools['Exotic Weapon'] = weaponData.items;
-                fallbackFlags['Exotic Weapon'] = weaponData.isFallback;
-                eligibleCategories.push('Exotic Weapon');
-            }
-        }
+        if (isSpinning || !runState.className || pendingDraftChoices.length > 0) return;
+        const {pools, eligibleCategories, fallbackFlags} = getStandardSpinPools();
         if (eligibleCategories.length === 0) {
             if (spinCategory) spinCategory.textContent = "NO ELIGIBLE ITEMS";
-            if (spinResult) spinResult.textContent = "All enabled categories are unlocked (or disabled in Config)!";
+            if (spinResult) spinResult.textContent = `All enabled categories for ${runState.activeSubclass} are unlocked!`;
             return;
         }
+        if (config.rogueliteMode) {
+            const choices = rollStandardDraft(3);
+            const previewItems = choices.map(c => c.item);
+            const visualPool = previewItems.length > 1 ? [...previewItems, "Scanning Subclass...", "Decrypting Engram..."] : [previewItems[0], "Rolling Draft..."];
+            animateSpin("ROGUELITE DRAFT", visualPool, `Drafted ${choices.length} Options — Pick One Below!`, '', () => {
+                showDraftChoices(choices);
+            });
+            return;
+        }
+        // Standard single roll
         const chosenCategory = getRandomItem(eligibleCategories);
         const targetPool = pools[chosenCategory];
-        const unlockedItem = getRandomItem(targetPool);
-        const visualPool = targetPool.length > 1 ? targetPool : [unlockedItem, "Decrypting Engram...", "Scanning Subclass..."];
+        const chosenEntry = getRandomItem(targetPool);
+        const unlockedItem = chosenEntry.item;
+        const isSubScoped = ['Super', 'Class Ability', 'Jump', 'Melee', 'Grenade', 'Aspect', 'Fragment'].includes(chosenCategory);
+        const displayResult = isSubScoped && chosenEntry.subclass ? `[${chosenEntry.subclass}] ${unlockedItem}` : unlockedItem;
+
+        const previewNames = targetPool.map(e => e.item);
+        const visualPool = previewNames.length > 1 ? previewNames : [unlockedItem, "Decrypting Engram...", "Scanning Subclasses..."];
         const isExotic = chosenCategory === 'Exotic Armour' || chosenCategory === 'Exotic Weapon';
         const isWildcard = Boolean(fallbackFlags[chosenCategory]);
+
         const bannerTitle = isWildcard
             ? `CATEGORY: ${chosenCategory.toUpperCase()} (WILDCARD FALLBACK)`
             : `CATEGORY: ${chosenCategory.toUpperCase()}`;
-        animateSpin(bannerTitle, visualPool, unlockedItem, isExotic ? 'exotic-win' : '', () => {
-            if (chosenCategory === 'Super') runState.supers.push(unlockedItem);
-            else if (chosenCategory === 'Class Ability') runState.classAbilities.push(unlockedItem);
-            else if (chosenCategory === 'Jump') runState.jumps.push(unlockedItem);
-            else if (chosenCategory === 'Melee') runState.melees.push(unlockedItem);
-            else if (chosenCategory === 'Grenade') runState.grenades.push(unlockedItem);
-            else if (chosenCategory === 'Aspect') runState.aspects.push(unlockedItem);
-            else if (chosenCategory === 'Fragment') runState.fragments.push(unlockedItem);
-            else if (chosenCategory === 'Artifact') runState.artifact.push(unlockedItem);
-            else if (chosenCategory === 'Armour Mod') runState.mods.push(unlockedItem);
-            else if (chosenCategory === 'Exotic Armour') runState.exoticArmour.push(unlockedItem);
-            else if (chosenCategory === 'Exotic Weapon') runState.exoticWeapon.push(unlockedItem);
-            const badgeLabel = isWildcard ? `${chosenCategory} • Wildcard` : chosenCategory;
-            const badgeStyle = isWildcard ? 'wildcard' : (isExotic ? 'exotic' : '');
-            addHistory(badgeLabel, `Unlocked ${unlockedItem}`, badgeStyle);
-            updateUI();
+
+        const winStyle = isExotic ? 'exotic-win' : ((chosenCategory === 'Subclass' && unlockedItem === 'Prismatic') || chosenEntry.subclass === 'Prismatic' ? 'prismatic-win' : '');
+
+        animateSpin(bannerTitle, visualPool, displayResult, winStyle, () => {
+            applyUnlockChoice({
+                category: chosenCategory,
+                subclass: chosenEntry.subclass,
+                item: unlockedItem,
+                isWildcard
+            }, false);
         });
     });
 }
 
-// 3. Dedicated Exotic Spin Handlers
+// 3. Dedicated Exotic Spin Handlers (Instant or Roguelite 3-Card Draft)
 function handleExoticSpin(mode) {
-    if (isSpinning || !runState.className) return;
+    if (isSpinning || !runState.className || pendingDraftChoices.length > 0) return;
     const armourData = getAvailableExoticArmour();
     const weaponData = getAvailableExoticWeapons();
+    if (config.rogueliteMode) {
+        const candidates = [];
+        if (mode === 'armour' || mode === 'any') {
+            armourData.items.forEach(item => candidates.push({
+                category: 'Exotic Armour',
+                item,
+                isWildcard: armourData.isFallback
+            }));
+        }
+        if (mode === 'weapon' || mode === 'any') {
+            weaponData.items.forEach(item => candidates.push({
+                category: 'Exotic Weapon',
+                item,
+                isWildcard: weaponData.isFallback
+            }));
+        }
+        if (candidates.length === 0) return;
+        const choices = getRandomItems(candidates, 3);
+        const visualPool = choices.length > 1 ? choices.map(c => c.item) : [choices[0].item, "Decrypting Exotic Engram..."];
+        animateSpin("ROGUELITE EXOTIC DRAFT", visualPool, `Drafted ${choices.length} Exotics — Pick One Below!`, 'exotic-win', () => {
+            showDraftChoices(choices);
+        });
+        return;
+    }
     let rollType = mode;
     if (mode === 'any') {
         if (armourData.items.length > 0 && weaponData.items.length > 0) {
@@ -602,11 +873,7 @@ function handleExoticSpin(mode) {
             ? `EXOTIC ${runState.className.toUpperCase()} ARMOUR (WILDCARD FALLBACK)`
             : `EXOTIC ${runState.className.toUpperCase()} ARMOUR`;
         animateSpin(label, visualPool, chosen, 'exotic-win', () => {
-            runState.exoticArmour.push(chosen);
-            const badgeText = armourData.isFallback ? "Exotic Armour • Wildcard" : "Exotic Armour";
-            const badgeClass = armourData.isFallback ? "wildcard" : "exotic";
-            addHistory(badgeText, `Unlocked ${chosen}`, badgeClass);
-            updateUI();
+            applyUnlockChoice({category: 'Exotic Armour', item: chosen, isWildcard: armourData.isFallback}, false);
         });
     } else if (rollType === 'weapon' && weaponData.items.length > 0) {
         const chosen = getRandomItem(weaponData.items);
@@ -615,11 +882,7 @@ function handleExoticSpin(mode) {
             ? "EXOTIC WEAPON (WILDCARD FALLBACK)"
             : "EXOTIC WEAPON";
         animateSpin(label, visualPool, chosen, 'exotic-win', () => {
-            runState.exoticWeapon.push(chosen);
-            const badgeText = weaponData.isFallback ? "Exotic Weapon • Wildcard" : "Exotic Weapon";
-            const badgeClass = weaponData.isFallback ? "wildcard" : "exotic";
-            addHistory(badgeText, `Unlocked ${chosen}`, badgeClass);
-            updateUI();
+            applyUnlockChoice({category: 'Exotic Weapon', item: chosen, isWildcard: weaponData.isFallback}, false);
         });
     }
 }
@@ -628,28 +891,54 @@ if (btnExoticAny) btnExoticAny.addEventListener('click', () => handleExoticSpin(
 if (btnExoticArmour) btnExoticArmour.addEventListener('click', () => handleExoticSpin('armour'));
 if (btnExoticWeapon) btnExoticWeapon.addEventListener('click', () => handleExoticSpin('weapon'));
 
+// Render Clickable Subclass Tabs
+function renderSubclassTabs() {
+    const container = document.getElementById('subclass-tabs');
+    const activeLabel = document.getElementById('active-sub-label');
+    if (!container) return;
+    if (activeLabel) activeLabel.textContent = runState.activeSubclass || '—';
+    container.innerHTML = '';
+    if (!runState.unlockedSubclasses || runState.unlockedSubclasses.length === 0) {
+        container.innerHTML = 'Not rolled';
+        return;
+    }
+    runState.unlockedSubclasses.forEach(sub => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'sub-tab';
+        if (sub === 'Prismatic') btn.classList.add('prismatic');
+        if (sub === runState.activeSubclass) btn.classList.add('active');
+        btn.textContent = sub;
+        btn.addEventListener('click', () => {
+            if (isSpinning || runState.activeSubclass === sub || pendingDraftChoices.length > 0) return;
+            runState.activeSubclass = sub;
+            saveToStorage();
+            updateUI();
+            setButtonsDisabled(false);
+        });
+        container.appendChild(btn);
+    });
+}
+
 // Update the HTML display
 function updateUI() {
     recalculateSynergies();
     const elClass = document.getElementById('state-class');
-    const elSub = document.getElementById('state-subclass');
-    if (elClass) elClass.textContent = runState.className;
-    if (elSub) {
-        elSub.textContent = runState.subclass;
-        elSub.className = runState.subclass === 'Prismatic' ? 'prismatic-text' : '';
-    }
-    renderList('list-supers', runState.supers, 'Not rolled');
-    renderList('list-class-abilities', runState.classAbilities, 'None');
-    renderList('list-jumps', runState.jumps, 'None');
-    renderList('list-melees', runState.melees, 'None');
-    renderList('list-grenades', runState.grenades, 'None');
-    renderList('list-exotic-armour', runState.exoticArmour, 'None unlocked', true);
-    renderList('list-exotic-weapon', runState.exoticWeapon, 'None unlocked', true);
-    renderList('list-aspects', runState.aspects, 'None unlocked');
-    const fragEmptyText = runState.aspects.length === 0
+    if (elClass) elClass.textContent = runState.className || 'Not rolled';
+    renderSubclassTabs();
+    const kit = getActiveKit();
+    renderList('list-supers', kit.supers, 'Not rolled');
+    renderList('list-class-abilities', kit.classAbilities, 'None');
+    renderList('list-jumps', kit.jumps, 'None');
+    renderList('list-melees', kit.melees, 'None');
+    renderList('list-grenades', kit.grenades, 'None');
+    renderList('list-aspects', kit.aspects, 'None unlocked');
+    const fragEmptyText = kit.aspects.length === 0
         ? 'Locked (Requires 1 Aspect)'
         : 'None unlocked';
-    renderList('list-fragments', runState.fragments, fragEmptyText);
+    renderList('list-fragments', kit.fragments, fragEmptyText);
+    renderList('list-exotic-armour', runState.exoticArmour, 'None unlocked', true);
+    renderList('list-exotic-weapon', runState.exoticWeapon, 'None unlocked', true);
     renderList('list-artifact', runState.artifact, 'None unlocked');
     renderList('list-mods', runState.mods, 'None unlocked');
     renderSynergies();
@@ -705,7 +994,7 @@ function renderHistory() {
     }
     runState.history.forEach(entry => {
         const li = document.createElement('li');
-        li.innerHTML = `<span><strong>#${entry.step}</strong> ${entry.text}</span> <span class="badge ${entry.type}">${entry.badge}</span>`;
+        li.innerHTML = `<span><strong>#${entry.step}</strong> &nbsp;${entry.text}</span> <span class="badge ${entry.type}">${entry.badge}</span>`;
         ul.appendChild(li);
     });
 }
