@@ -4213,6 +4213,19 @@
           "Solar"
         ]
       }
+    ],
+    "dungeons": [
+      { "name": "The Shattered Throne", "encounters": 3 },
+      { "name": "Pit of Heresy", "encounters": 3 },
+      { "name": "Prophecy", "encounters": 3 },
+      { "name": "Grasp of Avarice", "encounters": 3 },
+      { "name": "Duality", "encounters": 3 },
+      { "name": "Spire of the Watcher", "encounters": 3 },
+      { "name": "Ghosts of the Deep", "encounters": 3 },
+      { "name": "Warlord's Ruin", "encounters": 3 },
+      { "name": "Vesper's Host", "encounters": 3 },
+      { "name": "Sundered Doctrine", "encounters": 3 },
+      { "name": "Equilibrium", "encounters": 3 }
     ]
   }
 }

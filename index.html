@@ -11,7 +11,7 @@
 <div class="container">
   <header>
     <h1>Destiny 2 Run Randomiser</h1>
-    <p>Start with a basic kit, then spin to unlock subclasses, abilities, aspects, fragments, mods, and exotics.</p>
+    <p>Start with a basic kit, spin to unlock build elements, and track your Dungeon Gauntlet progress.</p>
   </header>
 
   <div class="controls-wrapper">
@@ -53,8 +53,8 @@
     <hr class="divider">
 
     <div class="config-section">
-      <h3>Starting Run Mode</h3>
-      <p class="config-hint">Choose whether new runs (and newly unlocked subclasses) start with a basic kit or a full random loadout.</p>
+      <h3>Run &amp; Draft Modes</h3>
+      <p class="config-hint">Customise how new runs start and how spins are presented.</p>
       <div class="checkbox-grid">
         <label class="exotic-toggle">
           <input type="checkbox" id="toggle-full-start"> Start with Full Random Subclass (2 Aspects + Exact Fragment Slots)
@@ -62,6 +62,34 @@
         <label class="exotic-toggle">
           <input type="checkbox" id="toggle-roguelite"> Roguelite Mode (Choose 1 from 3 rolled unlocks)
         </label>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="config-section">
+      <h3>Dungeon Gauntlet Settings</h3>
+      <p class="config-hint">Enable or configure the dungeon playlist generated for your run.</p>
+      <div class="checkbox-grid" style="margin-bottom: 1rem;">
+        <label class="exotic-toggle">
+          <input type="checkbox" id="toggle-dungeon-gauntlet"> Enable Dungeon Gauntlet Tracker
+        </label>
+      </div>
+      <div class="manual-selectors" id="dungeon-settings-controls">
+        <div class="select-group">
+          <label for="dungeon-order">Dungeon Order:</label>
+          <select id="dungeon-order">
+            <option value="release">In Release Order</option>
+            <option value="chaos">Chaos (Random Order)</option>
+          </select>
+        </div>
+        <div class="select-group">
+          <label for="dungeon-count">Number of Dungeons:</label>
+          <input type="number" id="dungeon-count" min="1" max="15" value="3">
+        </div>
+        <div class="select-group" style="justify-content: flex-end;">
+          <button id="btn-roll-dungeons" type="button" class="btn outline">Reroll Dungeon List Only</button>
+        </div>
       </div>
     </div>
 
@@ -99,6 +127,35 @@
     <div class="draft-header">Choose One Unlock to Add to Your Build:</div>
     <div id="draft-cards" class="draft-cards"></div>
   </div>
+
+  <!-- Dungeon Gauntlet Progress Card -->
+  <section id="dungeon-card" class="card dungeon-card">
+    <div class="dungeon-header-row">
+      <h2>Dungeon Gauntlet Progress</h2>
+      <div class="dungeon-stats">
+        <span class="stat-pill timer-pill">⏱ Time: <strong id="stat-timer">00:00:00</strong></span>
+        <button id="btn-toggle-timer" type="button" class="btn small outline" disabled>⏸ Pause</button>
+        <span class="stat-pill">Dungeons: <strong id="stat-dungeons">0 / 0</strong></span>
+        <span class="stat-pill">Encounters Cleared: <strong id="stat-encounters">0</strong></span>
+        <span class="stat-pill death-pill">Deaths: <strong id="stat-deaths">0</strong></span>
+      </div>
+    </div>
+
+    <div class="dungeon-active-bar">
+      <div>
+        <span class="sub-label" style="margin:0;">Current Target:</span>
+        <div id="current-dungeon-name" class="current-dungeon-title">Start a run to generate dungeon list</div>
+      </div>
+      <div class="dungeon-actions">
+        <button id="btn-finish-encounter" class="btn small secondary" disabled>✓ Finish Encounter (+1)</button>
+        <button id="btn-add-death" class="btn small danger" disabled>☠ Add Death (+1)</button>
+      </div>
+    </div>
+
+    <ul id="dungeon-playlist" class="dungeon-playlist">
+      <li class="muted">No dungeons queued yet.</li>
+    </ul>
+  </section>
 
   <div class="grid">
     <section class="card">
