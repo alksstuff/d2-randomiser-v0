@@ -302,10 +302,18 @@ function getAvailableExoticArmour() {
 
     if (config.enforceSynergy) {
         const synergistic = allUnowned.filter(armour => {
+            // Strictly check subclass compatibility first (never let generic tags bypass subclass)
             const isNeutral = armour.subclasses.includes("Any");
             const matchesSub = armour.subclasses.includes(runState.subclass);
-            const matchesSyn = (armour.tags || []).some(t => runState.synergies.includes(t));
-            return isNeutral || matchesSub || matchesSyn;
+            if (!isNeutral && !matchesSub) return false;
+
+            // Optional extra check: if an exotic requires a specific Super/Ability (tagged with "Requires: ..."), check it
+            const requirements = (armour.tags || []).filter(t => t.startsWith("Requires:"));
+            if (requirements.length > 0) {
+                return requirements.some(req => runState.synergies.includes(req.replace("Requires:", "").trim()));
+            }
+
+            return true;
         });
 
         if (synergistic.length > 0) {
@@ -648,7 +656,18 @@ function recalculateSynergies() {
     tagSet.add(runState.subclass);
     (SUBCLASS_ELEMENTS[runState.subclass] || []).forEach(el => tagSet.add(el));
 
-    // 2. Add unlocked Exotic Armour names & tags
+    // 2. Add all unlocked Supers, Class Abilities, Jumps, Melees, Grenades, Aspects, Fragments
+    [
+        ...runState.supers,
+        ...runState.classAbilities,
+        ...runState.jumps,
+        ...runState.melees,
+        ...runState.grenades,
+        ...runState.aspects,
+        ...runState.fragments
+    ].forEach(ability => tagSet.add(ability));
+
+    // 3. Add unlocked Exotic Armour names & tags
     const allArmour = gameData.classes[runState.className].exoticArmor;
     runState.exoticArmour.forEach(name => {
         tagSet.add(name);
@@ -656,7 +675,7 @@ function recalculateSynergies() {
         if (obj && obj.tags) obj.tags.forEach(t => tagSet.add(t));
     });
 
-    // 3. Add unlocked Exotic Weapon names, elements & synergies
+    // 4. Add unlocked Exotic Weapon names, elements & synergies
     const allWeapons = gameData.shared.exoticWeapons;
     runState.exoticWeapon.forEach(name => {
         tagSet.add(name);
