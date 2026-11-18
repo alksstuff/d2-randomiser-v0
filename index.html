@@ -44,6 +44,9 @@
         <label><input type="checkbox" data-cat="Fragment" checked> Fragments</label>
         <label><input type="checkbox" data-cat="Artifact" checked> Artifact Perks</label>
         <label><input type="checkbox" data-cat="Armour Mod" checked> Armour Mods</label>
+        <label class="exotic-toggle">
+          <input type="checkbox" id="toggle-enforce-synergy"> Enforce Build Synergies (Only roll matching Exotics)
+        </label>
         <label class="exotic-toggle"><input type="checkbox" id="toggle-exotics-in-standard"> Include Exotics in Standard Spins</label>
       </div>
     </div>
@@ -131,6 +134,17 @@
       <ul id="list-exotic-weapon" class="exotic-list">
         <li class="muted">None unlocked</li>
       </ul>
+    </section>
+
+    <section class="card">
+      <details id="synergy-details">
+        <summary class="synergy-summary">
+          Active Build Synergies (<span id="synergy-count">0</span>)
+        </summary>
+        <div id="list-synergies" class="synergy-pills">
+          <span class="muted">No synergies active yet.</span>
+        </div>
+      </details>
     </section>
   </div>
 

@@ -1,19 +1,23 @@
 let gameData = null;
 let isSpinning = false;
 
+const SUBCLASS_ELEMENTS = {
+    Gunslinger: ["Solar"], Sunbreaker: ["Solar"], Dawnblade: ["Solar"],
+    Nightstalker: ["Void"], Sentinel: ["Void"], Voidwalker: ["Void"],
+    Arcstrider: ["Arc"], Striker: ["Arc"], Stormcaller: ["Arc"],
+    Revenant: ["Stasis"], Behemoth: ["Stasis"], Shadebinder: ["Stasis"],
+    Threadrunner: ["Strand"], Berserker: ["Strand"], Broodweaver: ["Strand"],
+    Prismatic: ["Prismatic", "Solar", "Void", "Arc", "Stasis", "Strand"]
+};
+
 let config = {
     enabledCategories: {
-        'Super': true,
-        'Class Ability': true,
-        'Jump': true,
-        'Melee': true,
-        'Grenade': true,
-        'Aspect': true,
-        'Fragment': true,
-        'Artifact': true,
-        'Armour Mod': true
+        'Super': true, 'Class Ability': true, 'Jump': true,
+        'Melee': true, 'Grenade': true, 'Aspect': true,
+        'Fragment': true, 'Artifact': true, 'Armour Mod': true
     },
-    includeExoticsInStandard: false
+    includeExoticsInStandard: false,
+    enforceSynergy: false
 };
 
 let runState = {
@@ -30,8 +34,10 @@ let runState = {
     mods: [],
     exoticArmour: [],
     exoticWeapon: [],
+    synergies: [],
     history: []
 };
+
 
 // DOM Elements
 const btnNewRun = document.getElementById('btn-new-run');
@@ -65,7 +71,7 @@ function loadFromStorage() {
     try {
         const savedConfig = localStorage.getItem('d2_randomiser_config');
         if (savedConfig) {
-            config = { ...config, ...JSON.parse(savedConfig) };
+            config = {...config, ...JSON.parse(savedConfig)};
             syncConfigUI();
         }
         const savedState = localStorage.getItem('d2_randomiser_state');
@@ -92,6 +98,7 @@ function syncConfigUI() {
     });
     const exoticToggle = document.getElementById('toggle-exotics-in-standard');
     if (exoticToggle) exoticToggle.checked = Boolean(config.includeExoticsInStandard);
+    if (toggleEnforceSynergy) toggleEnforceSynergy.checked = Boolean(config.enforceSynergy);
 }
 
 // Load JSON data
@@ -137,6 +144,15 @@ const toggleExoticsStandard = document.getElementById('toggle-exotics-in-standar
 if (toggleExoticsStandard) {
     toggleExoticsStandard.addEventListener('change', () => {
         config.includeExoticsInStandard = toggleExoticsStandard.checked;
+        saveToStorage();
+        setButtonsDisabled(false);
+    });
+}
+
+const toggleEnforceSynergy = document.getElementById('toggle-enforce-synergy');
+if (toggleEnforceSynergy) {
+    toggleEnforceSynergy.addEventListener('change', () => {
+        config.enforceSynergy = toggleEnforceSynergy.checked;
         saveToStorage();
         setButtonsDisabled(false);
     });
@@ -193,17 +209,17 @@ function renderManualCheckboxes(preselectCurrent) {
     }
 
     const sections = [
-        { key: 'supers', title: 'Supers', items: subData.supers },
-        { key: 'classAbilities', title: 'Class Abilities', items: subData.classAbilities },
-        { key: 'jumps', title: 'Jumps', items: subData.jumps },
-        { key: 'melees', title: 'Melees', items: subData.melees },
-        { key: 'grenades', title: 'Grenades', items: subData.grenades },
-        { key: 'aspects', title: 'Aspects', items: subData.aspects },
-        { key: 'fragments', title: 'Fragments', items: subData.fragments },
-        { key: 'artifact', title: 'Artifact Tiers', items: gameData.shared.artifactTiers },
-        { key: 'mods', title: 'Armour Mod Slots', items: gameData.shared.armorModSlots },
-        { key: 'exoticArmour', title: 'Exotic Armour', items: classExotics },
-        { key: 'exoticWeapon', title: 'Exotic Weapons', items: gameData.shared.exoticWeapons }
+        {key: 'supers', title: 'Supers', items: subData.supers},
+        {key: 'classAbilities', title: 'Class Abilities', items: subData.classAbilities},
+        {key: 'jumps', title: 'Jumps', items: subData.jumps},
+        {key: 'melees', title: 'Melees', items: subData.melees},
+        {key: 'grenades', title: 'Grenades', items: subData.grenades},
+        {key: 'aspects', title: 'Aspects', items: subData.aspects},
+        {key: 'fragments', title: 'Fragments', items: subData.fragments},
+        {key: 'artifact', title: 'Artifact Tiers', items: gameData.shared.artifactTiers},
+        {key: 'mods', title: 'Armour Mod Slots', items: gameData.shared.armorModSlots},
+        {key: 'exoticArmour', title: 'Exotic Armour', items: gameData.classes[cls].exoticArmor.map(a => a.name)},
+        {key: 'exoticWeapon', title: 'Exotic Weapons', items: gameData.shared.exoticWeapons.map(w => w.name)}
     ];
 
     manualUnlocksContainer.innerHTML = '';
@@ -280,23 +296,58 @@ function getRandomItem(array) {
 }
 
 function getAvailableExoticArmour() {
-    if (!gameData || !runState.className) return [];
-    let classExotics = [...gameData.classes[runState.className].exoticArmor];
-    if (runState.subclass === 'Prismatic' && gameData.classes[runState.className].prismaticClassItem) {
-        classExotics.push(gameData.classes[runState.className].prismaticClassItem);
+    if (!gameData || !runState.className) return { items: [], isFallback: false };
+    const allUnowned = gameData.classes[runState.className].exoticArmor
+        .filter(armour => !runState.exoticArmour.includes(armour.name));
+
+    if (config.enforceSynergy) {
+        const synergistic = allUnowned.filter(armour => {
+            const isNeutral = armour.subclasses.includes("Any");
+            const matchesSub = armour.subclasses.includes(runState.subclass);
+            const matchesSyn = (armour.tags || []).some(t => runState.synergies.includes(t));
+            return isNeutral || matchesSub || matchesSyn;
+        });
+
+        if (synergistic.length > 0) {
+            return { items: synergistic.map(a => a.name), isFallback: false };
+        }
+        if (allUnowned.length > 0) {
+            return { items: allUnowned.map(a => a.name), isFallback: true };
+        }
     }
-    return classExotics.filter(item => !runState.exoticArmour.includes(item));
+
+    return { items: allUnowned.map(a => a.name), isFallback: false };
 }
 
 function getAvailableExoticWeapons() {
-    if (!gameData) return [];
-    return gameData.shared.exoticWeapons.filter(item => !runState.exoticWeapon.includes(item));
+    if (!gameData) return { items: [], isFallback: false };
+    const allUnowned = gameData.shared.exoticWeapons
+        .filter(weapon => !runState.exoticWeapon.includes(weapon.name));
+
+    if (config.enforceSynergy) {
+        const synergistic = allUnowned.filter(weapon => {
+            const isUniversal = weapon.elements.includes("Any") || weapon.elements.includes("Kinetic");
+            const matchesElement = weapon.elements.some(el => runState.synergies.includes(el));
+            const matchesSyn = (weapon.synergies || []).some(s => runState.synergies.includes(s));
+            return isUniversal || matchesElement || matchesSyn;
+        });
+
+        if (synergistic.length > 0) {
+            return { items: synergistic.map(w => w.name), isFallback: false };
+        }
+        if (allUnowned.length > 0) {
+            return { items: allUnowned.map(w => w.name), isFallback: true };
+        }
+    }
+
+    return { items: allUnowned.map(w => w.name), isFallback: false };
 }
+
 
 function setButtonsDisabled(disabled) {
     const hasRun = Boolean(runState.className);
-    const availArmour = getAvailableExoticArmour().length > 0;
-    const availWeapons = getAvailableExoticWeapons().length > 0;
+    const availArmour = getAvailableExoticArmour().items.length > 0;
+    const availWeapons = getAvailableExoticWeapons().items.length > 0;
 
     if (btnNewRun) btnNewRun.disabled = disabled;
     if (btnSpin) btnSpin.disabled = disabled || !hasRun;
@@ -304,6 +355,7 @@ function setButtonsDisabled(disabled) {
     if (btnExoticArmour) btnExoticArmour.disabled = disabled || !hasRun || !availArmour;
     if (btnExoticWeapon) btnExoticWeapon.disabled = disabled || !hasRun || !availWeapons;
 }
+
 // Visual Spin Animation Helper
 function animateSpin(categoryLabel, poolArray, finalResult, styleClass, onComplete) {
     isSpinning = true;
@@ -326,6 +378,7 @@ function animateSpin(categoryLabel, poolArray, finalResult, styleClass, onComple
         }
     }, 55);
 }
+
 function addHistory(badgeText, description, badgeType = '') {
     const stepNumber = runState.history.length + 1;
     runState.history.unshift({
@@ -336,6 +389,7 @@ function addHistory(badgeText, description, badgeType = '') {
     });
     renderHistory();
 }
+
 // 1. Start New Run
 if (btnNewRun) {
     btnNewRun.addEventListener('click', () => {
@@ -379,8 +433,8 @@ if (btnNewRun) {
             addHistory(
                 "Start",
                 `${chosenClass} (${chosenSubclass}) | Super: ${startSuper} | Kit: ${startClassAbility}, ${startJump}, ${startMelee}, ${startGrenade}`,
-            "start"
-        );
+                "start"
+            );
             updateUI();
         });
     });
@@ -407,29 +461,41 @@ if (btnSpin) {
                 eligibleCategories.push(cat);
             }
         });
+        let fallbackFlags = { 'Exotic Armour': false, 'Exotic Weapon': false };
+
         if (config.includeExoticsInStandard) {
-            const availArmour = getAvailableExoticArmour();
-            const availWeapons = getAvailableExoticWeapons();
-            if (availArmour.length > 0) {
-                pools['Exotic Armour'] = availArmour;
+            const armourData = getAvailableExoticArmour();
+            const weaponData = getAvailableExoticWeapons();
+            if (armourData.items.length > 0) {
+                pools['Exotic Armour'] = armourData.items;
+                fallbackFlags['Exotic Armour'] = armourData.isFallback;
                 eligibleCategories.push('Exotic Armour');
             }
-            if (availWeapons.length > 0) {
-                pools['Exotic Weapon'] = availWeapons;
+            if (weaponData.items.length > 0) {
+                pools['Exotic Weapon'] = weaponData.items;
+                fallbackFlags['Exotic Weapon'] = weaponData.isFallback;
                 eligibleCategories.push('Exotic Weapon');
             }
         }
+
         if (eligibleCategories.length === 0) {
             if (spinCategory) spinCategory.textContent = "NO ELIGIBLE ITEMS";
             if (spinResult) spinResult.textContent = "All enabled categories are unlocked (or disabled in Config)!";
             return;
         }
+
         const chosenCategory = getRandomItem(eligibleCategories);
         const targetPool = pools[chosenCategory];
         const unlockedItem = getRandomItem(targetPool);
         const visualPool = targetPool.length > 1 ? targetPool : [unlockedItem, "Decrypting Engram...", "Scanning Subclass..."];
         const isExotic = chosenCategory === 'Exotic Armour' || chosenCategory === 'Exotic Weapon';
-        animateSpin(`CATEGORY: ${chosenCategory.toUpperCase()}`, visualPool, unlockedItem, isExotic ? 'exotic-win' : '', () => {
+        const isWildcard = Boolean(fallbackFlags[chosenCategory]);
+
+        const bannerTitle = isWildcard
+            ? `CATEGORY: ${chosenCategory.toUpperCase()} (WILDCARD FALLBACK)`
+            : `CATEGORY: ${chosenCategory.toUpperCase()}`;
+
+        animateSpin(bannerTitle, visualPool, unlockedItem, isExotic ? 'exotic-win' : '', () => {
             if (chosenCategory === 'Super') runState.supers.push(unlockedItem);
             else if (chosenCategory === 'Class Ability') runState.classAbilities.push(unlockedItem);
             else if (chosenCategory === 'Jump') runState.jumps.push(unlockedItem);
@@ -441,51 +507,74 @@ if (btnSpin) {
             else if (chosenCategory === 'Armour Mod') runState.mods.push(unlockedItem);
             else if (chosenCategory === 'Exotic Armour') runState.exoticArmour.push(unlockedItem);
             else if (chosenCategory === 'Exotic Weapon') runState.exoticWeapon.push(unlockedItem);
-            addHistory(chosenCategory, `Unlocked ${unlockedItem}`, isExotic ? 'exotic' : '');
+
+            const badgeLabel = isWildcard ? `${chosenCategory} • Wildcard` : chosenCategory;
+            const badgeStyle = isWildcard ? 'wildcard' : (isExotic ? 'exotic' : '');
+            addHistory(badgeLabel, `Unlocked ${unlockedItem}`, badgeStyle);
             updateUI();
         });
     });
 }
+
 // 3. Dedicated Exotic Spin Handlers
 function handleExoticSpin(mode) {
     if (isSpinning || !runState.className) return;
-    const availArmour = getAvailableExoticArmour();
-    const availWeapons = getAvailableExoticWeapons();
+
+    const armourData = getAvailableExoticArmour();
+    const weaponData = getAvailableExoticWeapons();
+
     let rollType = mode;
     if (mode === 'any') {
-        if (availArmour.length > 0 && availWeapons.length > 0) {
+        if (armourData.items.length > 0 && weaponData.items.length > 0) {
             rollType = Math.random() < 0.5 ? 'armour' : 'weapon';
-        } else if (availArmour.length > 0) {
+        } else if (armourData.items.length > 0) {
             rollType = 'armour';
-        } else if (availWeapons.length > 0) {
+        } else if (weaponData.items.length > 0) {
             rollType = 'weapon';
         } else {
             return;
         }
     }
-    if (rollType === 'armour' && availArmour.length > 0) {
-        const chosen = getRandomItem(availArmour);
-        const visualPool = availArmour.length > 1 ? availArmour : [chosen, "Decrypting Exotic Engram..."];
-        animateSpin(`EXOTIC ${runState.className.toUpperCase()} ARMOUR`, visualPool, chosen, 'exotic-win', () => {
+
+    if (rollType === 'armour' && armourData.items.length > 0) {
+        const chosen = getRandomItem(armourData.items);
+        const visualPool = armourData.items.length > 1 ? armourData.items : [chosen, "Decrypting Exotic Engram..."];
+        const label = armourData.isFallback
+            ? `EXOTIC ${runState.className.toUpperCase()} ARMOUR (WILDCARD FALLBACK)`
+            : `EXOTIC ${runState.className.toUpperCase()} ARMOUR`;
+
+        animateSpin(label, visualPool, chosen, 'exotic-win', () => {
             runState.exoticArmour.push(chosen);
-            addHistory("Exotic Armour", `Unlocked ${chosen}`, "exotic");
+            const badgeText = armourData.isFallback ? "Exotic Armour • Wildcard" : "Exotic Armour";
+            const badgeClass = armourData.isFallback ? "wildcard" : "exotic";
+            addHistory(badgeText, `Unlocked ${chosen}`, badgeClass);
             updateUI();
         });
-    } else if (rollType === 'weapon' && availWeapons.length > 0) {
-        const chosen = getRandomItem(availWeapons);
-        const visualPool = availWeapons.length > 1 ? availWeapons : [chosen, "Decrypting Exotic Engram..."];
-        animateSpin("EXOTIC WEAPON", visualPool, chosen, 'exotic-win', () => {
+
+    } else if (rollType === 'weapon' && weaponData.items.length > 0) {
+        const chosen = getRandomItem(weaponData.items);
+        const visualPool = weaponData.items.length > 1 ? weaponData.items : [chosen, "Decrypting Exotic Engram..."];
+        const label = weaponData.isFallback
+            ? "EXOTIC WEAPON (WILDCARD FALLBACK)"
+            : "EXOTIC WEAPON";
+
+        animateSpin(label, visualPool, chosen, 'exotic-win', () => {
             runState.exoticWeapon.push(chosen);
-            addHistory("Exotic Weapon", `Unlocked ${chosen}`, "exotic");
+            const badgeText = weaponData.isFallback ? "Exotic Weapon • Wildcard" : "Exotic Weapon";
+            const badgeClass = weaponData.isFallback ? "wildcard" : "exotic";
+            addHistory(badgeText, `Unlocked ${chosen}`, badgeClass);
             updateUI();
         });
     }
 }
+
 if (btnExoticAny) btnExoticAny.addEventListener('click', () => handleExoticSpin('any'));
 if (btnExoticArmour) btnExoticArmour.addEventListener('click', () => handleExoticSpin('armour'));
 if (btnExoticWeapon) btnExoticWeapon.addEventListener('click', () => handleExoticSpin('weapon'));
+
 // Update the HTML display
 function updateUI() {
+    recalculateSynergies();
     const elClass = document.getElementById('state-class');
     const elSub = document.getElementById('state-subclass');
     if (elClass) elClass.textContent = runState.className;
@@ -507,7 +596,9 @@ function updateUI() {
     renderList('list-fragments', runState.fragments, fragEmptyText);
     renderList('list-artifact', runState.artifact, 'None unlocked');
     renderList('list-mods', runState.mods, 'None unlocked');
+    renderSynergies();
 }
+
 function renderList(elementId, items, emptyMessage, isExotic = false) {
     const ul = document.getElementById(elementId);
     if (!ul) return;
@@ -529,6 +620,7 @@ function renderList(elementId, items, emptyMessage, isExotic = false) {
         ul.appendChild(li);
     });
 }
+
 function renderHistory() {
     const ul = document.getElementById('history-list');
     if (!ul) return;
@@ -541,5 +633,60 @@ function renderHistory() {
         const li = document.createElement('li');
         li.innerHTML = `<span><strong>#${entry.step}</strong> ${entry.text}</span> <span class="badge ${entry.type}">${entry.badge}</span>`;
         ul.appendChild(li);
+    });
+}
+
+function recalculateSynergies() {
+    if (!gameData || !runState.className) {
+        runState.synergies = [];
+        return;
+    }
+
+    const tagSet = new Set();
+
+    // 1. Add Subclass & its native Element(s)
+    tagSet.add(runState.subclass);
+    (SUBCLASS_ELEMENTS[runState.subclass] || []).forEach(el => tagSet.add(el));
+
+    // 2. Add unlocked Exotic Armour names & tags
+    const allArmour = gameData.classes[runState.className].exoticArmor;
+    runState.exoticArmour.forEach(name => {
+        tagSet.add(name);
+        const obj = allArmour.find(a => a.name === name);
+        if (obj && obj.tags) obj.tags.forEach(t => tagSet.add(t));
+    });
+
+    // 3. Add unlocked Exotic Weapon names, elements & synergies
+    const allWeapons = gameData.shared.exoticWeapons;
+    runState.exoticWeapon.forEach(name => {
+        tagSet.add(name);
+        const obj = allWeapons.find(w => w.name === name);
+        if (obj) {
+            (obj.elements || []).forEach(el => tagSet.add(el));
+            (obj.synergies || []).forEach(syn => tagSet.add(syn));
+        }
+    });
+
+    runState.synergies = Array.from(tagSet);
+}
+
+function renderSynergies() {
+    const container = document.getElementById('list-synergies');
+    const countEl = document.getElementById('synergy-count');
+    if (!container) return;
+
+    if (countEl) countEl.textContent = runState.synergies.length;
+    container.innerHTML = '';
+
+    if (runState.synergies.length === 0) {
+        container.innerHTML = '<span class="muted">No synergies active yet.</span>';
+        return;
+    }
+
+    runState.synergies.forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'synergy-pill';
+        span.textContent = tag;
+        container.appendChild(span);
     });
 }

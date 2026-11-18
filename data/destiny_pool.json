@@ -1,419 +1,2450 @@
 {
   "classes": {
     "Hunter": {
-      "prismaticClassItem": "Relativism",
       "exoticArmor": [
-        "Aeon Swift",
-        "Assassin's Cowl",
-        "Athrys's Embrace",
-        "Balance of Power",
-        "Blight Ranger",
-        "Caliban's Hand",
-        "Celestial Nighthawk",
-        "Cyrtarachne's Facade",
-        "Foetracer",
-        "Fortune's Favor",
-        "Fr0st-EE5",
-        "Gemini Jester",
-        "Gifted Conviction",
-        "Graviton Forfeit",
-        "Gwisin Vest",
-        "Gyrfalcon's Hauberk",
-        "Khepri's Sting",
-        "Knucklehead Radar",
-        "Liar's Handshake",
-        "Lucky Pants",
-        "Lucky Raspberry",
-        "Mask of Bakris",
-        "Mask of Fealty",
-        "Mechaneer's Tricksleeves",
-        "Moirai",
-        "Mothkeeper's Wraps",
-        "Oathkeeper",
-        "Omnioculus",
-        "Ophidia Spathe",
-        "Orpheus Rig",
-        "Radiant Dance Machines",
-        "Raiden Flux",
-        "Raiju's Harness",
-        "Renewal Grasps",
-        "Sealed Ahamkara Grasps",
-        "Shards of Galanor",
-        "Shinobu's Vow",
-        "Speedloader Slacks",
-        "St0mp-EE5",
-        "Star-Eater Scales",
-        "The Bombardiers",
-        "The Dragon's Shadow",
-        "The Sixth Coyote",
-        "Triton Vice",
-        "Wormhusk Crown",
-        "Young Ahamkara's Spine"
+        {
+          "name": "Relativism",
+          "subclasses": [
+            "Prismatic"
+          ],
+          "tags": [
+            "Prismatic"
+          ]
+        },
+        {
+          "name": "Aeon Swift",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Team"
+          ]
+        },
+        {
+          "name": "Assassin's Cowl",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Melee",
+            "Finisher"
+          ]
+        },
+        {
+          "name": "Athrys's Embrace",
+          "subclasses": [
+            "Gunslinger"
+          ],
+          "tags": [
+            "Solar",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Balance of Power",
+          "subclasses": [
+            "Threadrunner",
+            "Prismatic"
+          ],
+          "tags": [
+            "Strand",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Blight Ranger",
+          "subclasses": [
+            "Arcstrider"
+          ],
+          "tags": [
+            "Arc",
+            "Super"
+          ]
+        },
+        {
+          "name": "Caliban's Hand",
+          "subclasses": [
+            "Gunslinger"
+          ],
+          "tags": [
+            "Solar",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Celestial Nighthawk",
+          "subclasses": [
+            "Gunslinger",
+            "Prismatic"
+          ],
+          "tags": [
+            "Solar",
+            "Super"
+          ]
+        },
+        {
+          "name": "Cyrtarachne's Facade",
+          "subclasses": [
+            "Threadrunner",
+            "Prismatic"
+          ],
+          "tags": [
+            "Strand",
+            "Grenade"
+          ]
+        },
+        {
+          "name": "Foetracer",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Ability"
+          ]
+        },
+        {
+          "name": "Fortune's Favor",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Void"
+          ]
+        },
+        {
+          "name": "Fr0st-EE5",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Ability"
+          ]
+        },
+        {
+          "name": "Gemini Jester",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Gifted Conviction",
+          "subclasses": [
+            "Arcstrider",
+            "Prismatic"
+          ],
+          "tags": [
+            "Arc",
+            "Ability"
+          ]
+        },
+        {
+          "name": "Graviton Forfeit",
+          "subclasses": [
+            "Nightstalker",
+            "Prismatic"
+          ],
+          "tags": [
+            "Void"
+          ]
+        },
+        {
+          "name": "Gwisin Vest",
+          "subclasses": [
+            "Nightstalker"
+          ],
+          "tags": [
+            "Void",
+            "Super"
+          ]
+        },
+        {
+          "name": "Gyrfalcon's Hauberk",
+          "subclasses": [
+            "Nightstalker",
+            "Prismatic"
+          ],
+          "tags": [
+            "Void"
+          ]
+        },
+        {
+          "name": "Khepri's Sting",
+          "subclasses": [
+            "Nightstalker",
+            "Prismatic"
+          ],
+          "tags": [
+            "Void",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Knucklehead Radar",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral"
+          ]
+        },
+        {
+          "name": "Liar's Handshake",
+          "subclasses": [
+            "Arcstrider",
+            "Prismatic"
+          ],
+          "tags": [
+            "Arc",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Lucky Pants",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Hand Cannon"
+          ]
+        },
+        {
+          "name": "Lucky Raspberry",
+          "subclasses": [
+            "Arcstrider"
+          ],
+          "tags": [
+            "Arc",
+            "Grenade"
+          ]
+        },
+        {
+          "name": "Mask of Bakris",
+          "subclasses": [
+            "Revenant",
+            "Prismatic"
+          ],
+          "tags": [
+            "Stasis",
+            "Arc",
+            "Class Ability",
+            "Lord of Wolves"
+          ]
+        },
+        {
+          "name": "Mask of Fealty",
+          "subclasses": [
+            "Revenant",
+            "Prismatic"
+          ],
+          "tags": [
+            "Stasis",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Mechaneer's Tricksleeves",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Sidearm"
+          ]
+        },
+        {
+          "name": "Moirai",
+          "subclasses": [
+            "Threadrunner",
+            "Prismatic"
+          ],
+          "tags": [
+            "Strand",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Mothkeeper's Wraps",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Arc",
+            "Void",
+            "Grenade"
+          ]
+        },
+        {
+          "name": "Oathkeeper",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Bow"
+          ]
+        },
+        {
+          "name": "Omnioculus",
+          "subclasses": [
+            "Nightstalker"
+          ],
+          "tags": [
+            "Void",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Ophidia Spathe",
+          "subclasses": [
+            "Gunslinger",
+            "Prismatic"
+          ],
+          "tags": [
+            "Solar",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Orpheus Rig",
+          "subclasses": [
+            "Nightstalker",
+            "Prismatic"
+          ],
+          "tags": [
+            "Void",
+            "Super"
+          ]
+        },
+        {
+          "name": "Radiant Dance Machines",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Raiden Flux",
+          "subclasses": [
+            "Arcstrider"
+          ],
+          "tags": [
+            "Arc",
+            "Super"
+          ]
+        },
+        {
+          "name": "Raiju's Harness",
+          "subclasses": [
+            "Arcstrider",
+            "Prismatic"
+          ],
+          "tags": [
+            "Arc",
+            "Super"
+          ]
+        },
+        {
+          "name": "Renewal Grasps",
+          "subclasses": [
+            "Revenant",
+            "Prismatic"
+          ],
+          "tags": [
+            "Stasis",
+            "Grenade"
+          ]
+        },
+        {
+          "name": "Sealed Ahamkara Grasps",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Shards of Galanor",
+          "subclasses": [
+            "Gunslinger"
+          ],
+          "tags": [
+            "Solar",
+            "Super"
+          ]
+        },
+        {
+          "name": "Shinobu's Vow",
+          "subclasses": [
+            "Arcstrider"
+          ],
+          "tags": [
+            "Arc",
+            "Grenade"
+          ]
+        },
+        {
+          "name": "Speedloader Slacks",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "St0mp-EE5",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Movement"
+          ]
+        },
+        {
+          "name": "Star-Eater Scales",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Super"
+          ]
+        },
+        {
+          "name": "The Bombardiers",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "The Dragon's Shadow",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "The Sixth Coyote",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Triton Vice",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Glaive"
+          ]
+        },
+        {
+          "name": "Wormhusk Crown",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Young Ahamkara's Spine",
+          "subclasses": [
+            "Gunslinger"
+          ],
+          "tags": [
+            "Solar",
+            "Grenade"
+          ]
+        }
       ],
       "subclasses": {
         "Prismatic": {
-          "supers": ["Golden Gun: Marksman", "Silence and Squall", "Silkstrike", "Shadowshot: Deadfall", "Storm's Edge"],
-          "classAbilities": ["Marksman's Dodge", "Gambler's Dodge", "Acrobat's Dodge"],
-          "jumps": ["High Jump", "Strafe Jump", "Triple Jump", "Blink"],
-          "melees": ["Knife Trick", "Combination Blow", "Withering Blade", "Snare Bomb", "Threaded Spike"],
-          "grenades": ["Swarm Grenade", "Arcbolt Grenade", "Magnetic Grenade", "Duskfield Grenade", "Grapple"]
-        ,
-          "aspects": ["Stylish Executioner", "Gunpowder Gamble", "Winter's Shroud", "Threaded Specter", "Ascension"],
+          "supers": [
+            "Golden Gun: Marksman",
+            "Silence and Squall",
+            "Silkstrike",
+            "Shadowshot: Deadfall",
+            "Storm's Edge"
+          ],
+          "classAbilities": [
+            "Marksman's Dodge",
+            "Gambler's Dodge",
+            "Acrobat's Dodge"
+          ],
+          "jumps": [
+            "High Jump",
+            "Strafe Jump",
+            "Triple Jump",
+            "Blink"
+          ],
+          "melees": [
+            "Knife Trick",
+            "Combination Blow",
+            "Withering Blade",
+            "Snare Bomb",
+            "Threaded Spike"
+          ],
+          "grenades": [
+            "Swarm Grenade",
+            "Arcbolt Grenade",
+            "Magnetic Grenade",
+            "Duskfield Grenade",
+            "Grapple"
+          ],
+          "aspects": [
+            "Stylish Executioner",
+            "Gunpowder Gamble",
+            "Winter's Shroud",
+            "Threaded Specter",
+            "Ascension"
+          ],
           "fragments": [
-            "Facet of Awakening", "Facet of Balance", "Facet of Blessing", "Facet of Bravery",
-            "Facet of Command", "Facet of Courage", "Facet of Dawn", "Facet of Defiance",
-            "Facet of Devotion", "Facet of Dominance", "Facet of Generosity", "Facet of Grace",
-            "Facet of Honor", "Facet of Hope", "Facet of Justice", "Facet of Mending",
-            "Facet of Protection", "Facet of Purpose", "Facet of Ruin", "Facet of Sacrifice",
+            "Facet of Awakening",
+            "Facet of Balance",
+            "Facet of Blessing",
+            "Facet of Bravery",
+            "Facet of Command",
+            "Facet of Courage",
+            "Facet of Dawn",
+            "Facet of Defiance",
+            "Facet of Devotion",
+            "Facet of Dominance",
+            "Facet of Generosity",
+            "Facet of Grace",
+            "Facet of Honor",
+            "Facet of Hope",
+            "Facet of Justice",
+            "Facet of Mending",
+            "Facet of Protection",
+            "Facet of Purpose",
+            "Facet of Ruin",
+            "Facet of Sacrifice",
             "Facet of Solitude"
           ]
         },
         "Gunslinger": {
-          "supers": ["Golden Gun: Deadshot", "Golden Gun: Marksman", "Blade Barrage"],
-          "classAbilities": ["Marksman's Dodge", "Gambler's Dodge", "Acrobat's Dodge"],
-          "jumps": ["High Jump", "Strafe Jump", "Triple Jump"],
-          "melees": ["Knife Trick", "Proximity Explosive Knife", "Lightweight Knife", "Weighted Throwing Knife"],
-          "grenades": ["Incendiary Grenade", "Solar Grenade", "Tripmine Grenade", "Swarm Grenade", "Thermite Grenade", "Firebolt Grenade", "Fusion Grenade", "Healing Grenade"],
-          "aspects": ["Knock 'Em Down", "On Your Mark", "Gunpowder Gamble", "Crackshot"],
+          "supers": [
+            "Golden Gun: Deadshot",
+            "Golden Gun: Marksman",
+            "Blade Barrage"
+          ],
+          "classAbilities": [
+            "Marksman's Dodge",
+            "Gambler's Dodge",
+            "Acrobat's Dodge"
+          ],
+          "jumps": [
+            "High Jump",
+            "Strafe Jump",
+            "Triple Jump"
+          ],
+          "melees": [
+            "Knife Trick",
+            "Proximity Explosive Knife",
+            "Lightweight Knife",
+            "Weighted Throwing Knife"
+          ],
+          "grenades": [
+            "Incendiary Grenade",
+            "Solar Grenade",
+            "Tripmine Grenade",
+            "Swarm Grenade",
+            "Thermite Grenade",
+            "Firebolt Grenade",
+            "Fusion Grenade",
+            "Healing Grenade"
+          ],
+          "aspects": [
+            "Knock 'Em Down",
+            "On Your Mark",
+            "Gunpowder Gamble",
+            "Crackshot"
+          ],
           "fragments": [
-            "Ember of Ashes", "Ember of Beams", "Ember of Benevolence", "Ember of Blistering",
-            "Ember of Char", "Ember of Combustion", "Ember of Empyrean", "Ember of Eruption",
-            "Ember of Mercy", "Ember of Resolve", "Ember of Searing", "Ember of Singeing",
-            "Ember of Solace", "Ember of Tempering", "Ember of Torches", "Ember of Wonder"
+            "Ember of Ashes",
+            "Ember of Beams",
+            "Ember of Benevolence",
+            "Ember of Blistering",
+            "Ember of Char",
+            "Ember of Combustion",
+            "Ember of Empyrean",
+            "Ember of Eruption",
+            "Ember of Mercy",
+            "Ember of Resolve",
+            "Ember of Searing",
+            "Ember of Singeing",
+            "Ember of Solace",
+            "Ember of Tempering",
+            "Ember of Torches",
+            "Ember of Wonder"
           ]
         },
         "Nightstalker": {
-          "supers": ["Shadowshot: Deadfall", "Shadowshot: Moebius Quiver", "Spectral Blades"],
-          "classAbilities": ["Marksman's Dodge", "Gambler's Dodge"],
-          "jumps": ["High Jump", "Strafe Jump", "Triple Jump"],
-          "melees": ["Snare Bomb", "Phantom Surge"],
-          "grenades": ["Vortex Grenade", "Void Spike", "Void Wall", "Suppressor Grenade", "Scatter Grenade", "Axion Bolt", "Magnetic Grenade"],
-          "aspects": ["Vanishing Step", "Stylish Executioner", "Trapper's Ambush", "On the Prowl"],
+          "supers": [
+            "Shadowshot: Deadfall",
+            "Shadowshot: Moebius Quiver",
+            "Spectral Blades"
+          ],
+          "classAbilities": [
+            "Marksman's Dodge",
+            "Gambler's Dodge"
+          ],
+          "jumps": [
+            "High Jump",
+            "Strafe Jump",
+            "Triple Jump"
+          ],
+          "melees": [
+            "Snare Bomb",
+            "Phantom Surge"
+          ],
+          "grenades": [
+            "Vortex Grenade",
+            "Void Spike",
+            "Void Wall",
+            "Suppressor Grenade",
+            "Scatter Grenade",
+            "Axion Bolt",
+            "Magnetic Grenade"
+          ],
+          "aspects": [
+            "Vanishing Step",
+            "Stylish Executioner",
+            "Trapper's Ambush",
+            "On the Prowl"
+          ],
           "fragments": [
-            "Echo of Cessation", "Echo of Dilation", "Echo of Domineering", "Echo of Exchange",
-            "Echo of Expulsion", "Echo of Harvest", "Echo of Instability", "Echo of Leeching",
-            "Echo of Obscurity", "Echo of Persistence", "Echo of Provision", "Echo of Remnants",
-            "Echo of Reprisal", "Echo of Starvation", "Echo of Undermining", "Echo of Vigilance"
+            "Echo of Cessation",
+            "Echo of Dilation",
+            "Echo of Domineering",
+            "Echo of Exchange",
+            "Echo of Expulsion",
+            "Echo of Harvest",
+            "Echo of Instability",
+            "Echo of Leeching",
+            "Echo of Obscurity",
+            "Echo of Persistence",
+            "Echo of Provision",
+            "Echo of Remnants",
+            "Echo of Reprisal",
+            "Echo of Starvation",
+            "Echo of Undermining",
+            "Echo of Vigilance"
           ]
         },
         "Arcstrider": {
-          "supers": ["Arc Staff", "Gathering Storm", "Storm's Edge"],
-          "classAbilities": ["Marksman's Dodge", "Gambler's Dodge"],
-          "jumps": ["High Jump", "Strafe Jump", "Triple Jump", "Blink"],
-          "melees": ["Combination Blow", "Disorienting Blow"],
-          "grenades": ["Skip Grenade", "Flux Grenade", "Arcbolt Grenade", "Flashbang Grenade", "Pulse Grenade", "Storm Grenade", "Lightning Grenade"],
-          "aspects": ["Flow State", "Tempest Strike", "Lethal Current", "Ascension"],
+          "supers": [
+            "Arc Staff",
+            "Gathering Storm",
+            "Storm's Edge"
+          ],
+          "classAbilities": [
+            "Marksman's Dodge",
+            "Gambler's Dodge"
+          ],
+          "jumps": [
+            "High Jump",
+            "Strafe Jump",
+            "Triple Jump",
+            "Blink"
+          ],
+          "melees": [
+            "Combination Blow",
+            "Disorienting Blow"
+          ],
+          "grenades": [
+            "Skip Grenade",
+            "Flux Grenade",
+            "Arcbolt Grenade",
+            "Flashbang Grenade",
+            "Pulse Grenade",
+            "Storm Grenade",
+            "Lightning Grenade"
+          ],
+          "aspects": [
+            "Flow State",
+            "Tempest Strike",
+            "Lethal Current",
+            "Ascension"
+          ],
           "fragments": [
-            "Spark of Amplitude", "Spark of Beacons", "Spark of Brilliance", "Spark of Discharge",
-            "Spark of Feedback", "Spark of Focus", "Spark of Frequency", "Spark of Haste",
-            "Spark of Instinct", "Spark of Ions", "Spark of Magnitude", "Spark of Momentum",
-            "Spark of Recharge", "Spark of Resistance", "Spark of Shock", "Spark of Volts"
+            "Spark of Amplitude",
+            "Spark of Beacons",
+            "Spark of Brilliance",
+            "Spark of Discharge",
+            "Spark of Feedback",
+            "Spark of Focus",
+            "Spark of Frequency",
+            "Spark of Haste",
+            "Spark of Instinct",
+            "Spark of Ions",
+            "Spark of Magnitude",
+            "Spark of Momentum",
+            "Spark of Recharge",
+            "Spark of Resistance",
+            "Spark of Shock",
+            "Spark of Volts"
           ]
         },
         "Revenant": {
-          "supers": ["Silence and Squall"],
-          "classAbilities": ["Marksman's Dodge", "Gambler's Dodge"],
-          "jumps": ["High Jump", "Strafe Jump", "Triple Jump"],
-          "melees": ["Withering Blade"],
-          "grenades": ["Glacier Grenade", "Duskfield Grenade", "Coldsnap Grenade", "Shatter Grenade"],
-          "aspects": ["Shatterdive", "Winter's Shroud", "Grim Harvest", "Touch of Winter"],
+          "supers": [
+            "Silence and Squall"
+          ],
+          "classAbilities": [
+            "Marksman's Dodge",
+            "Gambler's Dodge"
+          ],
+          "jumps": [
+            "High Jump",
+            "Strafe Jump",
+            "Triple Jump"
+          ],
+          "melees": [
+            "Withering Blade"
+          ],
+          "grenades": [
+            "Glacier Grenade",
+            "Duskfield Grenade",
+            "Coldsnap Grenade",
+            "Shatter Grenade"
+          ],
+          "aspects": [
+            "Shatterdive",
+            "Winter's Shroud",
+            "Grim Harvest",
+            "Touch of Winter"
+          ],
           "fragments": [
-            "Whisper of Bonds", "Whisper of Chains", "Whisper of Chill", "Whisper of Conduction",
-            "Whisper of Durance", "Whisper of Fissures", "Whisper of Fractures", "Whisper of Hedrons",
-            "Whisper of Hunger", "Whisper of Impetus", "Whisper of Refraction", "Whisper of Rending",
-            "Whisper of Rime", "Whisper of Shards", "Whisper of Torment"
+            "Whisper of Bonds",
+            "Whisper of Chains",
+            "Whisper of Chill",
+            "Whisper of Conduction",
+            "Whisper of Durance",
+            "Whisper of Fissures",
+            "Whisper of Fractures",
+            "Whisper of Hedrons",
+            "Whisper of Hunger",
+            "Whisper of Impetus",
+            "Whisper of Refraction",
+            "Whisper of Rending",
+            "Whisper of Rime",
+            "Whisper of Shards",
+            "Whisper of Torment"
           ]
         },
         "Threadrunner": {
-          "supers": ["Silkstrike"],
-          "classAbilities": ["Marksman's Dodge", "Gambler's Dodge"],
-          "jumps": ["High Jump", "Strafe Jump", "Triple Jump"],
-          "melees": ["Threaded Spike"],
-          "grenades": ["Grapple", "Shackle Grenade", "Threadling Grenade", "Slicewire Grenade"],
-          "aspects": ["Ensnaring Slam", "Widow's Silk", "Threaded Specter", "Whirling Maelstrom"],
+          "supers": [
+            "Silkstrike"
+          ],
+          "classAbilities": [
+            "Marksman's Dodge",
+            "Gambler's Dodge"
+          ],
+          "jumps": [
+            "High Jump",
+            "Strafe Jump",
+            "Triple Jump"
+          ],
+          "melees": [
+            "Threaded Spike"
+          ],
+          "grenades": [
+            "Grapple",
+            "Shackle Grenade",
+            "Threadling Grenade",
+            "Slicewire Grenade"
+          ],
+          "aspects": [
+            "Ensnaring Slam",
+            "Widow's Silk",
+            "Threaded Specter",
+            "Whirling Maelstrom"
+          ],
           "fragments": [
-            "Thread of Ascent", "Thread of Binding", "Thread of Continuity", "Thread of Evolution",
-            "Thread of Finality", "Thread of Fury", "Thread of Generation", "Thread of Isolation",
-            "Thread of Mind", "Thread of Propagation", "Thread of Rebirth", "Thread of Transmutation",
-            "Thread of Warding", "Thread of Wisdom"
+            "Thread of Ascent",
+            "Thread of Binding",
+            "Thread of Continuity",
+            "Thread of Evolution",
+            "Thread of Finality",
+            "Thread of Fury",
+            "Thread of Generation",
+            "Thread of Isolation",
+            "Thread of Mind",
+            "Thread of Propagation",
+            "Thread of Rebirth",
+            "Thread of Transmutation",
+            "Thread of Warding",
+            "Thread of Wisdom"
           ]
         }
       }
     },
     "Titan": {
-      "prismaticClassItem": "Stoicism",
       "exoticArmor": [
-        "ACD/0 Feedback Fence",
-        "Abeyant Leap",
-        "Actium War Rig",
-        "Aeon Safe",
-        "An Insurmountable Skullfort",
-        "Antaeus Wards",
-        "Arbor Warden",
-        "Armamentarium",
-        "Ashen Wake",
-        "Blastwave Striders",
-        "Cadmus Ridge Lancecap",
-        "Citan's Ramparts",
-        "Crest of Alpha Lupi",
-        "Curiass of the Falling Star",
-        "Doom Fang Pauldron",
-        "Dunemarchers",
-        "Eternal Warrior",
-        "Hallowfire Heart",
-        "Hazardous Propulsion",
-        "Heart of Inmost Light",
-        "Helm of Saint-14",
-        "Hoarfrost-Z",
-        "Icefall Mantle",
-        "Khepri's Horn",
-        "Lion Rampant",
-        "Loreley Splendor Helm",
-        "Mask of the Quiet One",
-        "Melas Panoplia",
-        "Mk. 44 Stand Asides",
-        "No Backup Plans",
-        "One-Eyed Mask",
-        "Peacekeepers",
-        "Peregrine Greaves",
-        "Phoenix Cradle",
-        "Point-Contact Cannon Brace",
-        "Praxic Vestment",
-        "Precious Scars",
-        "Pyrogale Gauntlets",
-        "Second Chance",
-        "Severance Enclosure",
-        "Stronghold",
-        "Synthoceps",
-        "The Path of Burning Steps",
-        "Ursa Furiosa",
-        "Wishful Ignorance",
-        "Wormgod Caress"
+        {
+          "name": "Stoicism",
+          "subclasses": [
+            "Prismatic"
+          ],
+          "tags": [
+            "Prismatic"
+          ]
+        },
+        {
+          "name": "ACD/0 Feedback Fence",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Arc",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Abeyant Leap",
+          "subclasses": [
+            "Berserker",
+            "Prismatic"
+          ],
+          "tags": [
+            "Strand",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Actium War Rig",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Auto Rifle",
+            "Machine Gun"
+          ]
+        },
+        {
+          "name": "Aeon Safe",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Team"
+          ]
+        },
+        {
+          "name": "An Insurmountable Skullfort",
+          "subclasses": [
+            "Striker",
+            "Prismatic"
+          ],
+          "tags": [
+            "Arc",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Antaeus Wards",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Movement"
+          ]
+        },
+        {
+          "name": "Arbor Warden",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Armamentarium",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Grenade"
+          ]
+        },
+        {
+          "name": "Ashen Wake",
+          "subclasses": [
+            "Sunbreaker"
+          ],
+          "tags": [
+            "Solar",
+            "Grenade"
+          ]
+        },
+        {
+          "name": "Blastwave Striders",
+          "subclasses": [
+            "Behemoth",
+            "Prismatic"
+          ],
+          "tags": [
+            "Stasis",
+            "Movement"
+          ]
+        },
+        {
+          "name": "Cadmus Ridge Lancecap",
+          "subclasses": [
+            "Behemoth",
+            "Prismatic"
+          ],
+          "tags": [
+            "Stasis",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Citan's Ramparts",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Crest of Alpha Lupi",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Class Ability",
+            "Super"
+          ]
+        },
+        {
+          "name": "Cuirass of the Falling Star",
+          "subclasses": [
+            "Striker",
+            "Prismatic"
+          ],
+          "tags": [
+            "Arc",
+            "Super"
+          ]
+        },
+        {
+          "name": "Doom Fang Pauldron",
+          "subclasses": [
+            "Sentinel"
+          ],
+          "tags": [
+            "Void",
+            "Melee",
+            "Super"
+          ]
+        },
+        {
+          "name": "Dunemarchers",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Movement",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Eternal Warrior",
+          "subclasses": [
+            "Striker"
+          ],
+          "tags": [
+            "Arc",
+            "Super"
+          ]
+        },
+        {
+          "name": "Hallowfire Heart",
+          "subclasses": [
+            "Sunbreaker"
+          ],
+          "tags": [
+            "Solar",
+            "Ability"
+          ]
+        },
+        {
+          "name": "Hazardous Propulsion",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Class Ability",
+            "Rocket"
+          ]
+        },
+        {
+          "name": "Heart of Inmost Light",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Ability"
+          ]
+        },
+        {
+          "name": "Helm of Saint-14",
+          "subclasses": [
+            "Sentinel"
+          ],
+          "tags": [
+            "Void",
+            "Super"
+          ]
+        },
+        {
+          "name": "Hoarfrost-Z",
+          "subclasses": [
+            "Behemoth",
+            "Prismatic"
+          ],
+          "tags": [
+            "Stasis",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Icefall Mantle",
+          "subclasses": [
+            "Behemoth",
+            "Prismatic"
+          ],
+          "tags": [
+            "Stasis",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Khepri's Horn",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Solar",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Lion Rampant",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Movement"
+          ]
+        },
+        {
+          "name": "Loreley Splendor Helm",
+          "subclasses": [
+            "Sunbreaker"
+          ],
+          "tags": [
+            "Solar",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Mask of the Quiet One",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Void",
+            "Ability"
+          ]
+        },
+        {
+          "name": "Melas Panoplia",
+          "subclasses": [
+            "Sunbreaker"
+          ],
+          "tags": [
+            "Solar",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Mk. 44 Stand Asides",
+          "subclasses": [
+            "Sunbreaker",
+            "Sentinel",
+            "Striker"
+          ],
+          "tags": [
+            "Melee",
+            "Movement"
+          ]
+        },
+        {
+          "name": "No Backup Plans",
+          "subclasses": [
+            "Sentinel"
+          ],
+          "tags": [
+            "Void",
+            "Shotgun"
+          ]
+        },
+        {
+          "name": "One-Eyed Mask",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral"
+          ]
+        },
+        {
+          "name": "Peacekeepers",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "SMG"
+          ]
+        },
+        {
+          "name": "Peregrine Greaves",
+          "subclasses": [
+            "Sunbreaker",
+            "Sentinel",
+            "Striker"
+          ],
+          "tags": [
+            "Melee"
+          ]
+        },
+        {
+          "name": "Phoenix Cradle",
+          "subclasses": [
+            "Sunbreaker"
+          ],
+          "tags": [
+            "Solar",
+            "Team"
+          ]
+        },
+        {
+          "name": "Point-Contact Cannon Brace",
+          "subclasses": [
+            "Striker",
+            "Prismatic"
+          ],
+          "tags": [
+            "Arc",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Praxic Vestment",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Arc",
+            "Melee",
+            "Movement"
+          ]
+        },
+        {
+          "name": "Precious Scars",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Team"
+          ]
+        },
+        {
+          "name": "Pyrogale Gauntlets",
+          "subclasses": [
+            "Sunbreaker",
+            "Prismatic"
+          ],
+          "tags": [
+            "Solar",
+            "Melee",
+            "Super"
+          ]
+        },
+        {
+          "name": "Second Chance",
+          "subclasses": [
+            "Sentinel",
+            "Prismatic"
+          ],
+          "tags": [
+            "Void",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Severance Enclosure",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Melee",
+            "Finisher"
+          ]
+        },
+        {
+          "name": "Stronghold",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Sword"
+          ]
+        },
+        {
+          "name": "Synthoceps",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Melee",
+            "Super"
+          ]
+        },
+        {
+          "name": "The Path of Burning Steps",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Solar"
+          ]
+        },
+        {
+          "name": "Ursa Furiosa",
+          "subclasses": [
+            "Sentinel",
+            "Prismatic"
+          ],
+          "tags": [
+            "Void",
+            "Super",
+            "Grenade"
+          ]
+        },
+        {
+          "name": "Wishful Ignorance",
+          "subclasses": [
+            "Berserker",
+            "Prismatic"
+          ],
+          "tags": [
+            "Strand",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Wormgod Caress",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Melee"
+          ]
+        }
       ],
       "subclasses": {
         "Prismatic": {
-          "supers": ["Hammer of Sol", "Glacial Quake", "Bladefury", "Thundercrash", "Twilight Arsenal"],
-          "classAbilities": ["Towering Barricade", "Rally Barricade", "Thruster"],
-          "jumps": ["High Lift", "Strafe Lift", "Catapult Lift"],
-          "melees": ["Hammer Strike", "Thunderclap", "Shield Throw", "Shiver Strike", "Frenzied Blade"],
-          "grenades": ["Thermite Grenade", "Pulse Grenade", "Suppressor Grenade", "Glacier Grenade", "Shackle Grenade"],
-          "aspects": ["Knockout", "Diamond Lance", "Consecration", "Unbreakable", "Drengr's Lash"],
+          "supers": [
+            "Hammer of Sol",
+            "Glacial Quake",
+            "Bladefury",
+            "Thundercrash",
+            "Twilight Arsenal"
+          ],
+          "classAbilities": [
+            "Towering Barricade",
+            "Rally Barricade",
+            "Thruster"
+          ],
+          "jumps": [
+            "High Lift",
+            "Strafe Lift",
+            "Catapult Lift"
+          ],
+          "melees": [
+            "Hammer Strike",
+            "Thunderclap",
+            "Shield Throw",
+            "Shiver Strike",
+            "Frenzied Blade"
+          ],
+          "grenades": [
+            "Thermite Grenade",
+            "Pulse Grenade",
+            "Suppressor Grenade",
+            "Glacier Grenade",
+            "Shackle Grenade"
+          ],
+          "aspects": [
+            "Knockout",
+            "Diamond Lance",
+            "Consecration",
+            "Unbreakable",
+            "Drengr's Lash"
+          ],
           "fragments": [
-            "Facet of Awakening", "Facet of Balance", "Facet of Blessing", "Facet of Bravery",
-            "Facet of Command", "Facet of Courage", "Facet of Dawn", "Facet of Defiance",
-            "Facet of Devotion", "Facet of Dominance", "Facet of Generosity", "Facet of Grace",
-            "Facet of Honor", "Facet of Hope", "Facet of Justice", "Facet of Mending",
-            "Facet of Protection", "Facet of Purpose", "Facet of Ruin", "Facet of Sacrifice",
+            "Facet of Awakening",
+            "Facet of Balance",
+            "Facet of Blessing",
+            "Facet of Bravery",
+            "Facet of Command",
+            "Facet of Courage",
+            "Facet of Dawn",
+            "Facet of Defiance",
+            "Facet of Devotion",
+            "Facet of Dominance",
+            "Facet of Generosity",
+            "Facet of Grace",
+            "Facet of Honor",
+            "Facet of Hope",
+            "Facet of Justice",
+            "Facet of Mending",
+            "Facet of Protection",
+            "Facet of Purpose",
+            "Facet of Ruin",
+            "Facet of Sacrifice",
             "Facet of Solitude"
           ]
         },
         "Sunbreaker": {
-          "supers": ["Hammer of Sol", "Burning Maul"],
-          "classAbilities": ["Towering Barricade", "Rally Barricade"],
-          "jumps": ["High Lift", "Strafe Lift", "Catapult Lift"],
-          "melees": ["Hammer Strike", "Throwing Hammer"],
-          "grenades": ["Incendiary Grenade", "Solar Grenade", "Tripmine Grenade", "Swarm Grenade", "Thermite Grenade", "Firebolt Grenade", "Fusion Grenade", "Healing Grenade"],
-          "aspects": ["Sol Invictus", "Roaring Flames", "Consecration", "Shieldbreaker"],
+          "supers": [
+            "Hammer of Sol",
+            "Burning Maul"
+          ],
+          "classAbilities": [
+            "Towering Barricade",
+            "Rally Barricade"
+          ],
+          "jumps": [
+            "High Lift",
+            "Strafe Lift",
+            "Catapult Lift"
+          ],
+          "melees": [
+            "Hammer Strike",
+            "Throwing Hammer"
+          ],
+          "grenades": [
+            "Incendiary Grenade",
+            "Solar Grenade",
+            "Tripmine Grenade",
+            "Swarm Grenade",
+            "Thermite Grenade",
+            "Firebolt Grenade",
+            "Fusion Grenade",
+            "Healing Grenade"
+          ],
+          "aspects": [
+            "Sol Invictus",
+            "Roaring Flames",
+            "Consecration",
+            "Shieldbreaker"
+          ],
           "fragments": [
-            "Ember of Ashes", "Ember of Beams", "Ember of Benevolence", "Ember of Blistering",
-            "Ember of Char", "Ember of Combustion", "Ember of Empyrean", "Ember of Eruption",
-            "Ember of Mercy", "Ember of Resolve", "Ember of Searing", "Ember of Singeing",
-            "Ember of Solace", "Ember of Tempering", "Ember of Torches", "Ember of Wonder"
+            "Ember of Ashes",
+            "Ember of Beams",
+            "Ember of Benevolence",
+            "Ember of Blistering",
+            "Ember of Char",
+            "Ember of Combustion",
+            "Ember of Empyrean",
+            "Ember of Eruption",
+            "Ember of Mercy",
+            "Ember of Resolve",
+            "Ember of Searing",
+            "Ember of Singeing",
+            "Ember of Solace",
+            "Ember of Tempering",
+            "Ember of Torches",
+            "Ember of Wonder"
           ]
         },
         "Sentinel": {
-          "supers": ["Ward of Dawn", "Sentinel Shield", "Twilight Arsenal"],
-          "classAbilities": ["Towering Barricade", "Rally Barricade"],
-          "jumps": ["High Lift", "Strafe Lift", "Catapult Lift"],
-          "melees": ["Shield Bash", "Shield Throw"],
-          "grenades": ["Vortex Grenade", "Void Spike", "Void Wall", "Suppressor Grenade", "Scatter Grenade", "Axion Bolt", "Magnetic Grenade"],
-          "aspects": ["Controlled Demolition", "Bastion", "Offensive Bulwark", "Unbreakable"],
+          "supers": [
+            "Ward of Dawn",
+            "Sentinel Shield",
+            "Twilight Arsenal"
+          ],
+          "classAbilities": [
+            "Towering Barricade",
+            "Rally Barricade"
+          ],
+          "jumps": [
+            "High Lift",
+            "Strafe Lift",
+            "Catapult Lift"
+          ],
+          "melees": [
+            "Shield Bash",
+            "Shield Throw"
+          ],
+          "grenades": [
+            "Vortex Grenade",
+            "Void Spike",
+            "Void Wall",
+            "Suppressor Grenade",
+            "Scatter Grenade",
+            "Axion Bolt",
+            "Magnetic Grenade"
+          ],
+          "aspects": [
+            "Controlled Demolition",
+            "Bastion",
+            "Offensive Bulwark",
+            "Unbreakable"
+          ],
           "fragments": [
-            "Echo of Cessation", "Echo of Dilation", "Echo of Domineering", "Echo of Exchange",
-            "Echo of Expulsion", "Echo of Harvest", "Echo of Instability", "Echo of Leeching",
-            "Echo of Obscurity", "Echo of Persistence", "Echo of Provision", "Echo of Remnants",
-            "Echo of Reprisal", "Echo of Starvation", "Echo of Undermining", "Echo of Vigilance"
+            "Echo of Cessation",
+            "Echo of Dilation",
+            "Echo of Domineering",
+            "Echo of Exchange",
+            "Echo of Expulsion",
+            "Echo of Harvest",
+            "Echo of Instability",
+            "Echo of Leeching",
+            "Echo of Obscurity",
+            "Echo of Persistence",
+            "Echo of Provision",
+            "Echo of Remnants",
+            "Echo of Reprisal",
+            "Echo of Starvation",
+            "Echo of Undermining",
+            "Echo of Vigilance"
           ]
         },
         "Striker": {
-          "supers": ["Fists of Havoc", "Thundercrash"],
-          "classAbilities": ["Towering Barricade", "Rally Barricade", "Thruster"],
-          "jumps": ["High Lift", "Strafe Lift", "Catapult Lift"],
-          "melees": ["Seismic Strike", "Ballistic Slam", "Thunderclap"],
-          "grenades": ["Skip Grenade", "Flux Grenade", "Arcbolt Grenade", "Flashbang Grenade", "Pulse Grenade", "Storm Grenade", "Lightning Grenade"],
-          "aspects": ["Touch of Thunder", "Juggernaut", "Knockout", "Storm's Keep"],
+          "supers": [
+            "Fists of Havoc",
+            "Thundercrash"
+          ],
+          "classAbilities": [
+            "Towering Barricade",
+            "Rally Barricade",
+            "Thruster"
+          ],
+          "jumps": [
+            "High Lift",
+            "Strafe Lift",
+            "Catapult Lift"
+          ],
+          "melees": [
+            "Seismic Strike",
+            "Ballistic Slam",
+            "Thunderclap"
+          ],
+          "grenades": [
+            "Skip Grenade",
+            "Flux Grenade",
+            "Arcbolt Grenade",
+            "Flashbang Grenade",
+            "Pulse Grenade",
+            "Storm Grenade",
+            "Lightning Grenade"
+          ],
+          "aspects": [
+            "Touch of Thunder",
+            "Juggernaut",
+            "Knockout",
+            "Storm's Keep"
+          ],
           "fragments": [
-            "Spark of Amplitude", "Spark of Beacons", "Spark of Brilliance", "Spark of Discharge",
-            "Spark of Feedback", "Spark of Focus", "Spark of Frequency", "Spark of Haste",
-            "Spark of Instinct", "Spark of Ions", "Spark of Magnitude", "Spark of Momentum",
-            "Spark of Recharge", "Spark of Resistance", "Spark of Shock", "Spark of Volts"
+            "Spark of Amplitude",
+            "Spark of Beacons",
+            "Spark of Brilliance",
+            "Spark of Discharge",
+            "Spark of Feedback",
+            "Spark of Focus",
+            "Spark of Frequency",
+            "Spark of Haste",
+            "Spark of Instinct",
+            "Spark of Ions",
+            "Spark of Magnitude",
+            "Spark of Momentum",
+            "Spark of Recharge",
+            "Spark of Resistance",
+            "Spark of Shock",
+            "Spark of Volts"
           ]
         },
         "Behemoth": {
-          "supers": ["Glacial Quake"],
-          "classAbilities": ["Towering Barricade", "Rally Barricade"],
-          "jumps": ["High Lift", "Strafe Lift", "Catapult Lift"],
-          "melees": ["Shiver Strike"],
-          "grenades": ["Glacier Grenade", "Duskfield Grenade", "Coldsnap Grenade", "Shatter Grenade"],
-          "aspects": ["Cryoclasm", "Tectonic Harvest", "Howl of the Storm", "Diamond Lance"],
+          "supers": [
+            "Glacial Quake"
+          ],
+          "classAbilities": [
+            "Towering Barricade",
+            "Rally Barricade"
+          ],
+          "jumps": [
+            "High Lift",
+            "Strafe Lift",
+            "Catapult Lift"
+          ],
+          "melees": [
+            "Shiver Strike"
+          ],
+          "grenades": [
+            "Glacier Grenade",
+            "Duskfield Grenade",
+            "Coldsnap Grenade",
+            "Shatter Grenade"
+          ],
+          "aspects": [
+            "Cryoclasm",
+            "Tectonic Harvest",
+            "Howl of the Storm",
+            "Diamond Lance"
+          ],
           "fragments": [
-            "Whisper of Bonds", "Whisper of Chains", "Whisper of Chill", "Whisper of Conduction",
-            "Whisper of Durance", "Whisper of Fissures", "Whisper of Fractures", "Whisper of Hedrons",
-            "Whisper of Hunger", "Whisper of Impetus", "Whisper of Refraction", "Whisper of Rending",
-            "Whisper of Rime", "Whisper of Shards", "Whisper of Torment"
+            "Whisper of Bonds",
+            "Whisper of Chains",
+            "Whisper of Chill",
+            "Whisper of Conduction",
+            "Whisper of Durance",
+            "Whisper of Fissures",
+            "Whisper of Fractures",
+            "Whisper of Hedrons",
+            "Whisper of Hunger",
+            "Whisper of Impetus",
+            "Whisper of Refraction",
+            "Whisper of Rending",
+            "Whisper of Rime",
+            "Whisper of Shards",
+            "Whisper of Torment"
           ]
         },
         "Berserker": {
-          "supers": ["Bladefury"],
-          "classAbilities": ["Towering Barricade", "Rally Barricade"],
-          "jumps": ["High Lift", "Strafe Lift", "Catapult Lift"],
-          "melees": ["Frenzied Blade"],
-          "grenades": ["Grapple", "Shackle Grenade", "Threadling Grenade", "Slicewire Grenade"],
-          "aspects": ["Into the Fray", "Drengr's Lash", "Flechette Storm", "Banner of War"],
+          "supers": [
+            "Bladefury"
+          ],
+          "classAbilities": [
+            "Towering Barricade",
+            "Rally Barricade"
+          ],
+          "jumps": [
+            "High Lift",
+            "Strafe Lift",
+            "Catapult Lift"
+          ],
+          "melees": [
+            "Frenzied Blade"
+          ],
+          "grenades": [
+            "Grapple",
+            "Shackle Grenade",
+            "Threadling Grenade",
+            "Slicewire Grenade"
+          ],
+          "aspects": [
+            "Into the Fray",
+            "Drengr's Lash",
+            "Flechette Storm",
+            "Banner of War"
+          ],
           "fragments": [
-            "Thread of Ascent", "Thread of Binding", "Thread of Continuity", "Thread of Evolution",
-            "Thread of Finality", "Thread of Fury", "Thread of Generation", "Thread of Isolation",
-            "Thread of Mind", "Thread of Propagation", "Thread of Rebirth", "Thread of Transmutation",
-            "Thread of Warding", "Thread of Wisdom"
+            "Thread of Ascent",
+            "Thread of Binding",
+            "Thread of Continuity",
+            "Thread of Evolution",
+            "Thread of Finality",
+            "Thread of Fury",
+            "Thread of Generation",
+            "Thread of Isolation",
+            "Thread of Mind",
+            "Thread of Propagation",
+            "Thread of Rebirth",
+            "Thread of Transmutation",
+            "Thread of Warding",
+            "Thread of Wisdom"
           ]
         }
       }
     },
     "Warlock": {
-      "prismaticClassItem": "Solipsism",
       "exoticArmor": [
-        "Aeon Soul",
-        "Apotheosis Veil",
-        "Astrocyte Verse",
-        "Ballidorse Wrathweavers",
-        "Boots of the Assembler",
-        "Briarbinds",
-        "Cenotaph Mask",
-        "Chromatic Fire",
-        "Claws of Ahamkara",
-        "Contraverse Hold",
-        "Crown of Tempests",
-        "Dawn Chorus",
-        "DeimoSuffusion",
-        "Eunoia",
-        "Eye of Another World",
-        "Fallen Sunstar",
-        "Felwinter's Helm",
-        "Geomag Stabilizers",
-        "Getaway Artists",
-        "Karnstein Armlets",
-        "Lunafaction Boots",
-        "Mantle of Battle Harmony",
-        "Mataiodoxía",
-        "Necrotic Grip",
-        "Nezarec's Sin",
-        "Nothing Manacles",
-        "Ophidian Aspect",
-        "Osmiomancy Gloves",
-        "Phoenix Protocol",
-        "Promethium Spur",
-        "Rain of Fire",
-        "Rime-Coat Raiment",
-        "Sanguine Alchemy",
-        "Secant Filaments",
-        "Skull of Dire Ahamkara",
-        "Speaker's Sight",
-        "Starfire Protocol",
-        "Stormdancer's Brace",
-        "Sunbracers",
-        "Swarmers",
-        "The Stag",
-        "Transversive Steps",
-        "Verity's Brow",
-        "Vesper of Radius",
-        "Wings of Sacred Dawn",
-        "Winter's Guile"
+        {
+          "name": "Solipsism",
+          "subclasses": [
+            "Prismatic"
+          ],
+          "tags": [
+            "Prismatic"
+          ]
+        },
+        {
+          "name": "Aeon Soul",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Team"
+          ]
+        },
+        {
+          "name": "Apotheosis Veil",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Super",
+            "Ability"
+          ]
+        },
+        {
+          "name": "Astrocyte Verse",
+          "subclasses": [
+            "Voidwalker",
+            "Prismatic"
+          ],
+          "tags": [
+            "Void",
+            "Movement"
+          ]
+        },
+        {
+          "name": "Ballidorse Wrathweavers",
+          "subclasses": [
+            "Shadebinder",
+            "Prismatic"
+          ],
+          "tags": [
+            "Stasis",
+            "Super",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Boots of the Assembler",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Class Ability",
+            "Team"
+          ]
+        },
+        {
+          "name": "Briarbinds",
+          "subclasses": [
+            "Voidwalker"
+          ],
+          "tags": [
+            "Void",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Cenotaph Mask",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Trace Rifle",
+            "Team"
+          ]
+        },
+        {
+          "name": "Chromatic Fire",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Kinetic"
+          ]
+        },
+        {
+          "name": "Claws of Ahamkara",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Contraverse Hold",
+          "subclasses": [
+            "Voidwalker"
+          ],
+          "tags": [
+            "Void",
+            "Grenade"
+          ]
+        },
+        {
+          "name": "Crown of Tempests",
+          "subclasses": [
+            "Stormcaller",
+            "Prismatic"
+          ],
+          "tags": [
+            "Arc",
+            "Ability",
+            "Super"
+          ]
+        },
+        {
+          "name": "Dawn Chorus",
+          "subclasses": [
+            "Dawnblade",
+            "Prismatic"
+          ],
+          "tags": [
+            "Solar",
+            "Super",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Deimosuffusion",
+          "subclasses": [
+            "Broodweaver",
+            "Prismatic"
+          ],
+          "tags": [
+            "Strand",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Eunoia",
+          "subclasses": [
+            "Dawnblade",
+            "Prismatic"
+          ],
+          "tags": [
+            "Solar",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Eye of Another World",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Ability"
+          ]
+        },
+        {
+          "name": "Fallen Sunstar",
+          "subclasses": [
+            "Stormcaller",
+            "Prismatic"
+          ],
+          "tags": [
+            "Arc",
+            "Ability",
+            "Team"
+          ]
+        },
+        {
+          "name": "Felwinter's Helm",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Melee",
+            "Finisher"
+          ]
+        },
+        {
+          "name": "Geomag Stabilizers",
+          "subclasses": [
+            "Stormcaller"
+          ],
+          "tags": [
+            "Arc",
+            "Super"
+          ]
+        },
+        {
+          "name": "Getaway Artist",
+          "subclasses": [
+            "Stormcaller",
+            "Prismatic"
+          ],
+          "tags": [
+            "Arc",
+            "Grenade"
+          ]
+        },
+        {
+          "name": "Karnstein Armlets",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Melee",
+            "Finisher"
+          ]
+        },
+        {
+          "name": "Lunafaction Boots",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Class Ability",
+            "Super",
+            "Team"
+          ]
+        },
+        {
+          "name": "Mantle of Battle Harmony",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Super"
+          ]
+        },
+        {
+          "name": "Mataiodoxía",
+          "subclasses": [
+            "Broodweaver",
+            "Prismatic"
+          ],
+          "tags": [
+            "Strand",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Necrotic Grip",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Nezarec's Sin",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Void",
+            "Ability"
+          ]
+        },
+        {
+          "name": "Nothing Manacles",
+          "subclasses": [
+            "Voidwalker"
+          ],
+          "tags": [
+            "Void",
+            "Grenade"
+          ]
+        },
+        {
+          "name": "Ophidian Aspect",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral"
+          ]
+        },
+        {
+          "name": "Osmiomancy Gloves",
+          "subclasses": [
+            "Shadebinder",
+            "Prismatic"
+          ],
+          "tags": [
+            "Stasis",
+            "Grenade"
+          ]
+        },
+        {
+          "name": "Phoenix Protocol",
+          "subclasses": [
+            "Dawnblade"
+          ],
+          "tags": [
+            "Solar",
+            "Super"
+          ]
+        },
+        {
+          "name": "Promethium Spur",
+          "subclasses": [
+            "Dawnblade"
+          ],
+          "tags": [
+            "Solar",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Rain of Fire",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Solar",
+            "Fusion Rifle"
+          ]
+        },
+        {
+          "name": "Rime-Coat Raiment",
+          "subclasses": [
+            "Shadebinder",
+            "Prismatic"
+          ],
+          "tags": [
+            "Stasis",
+            "Grenade"
+          ]
+        },
+        {
+          "name": "Sanguine Alchemy",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Secant Filaments",
+          "subclasses": [
+            "Voidwalker",
+            "Prismatic"
+          ],
+          "tags": [
+            "Void",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Skull of Dire Ahamkara",
+          "subclasses": [
+            "Voidwalker",
+            "Prismatic"
+          ],
+          "tags": [
+            "Void",
+            "Super"
+          ]
+        },
+        {
+          "name": "Speaker's Sight",
+          "subclasses": [
+            "Dawnblade",
+            "Prismatic"
+          ],
+          "tags": [
+            "Solar",
+            "Grenade",
+            "Team"
+          ]
+        },
+        {
+          "name": "Starfire Protocol",
+          "subclasses": [
+            "Dawnblade"
+          ],
+          "tags": [
+            "Solar",
+            "Grenade",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Stormdancer's Brace",
+          "subclasses": [
+            "Stormcaller",
+            "Prismatic"
+          ],
+          "tags": [
+            "Arc",
+            "Super"
+          ]
+        },
+        {
+          "name": "Sunbracers",
+          "subclasses": [
+            "Dawnblade"
+          ],
+          "tags": [
+            "Solar",
+            "Grenade",
+            "Melee"
+          ]
+        },
+        {
+          "name": "Swarmers",
+          "subclasses": [
+            "Broodweaver",
+            "Prismatic"
+          ],
+          "tags": [
+            "Strand"
+          ]
+        },
+        {
+          "name": "The Stag",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Transversive Steps",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Movement"
+          ]
+        },
+        {
+          "name": "Verity's Brow",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Grenade",
+            "Team"
+          ]
+        },
+        {
+          "name": "Vesper of Radius",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Arc",
+            "Class Ability"
+          ]
+        },
+        {
+          "name": "Wings of Sacred Dawn",
+          "subclasses": [
+            "Dawnblade"
+          ],
+          "tags": [
+            "Solar"
+          ]
+        },
+        {
+          "name": "Winter's Guile",
+          "subclasses": [
+            "Any"
+          ],
+          "tags": [
+            "Neutral",
+            "Melee"
+          ]
+        }
       ],
       "subclasses": {
         "Prismatic": {
-          "supers": ["Nova Bomb: Cataclysm", "Winter's Wrath", "Needlestorm", "Song of Flame", "Stormtrance"],
-          "classAbilities": ["Healing Rift", "Empowering Rift", "Phoenix Dive"],
-          "jumps": ["Strafe Glide", "Burst Glide", "Balanced Glide", "Blink"],
-          "melees": ["Incinerator Snap", "Chain Lightning", "Pocket Singularity", "Penumbral Blast", "Arcane Needle"],
-          "grenades": ["Healing Grenade", "Storm Grenade", "Vortex Grenade", "Coldsnap Grenade", "Threadling Grenade"],
-          "aspects": ["Feed the Void", "Bleak Watcher", "Hellion", "Lightning Surge", "Weaver's Call"],
+          "supers": [
+            "Nova Bomb: Cataclysm",
+            "Winter's Wrath",
+            "Needlestorm",
+            "Song of Flame",
+            "Stormtrance"
+          ],
+          "classAbilities": [
+            "Healing Rift",
+            "Empowering Rift",
+            "Phoenix Dive"
+          ],
+          "jumps": [
+            "Strafe Glide",
+            "Burst Glide",
+            "Balanced Glide",
+            "Blink"
+          ],
+          "melees": [
+            "Incinerator Snap",
+            "Chain Lightning",
+            "Pocket Singularity",
+            "Penumbral Blast",
+            "Arcane Needle"
+          ],
+          "grenades": [
+            "Healing Grenade",
+            "Storm Grenade",
+            "Vortex Grenade",
+            "Coldsnap Grenade",
+            "Threadling Grenade"
+          ],
+          "aspects": [
+            "Feed the Void",
+            "Bleak Watcher",
+            "Hellion",
+            "Lightning Surge",
+            "Weaver's Call"
+          ],
           "fragments": [
-            "Facet of Awakening", "Facet of Balance", "Facet of Blessing", "Facet of Bravery",
-            "Facet of Command", "Facet of Courage", "Facet of Dawn", "Facet of Defiance",
-            "Facet of Devotion", "Facet of Dominance", "Facet of Generosity", "Facet of Grace",
-            "Facet of Honor", "Facet of Hope", "Facet of Justice", "Facet of Mending",
-            "Facet of Protection", "Facet of Purpose", "Facet of Ruin", "Facet of Sacrifice",
+            "Facet of Awakening",
+            "Facet of Balance",
+            "Facet of Blessing",
+            "Facet of Bravery",
+            "Facet of Command",
+            "Facet of Courage",
+            "Facet of Dawn",
+            "Facet of Defiance",
+            "Facet of Devotion",
+            "Facet of Dominance",
+            "Facet of Generosity",
+            "Facet of Grace",
+            "Facet of Honor",
+            "Facet of Hope",
+            "Facet of Justice",
+            "Facet of Mending",
+            "Facet of Protection",
+            "Facet of Purpose",
+            "Facet of Ruin",
+            "Facet of Sacrifice",
             "Facet of Solitude"
           ]
         },
         "Dawnblade": {
-          "supers": ["Daybreak", "Well of Radiance", "Song of Flame"],
-          "classAbilities": ["Healing Rift", "Empowering Rift", "Phoenix Dive"],
-          "jumps": ["Strafe Glide", "Burst Glide", "Balanced Glide"],
-          "melees": ["Incinerator Snap", "Celestial Fire"],
-          "grenades": ["Incendiary Grenade", "Solar Grenade", "Tripmine Grenade", "Swarm Grenade", "Thermite Grenade", "Firebolt Grenade", "Fusion Grenade", "Healing Grenade"],
-          "aspects": ["Touch of Flame", "Heat Rises", "Icarus Dash", "Hellion"],
+          "supers": [
+            "Daybreak",
+            "Well of Radiance",
+            "Song of Flame"
+          ],
+          "classAbilities": [
+            "Healing Rift",
+            "Empowering Rift",
+            "Phoenix Dive"
+          ],
+          "jumps": [
+            "Strafe Glide",
+            "Burst Glide",
+            "Balanced Glide"
+          ],
+          "melees": [
+            "Incinerator Snap",
+            "Celestial Fire"
+          ],
+          "grenades": [
+            "Incendiary Grenade",
+            "Solar Grenade",
+            "Tripmine Grenade",
+            "Swarm Grenade",
+            "Thermite Grenade",
+            "Firebolt Grenade",
+            "Fusion Grenade",
+            "Healing Grenade"
+          ],
+          "aspects": [
+            "Touch of Flame",
+            "Heat Rises",
+            "Icarus Dash",
+            "Hellion"
+          ],
           "fragments": [
-            "Ember of Ashes", "Ember of Beams", "Ember of Benevolence", "Ember of Blistering",
-            "Ember of Char", "Ember of Combustion", "Ember of Empyrean", "Ember of Eruption",
-            "Ember of Mercy", "Ember of Resolve", "Ember of Searing", "Ember of Singeing",
-            "Ember of Solace", "Ember of Tempering", "Ember of Torches", "Ember of Wonder"
+            "Ember of Ashes",
+            "Ember of Beams",
+            "Ember of Benevolence",
+            "Ember of Blistering",
+            "Ember of Char",
+            "Ember of Combustion",
+            "Ember of Empyrean",
+            "Ember of Eruption",
+            "Ember of Mercy",
+            "Ember of Resolve",
+            "Ember of Searing",
+            "Ember of Singeing",
+            "Ember of Solace",
+            "Ember of Tempering",
+            "Ember of Torches",
+            "Ember of Wonder"
           ]
         },
         "Voidwalker": {
-          "supers": ["Nova Bomb: Vortex", "Nova Bomb: Cataclysm", "Nova Warp"],
-          "classAbilities": ["Healing Rift", "Empowering Rift"],
-          "jumps": ["Strafe Glide", "Burst Glide", "Balanced Glide", "Blink"],
-          "melees": ["Pocket Singularity"],
-          "grenades": ["Vortex Grenade", "Void Spike", "Void Wall", "Suppressor Grenade", "Scatter Grenade", "Axion Bolt", "Magnetic Grenade"],
-          "aspects": ["Chaos Accelerant", "Feed the Void", "Child of the Old Gods", "Soul Siphon"],
+          "supers": [
+            "Nova Bomb: Vortex",
+            "Nova Bomb: Cataclysm",
+            "Nova Warp"
+          ],
+          "classAbilities": [
+            "Healing Rift",
+            "Empowering Rift"
+          ],
+          "jumps": [
+            "Strafe Glide",
+            "Burst Glide",
+            "Balanced Glide",
+            "Blink"
+          ],
+          "melees": [
+            "Pocket Singularity"
+          ],
+          "grenades": [
+            "Vortex Grenade",
+            "Void Spike",
+            "Void Wall",
+            "Suppressor Grenade",
+            "Scatter Grenade",
+            "Axion Bolt",
+            "Magnetic Grenade"
+          ],
+          "aspects": [
+            "Chaos Accelerant",
+            "Feed the Void",
+            "Child of the Old Gods",
+            "Soul Siphon"
+          ],
           "fragments": [
-            "Echo of Cessation", "Echo of Dilation", "Echo of Domineering", "Echo of Exchange",
-            "Echo of Expulsion", "Echo of Harvest", "Echo of Instability", "Echo of Leeching",
-            "Echo of Obscurity", "Echo of Persistence", "Echo of Provision", "Echo of Remnants",
-            "Echo of Reprisal", "Echo of Starvation", "Echo of Undermining", "Echo of Vigilance"
+            "Echo of Cessation",
+            "Echo of Dilation",
+            "Echo of Domineering",
+            "Echo of Exchange",
+            "Echo of Expulsion",
+            "Echo of Harvest",
+            "Echo of Instability",
+            "Echo of Leeching",
+            "Echo of Obscurity",
+            "Echo of Persistence",
+            "Echo of Provision",
+            "Echo of Remnants",
+            "Echo of Reprisal",
+            "Echo of Starvation",
+            "Echo of Undermining",
+            "Echo of Vigilance"
           ]
         },
         "Stormcaller": {
-          "supers": ["Stormtrance", "Chaos Reach"],
-          "classAbilities": ["Healing Rift", "Empowering Rift"],
-          "jumps": ["Strafe Glide", "Burst Glide", "Balanced Glide"],
-          "melees": ["Chain Lightning", "Ball Lightning"],
-          "grenades": ["Skip Grenade", "Flux Grenade", "Arcbolt Grenade", "Flashbang Grenade", "Pulse Grenade", "Storm Grenade", "Lightning Grenade"],
-          "aspects": ["Arc Soul", "Electrostatic Mind", "Lightning Surge", "Ionic Sentry"],
+          "supers": [
+            "Stormtrance",
+            "Chaos Reach"
+          ],
+          "classAbilities": [
+            "Healing Rift",
+            "Empowering Rift"
+          ],
+          "jumps": [
+            "Strafe Glide",
+            "Burst Glide",
+            "Balanced Glide"
+          ],
+          "melees": [
+            "Chain Lightning",
+            "Ball Lightning"
+          ],
+          "grenades": [
+            "Skip Grenade",
+            "Flux Grenade",
+            "Arcbolt Grenade",
+            "Flashbang Grenade",
+            "Pulse Grenade",
+            "Storm Grenade",
+            "Lightning Grenade"
+          ],
+          "aspects": [
+            "Arc Soul",
+            "Electrostatic Mind",
+            "Lightning Surge",
+            "Ionic Sentry"
+          ],
           "fragments": [
-            "Spark of Amplitude", "Spark of Beacons", "Spark of Brilliance", "Spark of Discharge",
-            "Spark of Feedback", "Spark of Focus", "Spark of Frequency", "Spark of Haste",
-            "Spark of Instinct", "Spark of Ions", "Spark of Magnitude", "Spark of Momentum",
-            "Spark of Recharge", "Spark of Resistance", "Spark of Shock", "Spark of Volts"
+            "Spark of Amplitude",
+            "Spark of Beacons",
+            "Spark of Brilliance",
+            "Spark of Discharge",
+            "Spark of Feedback",
+            "Spark of Focus",
+            "Spark of Frequency",
+            "Spark of Haste",
+            "Spark of Instinct",
+            "Spark of Ions",
+            "Spark of Magnitude",
+            "Spark of Momentum",
+            "Spark of Recharge",
+            "Spark of Resistance",
+            "Spark of Shock",
+            "Spark of Volts"
           ]
         },
         "Shadebinder": {
-          "supers": ["Winter's Wrath"],
-          "classAbilities": ["Healing Rift", "Empowering Rift"],
-          "jumps": ["Strafe Glide", "Burst Glide", "Balanced Glide"],
-          "melees": ["Penumbral Blast"],
-          "grenades": ["Glacier Grenade", "Duskfield Grenade", "Coldsnap Grenade", "Shatter Grenade"],
-          "aspects": ["Iceflare Bolts", "Frostpulse", "Bleak Watcher", "Glacial Harvest"],
+          "supers": [
+            "Winter's Wrath"
+          ],
+          "classAbilities": [
+            "Healing Rift",
+            "Empowering Rift"
+          ],
+          "jumps": [
+            "Strafe Glide",
+            "Burst Glide",
+            "Balanced Glide"
+          ],
+          "melees": [
+            "Penumbral Blast"
+          ],
+          "grenades": [
+            "Glacier Grenade",
+            "Duskfield Grenade",
+            "Coldsnap Grenade",
+            "Shatter Grenade"
+          ],
+          "aspects": [
+            "Iceflare Bolts",
+            "Frostpulse",
+            "Bleak Watcher",
+            "Glacial Harvest"
+          ],
           "fragments": [
-            "Whisper of Bonds", "Whisper of Chains", "Whisper of Chill", "Whisper of Conduction",
-            "Whisper of Durance", "Whisper of Fissures", "Whisper of Fractures", "Whisper of Hedrons",
-            "Whisper of Hunger", "Whisper of Impetus", "Whisper of Refraction", "Whisper of Rending",
-            "Whisper of Rime", "Whisper of Shards", "Whisper of Torment"
+            "Whisper of Bonds",
+            "Whisper of Chains",
+            "Whisper of Chill",
+            "Whisper of Conduction",
+            "Whisper of Durance",
+            "Whisper of Fissures",
+            "Whisper of Fractures",
+            "Whisper of Hedrons",
+            "Whisper of Hunger",
+            "Whisper of Impetus",
+            "Whisper of Refraction",
+            "Whisper of Rending",
+            "Whisper of Rime",
+            "Whisper of Shards",
+            "Whisper of Torment"
           ]
         },
         "Broodweaver": {
-          "supers": ["Needlestorm"],
-          "classAbilities": ["Healing Rift", "Empowering Rift"],
-          "jumps": ["Strafe Glide", "Burst Glide", "Balanced Glide"],
-          "melees": ["Arcane Needle"],
-          "grenades": ["Grapple", "Shackle Grenade", "Threadling Grenade", "Slicewire Grenade"],
-          "aspects": ["Weaver's Call", "Mindspun Invocation", "The Wanderer", "Weavewalk"],
+          "supers": [
+            "Needlestorm"
+          ],
+          "classAbilities": [
+            "Healing Rift",
+            "Empowering Rift"
+          ],
+          "jumps": [
+            "Strafe Glide",
+            "Burst Glide",
+            "Balanced Glide"
+          ],
+          "melees": [
+            "Arcane Needle"
+          ],
+          "grenades": [
+            "Grapple",
+            "Shackle Grenade",
+            "Threadling Grenade",
+            "Slicewire Grenade"
+          ],
+          "aspects": [
+            "Weaver's Call",
+            "Mindspun Invocation",
+            "The Wanderer",
+            "Weavewalk"
+          ],
           "fragments": [
-            "Thread of Ascent", "Thread of Binding", "Thread of Continuity", "Thread of Evolution",
-            "Thread of Finality", "Thread of Fury", "Thread of Generation", "Thread of Isolation",
-            "Thread of Mind", "Thread of Propagation", "Thread of Rebirth", "Thread of Transmutation",
-            "Thread of Warding", "Thread of Wisdom"
+            "Thread of Ascent",
+            "Thread of Binding",
+            "Thread of Continuity",
+            "Thread of Evolution",
+            "Thread of Finality",
+            "Thread of Fury",
+            "Thread of Generation",
+            "Thread of Isolation",
+            "Thread of Mind",
+            "Thread of Propagation",
+            "Thread of Rebirth",
+            "Thread of Transmutation",
+            "Thread of Warding",
+            "Thread of Wisdom"
           ]
         }
       }
@@ -433,146 +2464,1755 @@
       "Class Item Mods"
     ],
     "exoticWeapons": [
-      "Ace of Spades",
-      "Ager's Scepter",
-      "Alethonym",
-      "Anarchy",
-      "Arbalest",
-      "Bad Juju",
-      "Barrow-Dyad",
-      "Bastion",
-      "Black Talon",
-      "Borealis",
-      "Buried Bloodline",
-      "Centrifuse",
-      "Cerberus+1",
-      "Choir of One",
-      "Cloudstrike",
-      "Coldheart",
-      "Collective Obligation",
-      "Conditional Finality",
-      "Crimson",
-      "Cryosthesia 77K",
-      "D.A.R.C.I.",
-      "Dead Man's Tale",
-      "Dead Messenger",
-      "Deathbringer",
-      "Delicate Tomb",
-      "Deterministic Chaos",
-      "Devil's Ruin",
-      "Divinity",
-      "Dragon's Breath",
-      "Duality",
-      "Edge of Action",
-      "Edge of Concurrence",
-      "Edge of Intent",
-      "Ergo Sum",
-      "Eriana's Vow",
-      "Euphony",
-      "Ex Diris",
-      "Eyes of Tomorrow",
-      "Fafnir",
-      "Fighting Lion",
-      "Finality's Auger",
-      "Final Warning",
-      "Forerunner",
-      "Gjallarhorn",
-      "Grand Overture",
-      "Graviton Lance",
-      "Graviton Spike",
-      "Hard Light",
-      "Hawkmoon",
-      "Heartshadow",
-      "Heir Apparent",
-      "Heirloom",
-      "Hierarchy of Needs",
-      "Ice Breaker",
-      "Izanagi's Burden",
-      "Jötunn",
-      "Khvostov 7G-0X",
-      "Legend of Acrius",
-      "Le Monarque",
-      "Leviathan's Breath",
-      "Lodestar",
-      "Lord of Wolves",
-      "Lorentz Driver",
-      "Lumina",
-      "Malfeasance",
-      "Merciless",
-      "Microcosm",
-      "MIDA Multi-Tool",
-      "Monte Carlo",
-      "Necrochasm",
-      "New Land Beyond",
-      "New Malpais",
-      "No Time to Explain",
-      "One Thousand Voices",
-      "Osteo Striga",
-      "Outbreak Perfected",
-      "Parasite",
-      "Polaris Lance",
-      "Praxic Blade",
-      "Prometheus Lens",
-      "Quicksilver Storm",
-      "Rat King",
-      "Red Death Reformed",
-      "Revision Zero",
-      "Riskrunner",
-      "Ruinous Effigy",
-      "Salvation's Grip",
-      "Service of Luzaku",
-      "Skyburner's Oath",
-      "Slayer's Fang",
-      "Sleeper Simulant",
-      "Still Hunt",
-      "Sturm",
-      "Sunshot",
-      "SUROS Regime",
-      "Sweet Business",
-      "Symmetry",
-      "Tarrabah",
-      "Telesto",
-      "Tessellation",
-      "The Chaperone",
-      "The Colony",
-      "The Fourth Horseman",
-      "The Huckleberry",
-      "The Jade Rabbit",
-      "The Lament",
-      "The Last Word",
-      "The Manticore",
-      "The Navigator",
-      "The Prospector",
-      "The Queenbreaker",
-      "The Wardcliff Coil",
-      "Third Iteration",
-      "Thorn",
-      "Thunderlord",
-      "Ticuu's Divination",
-      "Tommy's Matchbook",
-      "Touch of Malice",
-      "Tractor Cannon",
-      "Traveler's Chosen",
-      "Trespasser",
-      "Trinity Ghoul",
-      "Truth",
-      "Turncoat",
-      "Two-Tailed Fox",
-      "Verglas Curve",
-      "Vexcalibur",
-      "Vex Mythoclast",
-      "Vigilance Wing",
-      "Wavesplitter",
-      "Whirling Ovation",
-      "Whisper of the Worm",
-      "Wicked Implement",
-      "Winterbite",
-      "Wish-Ender",
-      "Wish-Keeper",
-      "Witherhoard",
-      "Wolfsbane",
-      "Worldline Zero",
-      "Xenophage"
+      {
+        "name": "Ace of Spades",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Hand Cannon",
+        "synergies": [
+          "Lucky Pants",
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Ager's Scepter",
+        "elements": [
+          "Stasis"
+        ],
+        "slot": "Kinetic",
+        "type": "Trace Rifle",
+        "synergies": [
+          "Cenotaph Mask",
+          "Freeze",
+          "Slow",
+          "Shatter"
+        ]
+      },
+      {
+        "name": "Alethonym",
+        "elements": [
+          "Stasis"
+        ],
+        "slot": "Kinetic",
+        "type": "Grenade Launcher",
+        "synergies": [
+          "Stasis"
+        ]
+      },
+      {
+        "name": "Anarchy",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Power",
+        "type": "Grenade Launcher",
+        "synergies": [
+          "Mask of Bakris",
+          "Arc"
+        ]
+      },
+      {
+        "name": "Arbalest",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Linear Fusion Rifle",
+        "synergies": [
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Bad Juju",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Pulse Rifle",
+        "synergies": [
+          "Super",
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Barrow-Dyad",
+        "elements": [
+          "Strand"
+        ],
+        "slot": "Kinetic",
+        "type": "Submachine Gun",
+        "synergies": [
+          "Peacekeepers",
+          "Strand"
+        ]
+      },
+      {
+        "name": "Bastion",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Fusion Rifle",
+        "synergies": [
+          "Melee",
+          "Rain of Fire"
+        ]
+      },
+      {
+        "name": "Black Talon",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Power",
+        "type": "Sword",
+        "synergies": [
+          "Stronghold",
+          "Void"
+        ]
+      },
+      {
+        "name": "Borealis",
+        "elements": [
+          "Arc",
+          "Void",
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Sniper Rifle",
+        "synergies": [
+          "Fundamentals"
+        ]
+      },
+      {
+        "name": "Buried Bloodline",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Energy",
+        "type": "Sidearm",
+        "synergies": [
+          "Mechaneer's Tricksleeves",
+          "Devour",
+          "Weaken"
+        ]
+      },
+      {
+        "name": "Centrifuse",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Energy",
+        "type": "Auto Rifle",
+        "synergies": [
+          "Actium War Rig",
+          "Blind",
+          "Amplified"
+        ]
+      },
+      {
+        "name": "Cerberus+1",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Auto Rifle",
+        "synergies": [
+          "Actium War Rig",
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Choir of One",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Energy",
+        "type": "Auto Rifle",
+        "synergies": [
+          "Actium War Rig",
+          "Volatile"
+        ]
+      },
+      {
+        "name": "Cloudstrike",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Energy",
+        "type": "Sniper Rifle",
+        "synergies": [
+          "Mask of Bakris",
+          "Jolt"
+        ]
+      },
+      {
+        "name": "Coldheart",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Energy",
+        "type": "Trace Rifle",
+        "synergies": [
+          "Cenotaph Mask",
+          "Fallen Sunstar",
+          "Ionic Trace"
+        ]
+      },
+      {
+        "name": "Collective Obligation",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Energy",
+        "type": "Pulse Rifle",
+        "synergies": [
+          "Gyrfalcon's Hauberk",
+          "Volatile",
+          "Suppress",
+          "Weaken"
+        ]
+      },
+      {
+        "name": "Conditional Finality",
+        "elements": [
+          "Solar",
+          "Stasis"
+        ],
+        "slot": "Kinetic",
+        "type": "Shotgun",
+        "synergies": [
+          "No Backup Plans",
+          "Ignition",
+          "Freeze",
+          "Shatter"
+        ]
+      },
+      {
+        "name": "Crimson",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Hand Cannon",
+        "synergies": [
+          "Lucky Pants",
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Cryosthesia 77K",
+        "elements": [
+          "Stasis"
+        ],
+        "slot": "Kinetic",
+        "type": "Sidearm",
+        "synergies": [
+          "Mechaneer's Tricksleeves",
+          "Freeze",
+          "Shatter"
+        ]
+      },
+      {
+        "name": "Cull's Shadow",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Hand Cannon",
+        "synergies": [
+          "Weapons of Sorrow",
+          "Necrotic Grip",
+          "Claws of Ahamkara",
+          "Lucky Pants"
+        ]
+      },
+      {
+        "name": "D.A.R.C.I.",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Power",
+        "type": "Sniper Rifle",
+        "synergies": [
+          "Mask of Bakris",
+          "Jolt"
+        ]
+      },
+      {
+        "name": "Dead Man's Tale",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Scout Rifle",
+        "synergies": [
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Dead Messenger",
+        "elements": [
+          "Arc",
+          "Void",
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Grenade Launcher",
+        "synergies": [
+          "Fundamentals"
+        ]
+      },
+      {
+        "name": "Deathbringer",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Power",
+        "type": "Rocket Launcher",
+        "synergies": [
+          "Hazardous Propulsion",
+          "Void"
+        ]
+      },
+      {
+        "name": "Delicate Tomb",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Energy",
+        "type": "Fusion Rifle",
+        "synergies": [
+          "Fallen Sunstar",
+          "Rain of Fire",
+          "Jolt",
+          "Ionic Trace"
+        ]
+      },
+      {
+        "name": "Deterministic Chaos",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Power",
+        "type": "Machine Gun",
+        "synergies": [
+          "Actium War Rig",
+          "Weaken",
+          "Volatile"
+        ]
+      },
+      {
+        "name": "Devil's Ruin",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Sidearm",
+        "synergies": [
+          "Mechaneer's Tricksleeves",
+          "Solar"
+        ]
+      },
+      {
+        "name": "Divinity",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Energy",
+        "type": "Trace Rifle",
+        "synergies": [
+          "Cenotaph Mask",
+          "Mask of Bakris",
+          "Weaken"
+        ]
+      },
+      {
+        "name": "Dragon's Breath",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Power",
+        "type": "Rocket Launcher",
+        "synergies": [
+          "Hazardous Propulsion",
+          "Scorch",
+          "Ignition"
+        ]
+      },
+      {
+        "name": "Duality",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Shotgun",
+        "synergies": [
+          "No Backup Plans",
+          "Solar"
+        ]
+      },
+      {
+        "name": "Edge of Action",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Energy",
+        "type": "Glaive",
+        "synergies": [
+          "Triton Vice",
+          "Helm of Saint-14",
+          "Void Overshield"
+        ]
+      },
+      {
+        "name": "Edge of Concurrence",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Energy",
+        "type": "Glaive",
+        "synergies": [
+          "Triton Vice",
+          "Mask of Bakris",
+          "Jolt"
+        ]
+      },
+      {
+        "name": "Edge of Intent",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Glaive",
+        "synergies": [
+          "Triton Vice",
+          "Speaker's Sight",
+          "Cure",
+          "Restoration"
+        ]
+      },
+      {
+        "name": "Ergo Sum",
+        "elements": [
+          "Any"
+        ],
+        "slot": "Energy",
+        "type": "Sword",
+        "synergies": [
+          "Stronghold",
+          "Prismatic"
+        ]
+      },
+      {
+        "name": "Eriana's Vow",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Hand Cannon",
+        "synergies": [
+          "Lucky Pants",
+          "Solar"
+        ]
+      },
+      {
+        "name": "Euphony",
+        "elements": [
+          "Strand"
+        ],
+        "slot": "Kinetic",
+        "type": "Linear Fusion Rifle",
+        "synergies": [
+          "Swarmers",
+          "Threadling"
+        ]
+      },
+      {
+        "name": "Ex Diris",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Energy",
+        "type": "Grenade Launcher",
+        "synergies": [
+          "Mothkeeper's Wraps",
+          "Mask of Bakris",
+          "Amplified"
+        ]
+      },
+      {
+        "name": "Eyes of Tomorrow",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Power",
+        "type": "Rocket Launcher",
+        "synergies": [
+          "Hazardous Propulsion",
+          "Solar"
+        ]
+      },
+      {
+        "name": "Fafnir",
+        "elements": [
+          "Any"
+        ],
+        "slot": "Power",
+        "type": "Rocket Launcher",
+        "synergies": [
+          "Hazardous Propulsion"
+        ]
+      },
+      {
+        "name": "Fighting Lion",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Energy",
+        "type": "Grenade Launcher",
+        "synergies": [
+          "Nezarec's Sin",
+          "Void"
+        ]
+      },
+      {
+        "name": "Finality's Auger",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Power",
+        "type": "Linear Fusion Rifle",
+        "synergies": [
+          "Solar"
+        ]
+      },
+      {
+        "name": "Final Warning",
+        "elements": [
+          "Strand"
+        ],
+        "slot": "Kinetic",
+        "type": "Sidearm",
+        "synergies": [
+          "Mechaneer's Tricksleeves",
+          "Unravel"
+        ]
+      },
+      {
+        "name": "Forerunner",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Sidearm",
+        "synergies": [
+          "Mechaneer's Tricksleeves",
+          "Grenade"
+        ]
+      },
+      {
+        "name": "Gjallarhorn",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Power",
+        "type": "Rocket Launcher",
+        "synergies": [
+          "Hazardous Propulsion",
+          "Solar"
+        ]
+      },
+      {
+        "name": "Grand Overture",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Power",
+        "type": "Machine Gun",
+        "synergies": [
+          "Actium War Rig",
+          "Mask of Bakris",
+          "Blind"
+        ]
+      },
+      {
+        "name": "Graviton Lance",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Energy",
+        "type": "Pulse Rifle",
+        "synergies": [
+          "Nezarec's Sin",
+          "Gyrfalcon's Hauberk",
+          "Volatile"
+        ]
+      },
+      {
+        "name": "Graviton Spike",
+        "elements": [
+          "Arc",
+          "Stasis"
+        ],
+        "slot": "Energy",
+        "type": "Hand Cannon",
+        "synergies": [
+          "Lucky Pants",
+          "Mask of Bakris",
+          "Arc",
+          "Stasis"
+        ]
+      },
+      {
+        "name": "Hard Light",
+        "elements": [
+          "Arc",
+          "Void",
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Auto Rifle",
+        "synergies": [
+          "Actium War Rig",
+          "Fundamentals"
+        ]
+      },
+      {
+        "name": "Hawkmoon",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Hand Cannon",
+        "synergies": [
+          "Lucky Pants",
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Heartshadow",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Power",
+        "type": "Sword",
+        "synergies": [
+          "Stronghold",
+          "Gyrfalcon's Hauberk",
+          "Invisibility",
+          "Weaken"
+        ]
+      },
+      {
+        "name": "Heir Apparent",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Power",
+        "type": "Machine Gun",
+        "synergies": [
+          "Actium War Rig",
+          "Solar"
+        ]
+      },
+      {
+        "name": "Heirloom",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Crossbow",
+        "synergies": [
+          "Solar"
+        ]
+      },
+      {
+        "name": "Hierarchy of Needs",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Combat Bow",
+        "synergies": [
+          "Oathkeeper",
+          "Phoenix Protocol",
+          "Solar"
+        ]
+      },
+      {
+        "name": "Ice Breaker",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Sniper Rifle",
+        "synergies": [
+          "Ignition",
+          "Shatter"
+        ]
+      },
+      {
+        "name": "Izanagi's Burden",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Sniper Rifle",
+        "synergies": [
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Jötunn",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Fusion Rifle",
+        "synergies": [
+          "Rain of Fire",
+          "The Path of Burning Steps",
+          "Scorch"
+        ]
+      },
+      {
+        "name": "Khvostov 7G-0X",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Auto Rifle",
+        "synergies": [
+          "Actium War Rig",
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Legend of Acrius",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Power",
+        "type": "Shotgun",
+        "synergies": [
+          "No Backup Plans",
+          "Mask of Bakris",
+          "Arc"
+        ]
+      },
+      {
+        "name": "Le Monarque",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Energy",
+        "type": "Combat Bow",
+        "synergies": [
+          "Oathkeeper",
+          "Gyrfalcon's Hauberk",
+          "Void"
+        ]
+      },
+      {
+        "name": "Leviathan's Breath",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Power",
+        "type": "Combat Bow",
+        "synergies": [
+          "Oathkeeper",
+          "Volatile"
+        ]
+      },
+      {
+        "name": "Lodestar",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Energy",
+        "type": "Trace Rifle",
+        "synergies": [
+          "Cenotaph Mask",
+          "Mask of Bakris",
+          "Jolt",
+          "Blind"
+        ]
+      },
+      {
+        "name": "Lord of Wolves",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Shotgun",
+        "synergies": [
+          "Mask of Bakris",
+          "No Backup Plans",
+          "Scorch"
+        ]
+      },
+      {
+        "name": "Lorentz Driver",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Energy",
+        "type": "Linear Fusion Rifle",
+        "synergies": [
+          "Nezarec's Sin",
+          "Void"
+        ]
+      },
+      {
+        "name": "Lumina",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Hand Cannon",
+        "synergies": [
+          "Boots of the Assembler",
+          "Lucky Pants",
+          "Team"
+        ]
+      },
+      {
+        "name": "Malfeasance",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Hand Cannon",
+        "synergies": [
+          "Lucky Pants",
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Merciless",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Fusion Rifle",
+        "synergies": [
+          "Rain of Fire",
+          "Solar"
+        ]
+      },
+      {
+        "name": "Microcosm",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Power",
+        "type": "Trace Rifle",
+        "synergies": [
+          "Cenotaph Mask",
+          "Super"
+        ]
+      },
+      {
+        "name": "MIDA Multi-Tool",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Scout Rifle",
+        "synergies": [
+          "Movement",
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Monte Carlo",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Auto Rifle",
+        "synergies": [
+          "Actium War Rig",
+          "Melee",
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Necrochasm",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Auto Rifle",
+        "synergies": [
+          "Weapons of Sorrow",
+          "Necrotic Grip",
+          "Claws of Ahamkara",
+          "Actium War Rig"
+        ]
+      },
+      {
+        "name": "New Land Beyond",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Sniper Rifle",
+        "synergies": [
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "New Malpais",
+        "elements": [
+          "Strand"
+        ],
+        "slot": "Kinetic",
+        "type": "Pulse Rifle",
+        "synergies": [
+          "Strand"
+        ]
+      },
+      {
+        "name": "No Time to Explain",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Pulse Rifle",
+        "synergies": [
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "One Thousand Voices",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Power",
+        "type": "Fusion Rifle",
+        "synergies": [
+          "Rain of Fire",
+          "Scorch",
+          "Ignition"
+        ]
+      },
+      {
+        "name": "Osteo Striga",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Submachine Gun",
+        "synergies": [
+          "Weapons of Sorrow",
+          "Necrotic Grip",
+          "Claws of Ahamkara",
+          "Peacekeepers"
+        ]
+      },
+      {
+        "name": "Outbreak Perfected",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Pulse Rifle",
+        "synergies": [
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Parasite",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Power",
+        "type": "Grenade Launcher",
+        "synergies": [
+          "Solar"
+        ]
+      },
+      {
+        "name": "Polaris Lance",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Scout Rifle",
+        "synergies": [
+          "Scorch",
+          "Ignition"
+        ]
+      },
+      {
+        "name": "Praxic Blade",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Sword",
+        "synergies": [
+          "Stronghold"
+        ]
+      },
+      {
+        "name": "Prometheus Lens",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Trace Rifle",
+        "synergies": [
+          "Cenotaph Mask",
+          "Scorch"
+        ]
+      },
+      {
+        "name": "Quicksilver Storm",
+        "elements": [
+          "Strand"
+        ],
+        "slot": "Kinetic",
+        "type": "Auto Rifle",
+        "synergies": [
+          "Actium War Rig",
+          "Strand"
+        ]
+      },
+      {
+        "name": "Rat King",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Sidearm",
+        "synergies": [
+          "Mechaneer's Tricksleeves",
+          "Omnioculus",
+          "Graviton Forfeit",
+          "Invisibility"
+        ]
+      },
+      {
+        "name": "Red Death Reformed",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Pulse Rifle",
+        "synergies": [
+          "Cure",
+          "Restoration"
+        ]
+      },
+      {
+        "name": "Revision Zero",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Pulse Rifle",
+        "synergies": [
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Riskrunner",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Energy",
+        "type": "Submachine Gun",
+        "synergies": [
+          "Peacekeepers",
+          "Mask of Bakris",
+          "Jolt"
+        ]
+      },
+      {
+        "name": "Ruinous Effigy",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Energy",
+        "type": "Trace Rifle",
+        "synergies": [
+          "Cenotaph Mask",
+          "Nezarec's Sin",
+          "Suppress"
+        ]
+      },
+      {
+        "name": "Salvation's Grip",
+        "elements": [
+          "Stasis"
+        ],
+        "slot": "Power",
+        "type": "Grenade Launcher",
+        "synergies": [
+          "Stasis",
+          "Shatter"
+        ]
+      },
+      {
+        "name": "Service of Luzaku",
+        "elements": [
+          "Strand"
+        ],
+        "slot": "Energy",
+        "type": "Machine Gun",
+        "synergies": [
+          "Actium War Rig",
+          "Strand"
+        ]
+      },
+      {
+        "name": "Skyburner's Oath",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Scout Rifle",
+        "synergies": [
+          "Scorch"
+        ]
+      },
+      {
+        "name": "Slayer's Fang",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Energy",
+        "type": "Shotgun",
+        "synergies": [
+          "No Backup Plans",
+          "Weaken"
+        ]
+      },
+      {
+        "name": "Sleeper Simulant",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Power",
+        "type": "Linear Fusion Rifle",
+        "synergies": [
+          "Solar"
+        ]
+      },
+      {
+        "name": "Still Hunt",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Sniper Rifle",
+        "synergies": [
+          "Celestial Nighthawk",
+          "Super"
+        ]
+      },
+      {
+        "name": "Sturm",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Hand Cannon",
+        "synergies": [
+          "Lucky Pants",
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Sunshot",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Hand Cannon",
+        "synergies": [
+          "Lucky Pants",
+          "Scorch",
+          "Ignition"
+        ]
+      },
+      {
+        "name": "SUROS Regime",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Auto Rifle",
+        "synergies": [
+          "Actium War Rig",
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Sweet Business",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Auto Rifle",
+        "synergies": [
+          "Actium War Rig",
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Symmetry",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Energy",
+        "type": "Scout Rifle",
+        "synergies": [
+          "Mask of Bakris",
+          "Arc"
+        ]
+      },
+      {
+        "name": "Tarrabah",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Submachine Gun",
+        "synergies": [
+          "Peacekeepers",
+          "The Path of Burning Steps",
+          "Solar"
+        ]
+      },
+      {
+        "name": "Telesto",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Energy",
+        "type": "Fusion Rifle",
+        "synergies": [
+          "Rain of Fire",
+          "Nezarec's Sin",
+          "Void"
+        ]
+      },
+      {
+        "name": "Tessellation",
+        "elements": [
+          "Any"
+        ],
+        "slot": "Energy",
+        "type": "Fusion Rifle",
+        "synergies": [
+          "Rain of Fire",
+          "Grenade"
+        ]
+      },
+      {
+        "name": "The Chaperone",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Shotgun",
+        "synergies": [
+          "No Backup Plans"
+        ]
+      },
+      {
+        "name": "The Colony",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Power",
+        "type": "Grenade Launcher",
+        "synergies": [
+          "Void"
+        ]
+      },
+      {
+        "name": "The Fourth Horseman",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Energy",
+        "type": "Shotgun",
+        "synergies": [
+          "No Backup Plans",
+          "Mask of Bakris",
+          "Arc"
+        ]
+      },
+      {
+        "name": "The Huckleberry",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Submachine Gun",
+        "synergies": [
+          "Peacekeepers",
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "The Jade Rabbit",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Scout Rifle",
+        "synergies": [
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "The Lament",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Power",
+        "type": "Sword",
+        "synergies": [
+          "Stronghold",
+          "Cure"
+        ]
+      },
+      {
+        "name": "The Last Word",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Hand Cannon",
+        "synergies": [
+          "Lucky Pants"
+        ]
+      },
+      {
+        "name": "The Manticore",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Energy",
+        "type": "Submachine Gun",
+        "synergies": [
+          "Peacekeepers",
+          "Void Overshield"
+        ]
+      },
+      {
+        "name": "The Navigator",
+        "elements": [
+          "Strand"
+        ],
+        "slot": "Kinetic",
+        "type": "Trace Rifle",
+        "synergies": [
+          "Cenotaph Mask",
+          "Woven Mail",
+          "Sever"
+        ]
+      },
+      {
+        "name": "The Prospector",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Power",
+        "type": "Grenade Launcher",
+        "synergies": [
+          "Mask of Bakris",
+          "Arc"
+        ]
+      },
+      {
+        "name": "The Queenbreaker",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Power",
+        "type": "Linear Fusion Rifle",
+        "synergies": [
+          "Mask of Bakris",
+          "Blind"
+        ]
+      },
+      {
+        "name": "The Wardcliff Coil",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Power",
+        "type": "Rocket Launcher",
+        "synergies": [
+          "Hazardous Propulsion",
+          "Mask of Bakris",
+          "Arc"
+        ]
+      },
+      {
+        "name": "Third Iteration",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Energy",
+        "type": "Scout Rifle",
+        "synergies": [
+          "Void"
+        ]
+      },
+      {
+        "name": "Thorn",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Hand Cannon",
+        "synergies": [
+          "Weapons of Sorrow",
+          "Necrotic Grip",
+          "Claws of Ahamkara",
+          "Lucky Pants"
+        ]
+      },
+      {
+        "name": "Thunderlord",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Power",
+        "type": "Machine Gun",
+        "synergies": [
+          "Actium War Rig",
+          "Mask of Bakris",
+          "Jolt"
+        ]
+      },
+      {
+        "name": "Ticuu's Divination",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Combat Bow",
+        "synergies": [
+          "Oathkeeper",
+          "Scorch",
+          "Ignition"
+        ]
+      },
+      {
+        "name": "Tommy's Matchbook",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Auto Rifle",
+        "synergies": [
+          "Actium War Rig",
+          "Precious Scars",
+          "Loreley Splendor Helm",
+          "Scorch"
+        ]
+      },
+      {
+        "name": "Touch of Malice",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Scout Rifle",
+        "synergies": [
+          "Weapons of Sorrow",
+          "Necrotic Grip",
+          "Blind"
+        ]
+      },
+      {
+        "name": "Tractor Cannon",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Power",
+        "type": "Shotgun",
+        "synergies": [
+          "No Backup Plans",
+          "Suppress",
+          "Weaken"
+        ]
+      },
+      {
+        "name": "Traveler's Chosen",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Sidearm",
+        "synergies": [
+          "Mechaneer's Tricksleeves",
+          "Ability"
+        ]
+      },
+      {
+        "name": "Trespasser",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Energy",
+        "type": "Sidearm",
+        "synergies": [
+          "Mechaneer's Tricksleeves",
+          "Mask of Bakris",
+          "Arc"
+        ]
+      },
+      {
+        "name": "Trinity Ghoul",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Energy",
+        "type": "Combat Bow",
+        "synergies": [
+          "Oathkeeper",
+          "Mask of Bakris",
+          "Jolt"
+        ]
+      },
+      {
+        "name": "Truth",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Power",
+        "type": "Rocket Launcher",
+        "synergies": [
+          "Hazardous Propulsion",
+          "Void"
+        ]
+      },
+      {
+        "name": "Turncoat",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Auto Rifle",
+        "synergies": [
+          "Actium War Rig",
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Two-Tailed Fox",
+        "elements": [
+          "Void",
+          "Solar",
+          "Arc"
+        ],
+        "slot": "Power",
+        "type": "Rocket Launcher",
+        "synergies": [
+          "Hazardous Propulsion",
+          "Suppress",
+          "Scorch",
+          "Jolt"
+        ]
+      },
+      {
+        "name": "Verglas Curve",
+        "elements": [
+          "Stasis"
+        ],
+        "slot": "Kinetic",
+        "type": "Combat Bow",
+        "synergies": [
+          "Oathkeeper",
+          "Freeze",
+          "Shatter"
+        ]
+      },
+      {
+        "name": "Vexcalibur",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Energy",
+        "type": "Glaive",
+        "synergies": [
+          "Triton Vice",
+          "Void Overshield"
+        ]
+      },
+      {
+        "name": "Vex Mythoclast",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Energy",
+        "type": "Fusion Rifle",
+        "synergies": [
+          "Rain of Fire",
+          "The Path of Burning Steps",
+          "Solar"
+        ]
+      },
+      {
+        "name": "Vigilance Wing",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Pulse Rifle",
+        "synergies": [
+          "Team"
+        ]
+      },
+      {
+        "name": "Wavesplitter",
+        "elements": [
+          "Void"
+        ],
+        "slot": "Energy",
+        "type": "Trace Rifle",
+        "synergies": [
+          "Cenotaph Mask",
+          "Gyrfalcon's Hauberk",
+          "Suppress"
+        ]
+      },
+      {
+        "name": "Whirling Ovation",
+        "elements": [
+          "Solar",
+          "Strand"
+        ],
+        "slot": "Power",
+        "type": "Rocket Launcher",
+        "synergies": [
+          "Hazardous Propulsion",
+          "Solar",
+          "Strand"
+        ]
+      },
+      {
+        "name": "Whisper of the Worm",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Power",
+        "type": "Sniper Rifle",
+        "synergies": [
+          "Solar"
+        ]
+      },
+      {
+        "name": "Wicked Implement",
+        "elements": [
+          "Stasis"
+        ],
+        "slot": "Kinetic",
+        "type": "Scout Rifle",
+        "synergies": [
+          "Slow",
+          "Freeze",
+          "Shatter"
+        ]
+      },
+      {
+        "name": "Winterbite",
+        "elements": [
+          "Stasis"
+        ],
+        "slot": "Power",
+        "type": "Glaive",
+        "synergies": [
+          "Triton Vice",
+          "Synthoceps",
+          "Slow",
+          "Freeze"
+        ]
+      },
+      {
+        "name": "Wish-Ender",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Combat Bow",
+        "synergies": [
+          "Oathkeeper"
+        ]
+      },
+      {
+        "name": "Wish-Keeper",
+        "elements": [
+          "Strand"
+        ],
+        "slot": "Kinetic",
+        "type": "Combat Bow",
+        "synergies": [
+          "Oathkeeper",
+          "Suspend"
+        ]
+      },
+      {
+        "name": "Witherhoard",
+        "elements": [
+          "Kinetic"
+        ],
+        "slot": "Kinetic",
+        "type": "Grenade Launcher",
+        "synergies": [
+          "Starfire Protocol",
+          "Chromatic Fire"
+        ]
+      },
+      {
+        "name": "Wolfsbane",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Power",
+        "type": "Axe",
+        "synergies": [
+          "Stronghold",
+          "Solar"
+        ]
+      },
+      {
+        "name": "Worldline Zero",
+        "elements": [
+          "Arc"
+        ],
+        "slot": "Power",
+        "type": "Sword",
+        "synergies": [
+          "Stronghold",
+          "Mask of Bakris",
+          "Arc"
+        ]
+      },
+      {
+        "name": "Xenophage",
+        "elements": [
+          "Solar"
+        ],
+        "slot": "Power",
+        "type": "Machine Gun",
+        "synergies": [
+          "Actium War Rig",
+          "Solar"
+        ]
+      }
     ]
   }
 }
