@@ -17,7 +17,8 @@ let config = {
         'Fragment': true, 'Artifact': true, 'Armour Mod': true
     },
     includeExoticsInStandard: false,
-    enforceSynergy: false
+    enforceSynergy: false,
+    startFullSubclass: false
 };
 
 let runState = {
@@ -99,6 +100,8 @@ function syncConfigUI() {
     const exoticToggle = document.getElementById('toggle-exotics-in-standard');
     if (exoticToggle) exoticToggle.checked = Boolean(config.includeExoticsInStandard);
     if (toggleEnforceSynergy) toggleEnforceSynergy.checked = Boolean(config.enforceSynergy);
+    const fullStartToggle = document.getElementById('toggle-full-start');
+    if (fullStartToggle) fullStartToggle.checked = Boolean(config.startFullSubclass)
 }
 
 // Load JSON data
@@ -158,6 +161,14 @@ if (toggleEnforceSynergy) {
     });
 }
 
+const toggleFullStart = document.getElementById('toggle-full-start');
+if (toggleFullStart) {
+    toggleFullStart.addEventListener('change', () => {
+        config.startFullSubclass = toggleFullStart.checked;
+        saveToStorage();
+    });
+}
+
 // Manual Setup / Resume Functions
 function initManualSelectors() {
     if (!gameData || !manualClassSelect) return;
@@ -214,7 +225,7 @@ function renderManualCheckboxes(preselectCurrent) {
         {key: 'jumps', title: 'Jumps', items: subData.jumps},
         {key: 'melees', title: 'Melees', items: subData.melees},
         {key: 'grenades', title: 'Grenades', items: subData.grenades},
-        {key: 'aspects', title: 'Aspects', items: subData.aspects},
+        {key: 'aspects', title: 'Aspects', items: subData.aspects.map(a => a.name)},
         {key: 'fragments', title: 'Fragments', items: subData.fragments},
         {key: 'artifact', title: 'Artifact Tiers', items: gameData.shared.artifactTiers},
         {key: 'mods', title: 'Armour Mod Slots', items: gameData.shared.armorModSlots},
@@ -293,6 +304,12 @@ if (btnApplyManual) {
 function getRandomItem(array) {
     if (!array || array.length === 0) return "None available";
     return array[Math.floor(Math.random() * array.length)];
+}
+
+function getRandomItems(array, count) {
+    if (!array || array.length === 0 || count <= 0) return [];
+    const shuffled = [...array].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, Math.min(count, shuffled.length));
 }
 
 function getAvailableExoticArmour() {
@@ -412,39 +429,42 @@ if (btnNewRun) {
         const startJump = getRandomItem(subData.jumps);
         const startMelee = getRandomItem(subData.melees);
         const startGrenade = getRandomItem(subData.grenades);
-        const previewPool = [];
-        classes.forEach(c => {
-            Object.keys(gameData.classes[c].subclasses).forEach(sub => {
-                previewPool.push(`${c} — ${sub}`);
-            });
-        });
-        const finalLabel = `${chosenClass} — ${chosenSubclass}`;
-        const winStyle = chosenSubclass === 'Prismatic' ? 'prismatic-win' : '';
-        animateSpin("ROLLING STARTING GUARDIAN...", previewPool, finalLabel, winStyle, () => {
-            runState = {
-                className: chosenClass,
-                subclass: chosenSubclass,
-                supers: [startSuper],
-                classAbilities: [startClassAbility],
-                jumps: [startJump],
-                melees: [startMelee],
-                grenades: [startGrenade],
-                aspects: [],
-                fragments: [],
-                artifact: [],
-                mods: [],
-                exoticArmour: [],
-                exoticWeapon: [],
-                history: []
-            };
-            if (spinCategory) spinCategory.textContent = "STARTING RUN STATE";
-            addHistory(
-                "Start",
-                `${chosenClass} (${chosenSubclass}) | Super: ${startSuper} | Kit: ${startClassAbility}, ${startJump}, ${startMelee}, ${startGrenade}`,
-                "start"
-            );
-            updateUI();
-        });
+
+        let startAspects = [];
+        let startFragments = [];
+
+        if (config.startFullSubclass) {
+            const pickedAspectObjs = getRandomItems(subData.aspects, 2);
+            startAspects = pickedAspectObjs.map(a => a.name);
+            const totalFragmentSlots = pickedAspectObjs.reduce((sum, a) => sum + (a.slots || 2), 0);
+            startFragments = getRandomItems(subData.fragments, totalFragmentSlots);
+        }
+
+        // ... inside animateSpin callback:
+        runState = {
+            className: chosenClass,
+            subclass: chosenSubclass,
+            supers: [startSuper],
+            classAbilities: [startClassAbility],
+            jumps: [startJump],
+            melees: [startMelee],
+            grenades: [startGrenade],
+            aspects: startAspects,
+            fragments: startFragments,
+            artifact: [],
+            mods: [],
+            exoticArmour: [],
+            exoticWeapon: [],
+            synergies: [],
+            history: []
+        };
+
+        const startSummary = config.startFullSubclass
+            ? `${chosenClass} (${chosenSubclass}) — Full Subclass Rolled (${startAspects.length} Aspects, ${startFragments.length} Fragments)`
+            : `${chosenClass} (${chosenSubclass}) — Basic gear only`;
+
+        addHistory("Start", startSummary, "start");
+        updateUI();
     });
 }
 // 2. Standard Two-Step Spin (Respects Config Toggles + Optional Exotics)
@@ -458,7 +478,7 @@ if (btnSpin) {
             'Jump': subclassData.jumps.filter(j => !runState.jumps.includes(j)),
             'Melee': subclassData.melees.filter(m => !runState.melees.includes(m)),
             'Grenade': subclassData.grenades.filter(g => !runState.grenades.includes(g)),
-            'Aspect': subclassData.aspects.filter(a => !runState.aspects.includes(a)),
+            'Aspect': subclassData.aspects.map(a => a.name).filter(a => !runState.aspects.includes(a)),
             'Fragment': runState.aspects.length > 0 ? subclassData.fragments.filter(f => !runState.fragments.includes(f)) : [],
             'Artifact': gameData.shared.artifactTiers.filter(t => !runState.artifact.includes(t)),
             'Armour Mod': gameData.shared.armorModSlots.filter(m => !runState.mods.includes(m))

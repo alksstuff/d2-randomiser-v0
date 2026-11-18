@@ -524,11 +524,11 @@
             "Grapple"
           ],
           "aspects": [
-            "Stylish Executioner",
-            "Gunpowder Gamble",
-            "Winter's Shroud",
-            "Threaded Specter",
-            "Ascension"
+            { "name": "Stylish Executioner", "slots": 2 },
+            { "name": "Gunpowder Gamble", "slots": 3 },
+            { "name": "Winter's Shroud", "slots": 3 },
+            { "name": "Threaded Specter", "slots": 2 },
+            { "name": "Ascension", "slots": 3 }
           ],
           "fragments": [
             "Facet of Awakening",
@@ -587,10 +587,10 @@
             "Healing Grenade"
           ],
           "aspects": [
-            "Knock 'Em Down",
-            "On Your Mark",
-            "Gunpowder Gamble",
-            "Crackshot"
+            { "name": "Knock 'Em Down", "slots": 2 },
+            { "name": "On Your Mark", "slots": 3 },
+            { "name": "Gunpowder Gamble", "slots": 2 },
+            { "name": "Crackshot", "slots": 2 }
           ],
           "fragments": [
             "Ember of Ashes",
@@ -640,10 +640,10 @@
             "Magnetic Grenade"
           ],
           "aspects": [
-            "Vanishing Step",
-            "Stylish Executioner",
-            "Trapper's Ambush",
-            "On the Prowl"
+            { "name": "Vanishing Step", "slots": 2 },
+            { "name": "Stylish Executioner", "slots": 2 },
+            { "name": "Trapper's Ambush", "slots": 2 },
+            { "name": "On the Prowl", "slots": 2 }
           ],
           "fragments": [
             "Echo of Cessation",
@@ -694,10 +694,10 @@
             "Lightning Grenade"
           ],
           "aspects": [
-            "Flow State",
-            "Tempest Strike",
-            "Lethal Current",
-            "Ascension"
+            { "name": "Flow State", "slots": 2 },
+            { "name": "Tempest Strike", "slots": 2 },
+            { "name": "Lethal Current", "slots": 2 },
+            { "name": "Ascension", "slots": 2 }
           ],
           "fragments": [
             "Spark of Amplitude",
@@ -741,10 +741,10 @@
             "Shatter Grenade"
           ],
           "aspects": [
-            "Shatterdive",
-            "Winter's Shroud",
-            "Grim Harvest",
-            "Touch of Winter"
+            { "name": "Shatterdive", "slots": 3 },
+            { "name": "Winter's Shroud", "slots": 3 },
+            { "name": "Grim Harvest", "slots": 2 },
+            { "name": "Touch of Winter", "slots": 2 }
           ],
           "fragments": [
             "Whisper of Bonds",
@@ -787,10 +787,10 @@
             "Slicewire Grenade"
           ],
           "aspects": [
-            "Ensnaring Slam",
-            "Widow's Silk",
-            "Threaded Specter",
-            "Whirling Maelstrom"
+            { "name": "Ensnaring Slam", "slots": 2 },
+            { "name": "Widow's Silk", "slots": 3 },
+            { "name": "Threaded Specter", "slots": 2 },
+            { "name": "Whirling Maelstrom", "slots": 2 }
           ],
           "fragments": [
             "Thread of Ascent",
@@ -1345,11 +1345,11 @@
             "Shackle Grenade"
           ],
           "aspects": [
-            "Knockout",
-            "Diamond Lance",
-            "Consecration",
-            "Unbreakable",
-            "Drengr's Lash"
+            { "name": "Knockout", "slots": 2 },
+            { "name": "Diamond Lance", "slots": 3 },
+            { "name": "Consecration", "slots": 2 },
+            { "name": "Unbreakable", "slots": 3 },
+            { "name": "Drengr's Lash", "slots": 3 }
           ],
           "fragments": [
             "Facet of Awakening",
@@ -1404,10 +1404,10 @@
             "Healing Grenade"
           ],
           "aspects": [
-            "Sol Invictus",
-            "Roaring Flames",
-            "Consecration",
-            "Shieldbreaker"
+            { "name": "Sol Invictus", "slots": 2 },
+            { "name": "Roaring Flames", "slots": 2 },
+            { "name": "Consecration", "slots": 2 },
+            { "name": "Shieldburst", "slots": 3 }
           ],
           "fragments": [
             "Ember of Ashes",
@@ -1457,10 +1457,10 @@
             "Magnetic Grenade"
           ],
           "aspects": [
-            "Controlled Demolition",
-            "Bastion",
-            "Offensive Bulwark",
-            "Unbreakable"
+            { "name": "Controlled Demolition", "slots": 2 },
+            { "name": "Bastion", "slots": 3 },
+            { "name": "Offensive Bulwark", "slots": 2 },
+            { "name": "Unbreakable", "slots": 2 }
           ],
           "fragments": [
             "Echo of Cessation",
@@ -1511,10 +1511,10 @@
             "Lightning Grenade"
           ],
           "aspects": [
-            "Touch of Thunder",
-            "Juggernaut",
-            "Knockout",
-            "Storm's Keep"
+            { "name": "Touch of Thunder", "slots": 2 },
+            { "name": "Juggernaut", "slots": 2 },
+            { "name": "Knockout", "slots": 2 },
+            { "name": "Storm's Keep", "slots": 2 }
           ],
           "fragments": [
             "Spark of Amplitude",
@@ -1558,10 +1558,10 @@
             "Shatter Grenade"
           ],
           "aspects": [
-            "Cryoclasm",
-            "Tectonic Harvest",
-            "Howl of the Storm",
-            "Diamond Lance"
+            { "name": "Cryoclasm", "slots": 2 },
+            { "name": "Tectonic Harvest", "slots": 2 },
+            { "name": "Howl of the Storm", "slots": 2 },
+            { "name": "Diamond Lance", "slots": 3 }
           ],
           "fragments": [
             "Whisper of Bonds",
@@ -1604,10 +1604,10 @@
             "Slicewire Grenade"
           ],
           "aspects": [
-            "Into the Fray",
-            "Drengr's Lash",
-            "Flechette Storm",
-            "Banner of War"
+            { "name": "Into the Fray", "slots": 2 },
+            { "name": "Drengr's Lash", "slots": 3 },
+            { "name": "Flechette Storm", "slots": 2 },
+            { "name": "Banner of War", "slots": 2 }
           ],
           "fragments": [
             "Thread of Ascent",
@@ -1963,7 +1963,7 @@
         {
           "name": "Rain of Fire",
           "subclasses": [
-            "Any"
+            "Solar"
           ],
           "tags": [
             "Neutral",
@@ -2227,10 +2227,10 @@
             "Healing Grenade"
           ],
           "aspects": [
-            "Touch of Flame",
-            "Heat Rises",
-            "Icarus Dash",
-            "Hellion"
+            { "name": "Touch of Flame", "slots": 2 },
+            { "name": "Heat Rises", "slots": 2 },
+            { "name": "Icarus Dash", "slots": 3 },
+            { "name": "Hellion", "slots": 2 }
           ],
           "fragments": [
             "Ember of Ashes",
@@ -2280,10 +2280,10 @@
             "Magnetic Grenade"
           ],
           "aspects": [
-            "Chaos Accelerant",
-            "Feed the Void",
-            "Child of the Old Gods",
-            "Soul Siphon"
+            { "name": "Chaos Accelerant", "slots": 2 },
+            { "name": "Feed the Void", "slots": 2 },
+            { "name": "Child of the Old Gods", "slots": 3 },
+            { "name": "Soul Siphon", "slots": 3 }
           ],
           "fragments": [
             "Echo of Cessation",
@@ -2332,10 +2332,10 @@
             "Lightning Grenade"
           ],
           "aspects": [
-            "Arc Soul",
-            "Electrostatic Mind",
-            "Lightning Surge",
-            "Ionic Sentry"
+            { "name": "Arc Soul", "slots": 2 },
+            { "name": "Electrostatic Mind", "slots": 2 },
+            { "name": "Lightning Surge", "slots": 3 },
+            { "name": "Ionic Sentry", "slots": 2 }
           ],
           "fragments": [
             "Spark of Amplitude",
@@ -2379,10 +2379,10 @@
             "Shatter Grenade"
           ],
           "aspects": [
-            "Iceflare Bolts",
-            "Frostpulse",
-            "Bleak Watcher",
-            "Glacial Harvest"
+            { "name": "Iceflare Bolts", "slots": 2 },
+            { "name": "Frostpulse", "slots": 3 },
+            { "name": "Bleak Watcher", "slots": 2 },
+            { "name": "Glacial Harvest", "slots": 2 }
           ],
           "fragments": [
             "Whisper of Bonds",
@@ -2425,10 +2425,10 @@
             "Slicewire Grenade"
           ],
           "aspects": [
-            "Weaver's Call",
-            "Mindspun Invocation",
-            "The Wanderer",
-            "Weavewalk"
+            { "name": "Weaver's Call", "slots": 2 },
+            { "name": "Mindspun Invocation", "slots": 2 },
+            { "name": "The Wanderer", "slots": 3 },
+            { "name": "Weavewalk", "slots": 2 }
           ],
           "fragments": [
             "Thread of Ascent",
